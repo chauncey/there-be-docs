@@ -34,6 +34,33 @@ def pymessage(script):
 def jsonrpc():
     return render_template('jsonrpc.html')
 
+@app.route('/eic_rpcjson')
+def jsonrpc():
+    return render_template('eic_rpcjson.html')
+
+@app.route('/rpc/vehicle/getveh', methods=['POST'])
+def getveh():
+    jsonbody = json.load(request.stream)
+    return jsonify({'veh': {'year': '2012'
+                           ,'make': 'FORD'
+                           ,'model': 'MUSTANG FAKE RESULTS'
+                           ,'status': 'FAKE'}}  )
+
+@app.route('/rpc/vehicle/getmodels', methods=['POST'])
+def getmodels():
+    jsonbody = json.load(request.stream)
+    return jsonify({'models': ['ACCORD','CIVIC','CR-V','FAKED']})
+
+@app.route('/rpc/vehicle/getmakes', methods=['POST'])
+def getmakes():
+    jsonbody = json.load(request.stream)
+    return jsonify({'makes': ['ACUR','HOND','TYTA','FAKED']})
+
+@app.route('/rpc/location', methods=['POST'])
+def getlocation():
+    jsonbody = json.load(request.stream)
+    return jsonify({'locations': [['734330000', '734330001'], {'734330000': 'Elmore City, OK', '734330001': 'Pernell, OK'}] })
+
 @app.route('/rpc/echo', methods=['GET', 'POST'])
 def echo():
     '''Testing echo route'''
