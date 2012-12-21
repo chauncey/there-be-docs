@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, url_for
+from flask import Flask, jsonify, render_template, url_for, request
 
 app = Flask(__name__)
 
@@ -14,6 +14,21 @@ def hw():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/yuiasync')
+def yuiasync():
+    return render_template('yuiasync.html')
+
+@app.route('/cgi-bin/<script>', methods=['GET', 'POST'])
+def pymessage(script):
+    if script.startswith('bbw.sh'):
+        return "The agent is {0}.".format(request.args.get('agent'))
+    elif script == 'pymessage.py':
+        return "The agent is {0}".format(request.form['agent'])
+    else:
+        return jsonify({'msg': "The agent is {0}".format(request.form['agent'])})
+
+
 
 def templated(template=None):
     '''Allowing /pagename to automatically use pagename.html
