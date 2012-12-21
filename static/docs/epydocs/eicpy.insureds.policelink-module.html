@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.insureds.policelink</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        <a href="eicpy.insureds-module.html">Package&nbsp;insureds</a> ::
+        Module&nbsp;policelink
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.insureds.policelink-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module policelink</h1><p class="nomargin-top"><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html">source&nbsp;code</a></span></p>
+<p>Polic-elink main python library script that's used heavily in 
+  mobile</p>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.insureds.policelink.BBPystr-class.html" class="summary-name">BBPystr</a><br />
+      Base class for inclusion of a templated BBPyString as attributes
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.insureds.policelink.Policy-class.html" class="summary-name">Policy</a><br />
+      Policy information based on AGPPI
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.insureds.policelink.Driver-class.html" class="summary-name">Driver</a><br />
+      Driver information based on DBFDR
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.insureds.policelink.ExclDriver-class.html" class="summary-name">ExclDriver</a><br />
+      Excluded driver information based on DBFLAE12
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.insureds.policelink.Vehicle-class.html" class="summary-name">Vehicle</a><br />
+      Vehicle information based on DBFDC records
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.insureds.policelink.Agent-class.html" class="summary-name">Agent</a><br />
+      Agent information based on ADP01, ADP02 and ADP01.EMAIL
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.insureds.policelink.Registration-class.html" class="summary-name">Registration</a><br />
+      Handles the Registration process
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="writelog"></a><span class="summary-sig-name">writelog</span>(<span class="summary-sig-arg">msg</span>)</span><br />
+      Temporary log writer</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#writelog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="currency"></a><span class="summary-sig-name">currency</span>(<span class="summary-sig-arg">num</span>)</span><br />
+      locale.currency doesn't work with our ancient Apache</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#currency">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getstates"></a><span class="summary-sig-name">getstates</span>()</span><br />
+      States for select options</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#getstates">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_expstart"></a><span class="summary-sig-name">get_expstart</span>()</span><br />
+      Expiration start year and month for cc form</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_expstart">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#getcityst" class="summary-sig-name">getcityst</a>(<span class="summary-sig-arg">zipcode</span>)</span><br />
+      Retrieve city and state given a 9 digit zip</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#getcityst">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#getstrec" class="summary-sig-name">getstrec</a>(<span class="summary-sig-arg">state</span>)</span><br />
+      Retrieve state record</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#getstrec">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="check_exp"></a><span class="summary-sig-name">check_exp</span>(<span class="summary-sig-arg">pol</span>,
+        <span class="summary-sig-arg">exp</span>)</span><br />
+      Check expired &gt;= 60 days or cancelled &gt;= 60 days</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#check_exp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getexp"></a><span class="summary-sig-name">getexp</span>(<span class="summary-sig-arg">pol</span>)</span><br />
+      Retrieve the latest expiration date on policy</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#getexp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="check_passwd"></a><span class="summary-sig-name">check_passwd</span>(<span class="summary-sig-arg">pol</span>,
+        <span class="summary-sig-arg">passwd</span>)</span><br />
+      Check password against password file</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#check_passwd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="email_insured"></a><span class="summary-sig-name">email_insured</span>(<span class="summary-sig-arg">iemail</span>,
+        <span class="summary-sig-arg">html</span>)</span><br />
+      Email insured</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#email_insured">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#get_agppi" class="summary-sig-name">get_agppi</a>(<span class="summary-sig-arg">number</span>,
+        <span class="summary-sig-arg">expdate</span>)</span><br />
+      Retrieve AGPPI record and numerics</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_agppi">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#pehits" class="summary-sig-name">pehits</a>(<span class="summary-sig-arg">sessionid</span>,
+        <span class="summary-sig-arg">number</span>,
+        <span class="summary-sig-arg">code</span>,
+        <span class="summary-sig-arg">origin</span>)</span><br />
+      Write to PE.HITS file (like EPAY.HITS)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#pehits">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#get_drivers" class="summary-sig-name">get_drivers</a>(<span class="summary-sig-arg">number</span>,
+        <span class="summary-sig-arg">expdate</span>)</span><br />
+      Retrieve a list of drivers</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_drivers">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#get_excldrvs" class="summary-sig-name">get_excldrvs</a>(<span class="summary-sig-arg">number</span>,
+        <span class="summary-sig-arg">expdate</span>)</span><br />
+      Retrieve a list of excluded drivers</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_excldrvs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#get_vehicles" class="summary-sig-name">get_vehicles</a>(<span class="summary-sig-arg">number</span>,
+        <span class="summary-sig-arg">expdate</span>,
+        <span class="summary-sig-arg">vehno</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Retrieve a list of vehicles</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_vehicles">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#submit_claim" class="summary-sig-name">submit_claim</a>(<span class="summary-sig-arg">session</span>,
+        <span class="summary-sig-arg">reqform</span>)</span><br />
+      Submit a claim by email</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#submit_claim">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#get_payments" class="summary-sig-name">get_payments</a>(<span class="summary-sig-arg">number</span>,
+        <span class="summary-sig-arg">expdate</span>,
+        <span class="summary-sig-arg">agppi</span>)</span><br />
+      Retrieve a list of payments using legacy logic</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_payments">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#get_decs" class="summary-sig-name">get_decs</a>(<span class="summary-sig-arg">number</span>)</span><br />
+      Get DECS based on logic in POLICY.DECS</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_decs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#get_claims" class="summary-sig-name">get_claims</a>(<span class="summary-sig-arg">number</span>)</span><br />
+      Retrieve claims information based on POLICY.CLAIMS</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_claims">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#get_svcid" class="summary-sig-name">get_svcid</a>(<span class="summary-sig-arg">pol</span>,
+        <span class="summary-sig-arg">exp</span>,
+        <span class="summary-sig-arg">agent</span>,
+        <span class="summary-sig-arg">vehno</span>,
+        <span class="summary-sig-arg">session</span>)</span><br />
+      Retrieve records and generate an id card</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_svcid">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="makeCCPayment"></a><span class="summary-sig-name">makeCCPayment</span>(<span class="summary-sig-arg">session</span>,
+        <span class="summary-sig-arg">reqform</span>)</span><br />
+      Make a CC payment</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#makeCCPayment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="receipt2ir"></a><span class="summary-sig-name">receipt2ir</span>(<span class="summary-sig-arg">session</span>,
+        <span class="summary-sig-arg">pol</span>,
+        <span class="summary-sig-arg">exp</span>,
+        <span class="summary-sig-arg">resp</span>)</span><br />
+      Send receipt information to IR</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#receipt2ir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.insureds.policelink-module.html#makePayPalPayment" class="summary-sig-name">makePayPalPayment</a>(<span class="summary-sig-arg">session</span>,
+        <span class="summary-sig-arg">policy</span>,
+        <span class="summary-sig-arg">token</span>,
+        <span class="summary-sig-arg">amt</span>)</span><br />
+      Make a PayPal payment through PAYMENT.MAKE</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#makePayPalPayment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="makeEcheckPayment"></a><span class="summary-sig-name">makeEcheckPayment</span>(<span class="summary-sig-arg">sessionid</span>,
+        <span class="summary-sig-arg">reqvals</span>)</span><br />
+      Make an echeck payment through PAYMENT.MAKE</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#makeEcheckPayment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'eicpy.insureds'"><code class="variable-quote">'</code><code class="variable-string">eicpy.insureds</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="getcityst"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getcityst</span>(<span class="sig-arg">zipcode</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#getcityst">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve city and state given a 9 digit zip</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>zipcode</code></strong> - 9 digit zip code</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>tuple of city, state</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getstrec"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getstrec</span>(<span class="sig-arg">state</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#getstrec">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve state record</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>state</code></strong> - 2 digit state code or 2 char state abbr.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>dict with state records or None</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_agppi"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_agppi</span>(<span class="sig-arg">number</span>,
+        <span class="sig-arg">expdate</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_agppi">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve AGPPI record and numerics</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - Policy number</li>
+        <li><strong class="pname"><code>expdate</code></strong> - Expiration date</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>tuple with record, numerics</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="pehits"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pehits</span>(<span class="sig-arg">sessionid</span>,
+        <span class="sig-arg">number</span>,
+        <span class="sig-arg">code</span>,
+        <span class="sig-arg">origin</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#pehits">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Write to PE.HITS file (like EPAY.HITS)</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>session</code></strong> - session id</li>
+        <li><strong class="pname"><code>number</code></strong> - policy number</li>
+        <li><strong class="pname"><code>code</code></strong> - process code</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_drivers"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_drivers</span>(<span class="sig-arg">number</span>,
+        <span class="sig-arg">expdate</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_drivers">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve a list of drivers</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - Policy number</li>
+        <li><strong class="pname"><code>expdate</code></strong> - Expiration date</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>list of Drivers</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_excldrvs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_excldrvs</span>(<span class="sig-arg">number</span>,
+        <span class="sig-arg">expdate</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_excldrvs">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve a list of excluded drivers</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - Policy number</li>
+        <li><strong class="pname"><code>expdate</code></strong> - Expiration date</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>list of ExclDrivers</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_vehicles"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_vehicles</span>(<span class="sig-arg">number</span>,
+        <span class="sig-arg">expdate</span>,
+        <span class="sig-arg">vehno</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_vehicles">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve a list of vehicles</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - Policy number</li>
+        <li><strong class="pname"><code>expdate</code></strong> - Expiration date</li>
+        <li><strong class="pname"><code>vehno</code></strong> - Optional specific vehicle</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>list of Vehicles</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="submit_claim"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">submit_claim</span>(<span class="sig-arg">session</span>,
+        <span class="sig-arg">reqform</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#submit_claim">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Submit a claim by email</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>session</code></strong> - Session object from cookie</li>
+        <li><strong class="pname"><code>reqform</code></strong> - Request form values</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_payments"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_payments</span>(<span class="sig-arg">number</span>,
+        <span class="sig-arg">expdate</span>,
+        <span class="sig-arg">agppi</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_payments">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve a list of payments using legacy logic</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - Policy number</li>
+        <li><strong class="pname"><code>expdate</code></strong> - Expiration date</li>
+        <li><strong class="pname"><code>agppi</code></strong> - AGPPI record</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>amount due</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_decs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_decs</span>(<span class="sig-arg">number</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_decs">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get DECS based on logic in POLICY.DECS</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - Policy number</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>list of DECS for display</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_claims"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_claims</span>(<span class="sig-arg">number</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_claims">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve claims information based on POLICY.CLAIMS</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - Policy number</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>list of claims for display</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_svcid"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_svcid</span>(<span class="sig-arg">pol</span>,
+        <span class="sig-arg">exp</span>,
+        <span class="sig-arg">agent</span>,
+        <span class="sig-arg">vehno</span>,
+        <span class="sig-arg">session</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#get_svcid">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Retrieve records and generate an id card</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>pol</code></strong> - Policy number</li>
+        <li><strong class="pname"><code>exp</code></strong> - Expiration date</li>
+        <li><strong class="pname"><code>agent</code></strong> - 4 char agent code</li>
+        <li><strong class="pname"><code>vehno</code></strong> - vehicle for id card (1-5)</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>pdf file location</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="makePayPalPayment"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">makePayPalPayment</span>(<span class="sig-arg">session</span>,
+        <span class="sig-arg">policy</span>,
+        <span class="sig-arg">token</span>,
+        <span class="sig-arg">amt</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.insureds.policelink-pysrc.html#makePayPalPayment">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Make a PayPal payment through PAYMENT.MAKE</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>policy</code></strong> - Policy instance</li>
+        <li><strong class="pname"><code>session</code></strong> - Session id</li>
+        <li><strong class="pname"><code>token</code></strong> - PayPal token</li>
+        <li><strong class="pname"><code>amt</code></strong> - Payment amount</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:35 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

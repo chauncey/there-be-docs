@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.www.CGIHandler</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        <a href="eicpy.www-module.html">Module&nbsp;www</a> ::
+        Class&nbsp;CGIHandler
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.www.CGIHandler-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class CGIHandler</h1><p class="nomargin-top"><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler">source&nbsp;code</a></span></p>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="eicpy.endorsement.erequest.EndRequestPreq-class.html">endorsement.erequest.EndRequestPreq</a></li><li>, <a href="eicpy.endorsement.erequest.EndRequestPrint-class.html">endorsement.erequest.EndRequestPrint</a></li>  </ul>
+</dd></dl>
+
+<hr />
+<p>Generic Class to build/handle a webpage.  <b>CGIHandler</b> offers 
+  convenient ways to:</p>
+  <ul>
+    <li>
+      Load macros to be used in a page template
+    </li>
+    <li>
+      Validate incoming form data
+    </li>
+    <li>
+      return text or HTML to the browser (instead of using a page template)
+    </li>
+    <li>
+      redirect a browser to a different web page
+    </li>
+    <li>
+      show a message page before redirecting the browser to a different web
+      page
+    </li>
+  </ul>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Public Methods</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#checkData" class="summary-sig-name">checkData</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">vars</span>,
+        <span class="summary-sig-arg">redirectOnFail</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Method to validate CGI variables against regexps.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.checkData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="returnText"></a><span class="summary-sig-name">returnText</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Return text to the browser.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.returnText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="returnHtml"></a><span class="summary-sig-name">returnHtml</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">html</span>)</span><br />
+      Return some HTML to the browser.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.returnHtml">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#returnType" class="summary-sig-name">returnType</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">type</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">filename</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return a specific datatype to the browser.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.returnType">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="returnData"></a><span class="summary-sig-name">returnData</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>)</span><br />
+      Return just the data for BBx to send html</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.returnData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#redirect" class="summary-sig-name">redirect</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">link</span>,
+        <span class="summary-sig-arg">usejs</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">delayed</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">priority</span>=<span class="summary-sig-default">10</span>)</span><br />
+      Redirect the browser to a different page via an HTTP redirect or a 
+      javascript &quot;Loading...&quot; webpage.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.redirect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#msgredir" class="summary-sig-name">msgredir</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">message</span>,
+        <span class="summary-sig-arg">link</span>,
+        <span class="summary-sig-arg">delayed</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">priority</span>=<span class="summary-sig-default">10</span>,
+        <span class="summary-sig-arg">button</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">&amp;laquo; Go Back</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">title</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">Redirect</code><code class="variable-quote">'</code></span>)</span><br />
+      Redirect the browser but issue a message page that the user must 
+      click through.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.msgredir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#msgexit" class="summary-sig-name">msgexit</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">message</span>)</span><br />
+      Display a message page for the user.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.msgexit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#show" class="summary-sig-name">show</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">vars</span>,
+        <span class="summary-sig-arg">macros</span>=<span class="summary-sig-default"><code class="variable-group">{</code><code class="variable-group">}</code></span>)</span><br />
+      Load the template and macros and render the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.show">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="yuilogging"></a><span class="summary-sig-name">yuilogging</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Enable YUI 2 Logger by adding scripts and styles</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.yuilogging">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#debug" class="summary-sig-name">debug</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">sent</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">textfile</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">emaillist</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="summary-sig-arg">dev</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>)</span><br />
+      Debug is just an easy way to display variables on a page or write to 
+      a file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.debug">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Support Methods</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">title</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">pagetemplate</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">styles</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="summary-sig-arg">scripts</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="summary-sig-arg">usemacros</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">state</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">showmenu</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">agentcheck</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">bbx</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">agent</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Initialization for a CGIHandler.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="errorredir"></a><span class="summary-sig-name">errorredir</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">message</span>,
+        <span class="summary-sig-arg">link</span>)</span><br />
+      Method that resets the styles list and scripts list to only include 
+      the defaults before calling msgredir().</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.errorredir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="eicpy.www.CGIHandler-class.html#loadmacros" class="summary-sig-name">loadmacros</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      loadmacros() reads the *.xml files and *.mac files from the fragments
+      directory and populates the returns a dictionary of the macros (and 
+      layouts) that it finds there.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.loadmacros">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="rELINKUSER"></a><span class="summary-name">rELINKUSER</span> = <code title="('e', '^\\w{4}$')"><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">e</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">^\\w{4}$</code><code class="variable-quote">'</code><code class="variable-group">)</code></code><br />
+      A preset entry for <a 
+      href="eicpy.www.CGIHandler-class.html#checkData" 
+      class="link">checkData</a> to check the REMOTE_USER as a valid eLink 
+      agent - Example: self.checkdata({'REMOTE_USER':self.rELINKUSER})
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="rELINKKEY"></a><span class="summary-name">rELINKKEY</span> = <code title="('f', '^\\d{6}\\s\\w{1,9} *$')"><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">f</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">^\\d{6}\\s\\w{1,9} *$</code><code class="variable-quote">'</code><code class="variable-group">)</code></code><br />
+      A preset entry for <a 
+      href="eicpy.www.CGIHandler-class.html#checkData" 
+      class="link">checkData</a> to check the CGI variable &quot;key&quot; 
+      as a (grammatically) valid eLink key - Example: 
+      self.checkdata({'key':self.rELINKKEY})
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="fs"></a><span class="summary-name">fs</span><br />
+      self.fs is the cgi.FieldStorage() for this webpage
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="state"></a><span class="summary-name">state</span><br />
+      self.state contains the two-letter abbreviation of the agent's state 
+      as read from ADP01.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="datadir"></a><span class="summary-name">datadir</span><br />
+      self.datadir stores the data directory specific to the website 
+      (example: /usr/HTTPServer/data/)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="macrodir"></a><span class="summary-name">macrodir</span><br />
+      self.macrodir stores the directory that contains the macros for a 
+      page template to use
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="stylesdir"></a><span class="summary-name">stylesdir</span><br />
+      self.stylesdir stores the directory that contains the CSS files for a
+      page to use.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="scriptsdir"></a><span class="summary-name">scriptsdir</span><br />
+      self.scriptsdir stores the directory that contains the JS files for a
+      page to use.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="area"></a><span class="summary-name">area</span><br />
+      self.area is added to the header in the standard page template to 
+      show what state we're in.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="title"></a><span class="summary-name">title</span><br />
+      self.title is the title of the page as it will be applied to the 
+      templates
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="styles"></a><span class="summary-name">styles</span><br />
+      self.styles is a list of paths to CSS files, /styles/std.css is 
+      automatically included
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="env"></a><span class="summary-name">env</span><br />
+      self.env is the dictionary of environment variables
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="pagetemplate"></a><span class="summary-name">pagetemplate</span><br />
+      stores the location of the pagetemplate
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="usemacros"></a><span class="summary-name">usemacros</span><br />
+      set to false if the page either doesn't use macros or will provide 
+      its own
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="showmenu"></a><span class="summary-name">showmenu</span><br />
+      some pages should not show the menu in the header, set to False to 
+      hide menu
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.www.CGIHandler-class.html#pagejs" class="summary-name">pagejs</a><br />
+      self.pagejs contains straight javascript to be included in the 
+      &lt;head&gt; section of a page.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.www.CGIHandler-class.html#pagecss" class="summary-name">pagecss</a><br />
+      self.pagecss contains css to be included in the &lt;head&gt; section 
+      of a page.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="condcomments"></a><span class="summary-name">condcomments</span><br />
+      self.condcomments contains block conditional comments needed for IE's
+      failure to behave.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="eicpy.www.CGIHandler-class.html#contenttype" class="summary-name">contenttype</a><br />
+      self.contenttype is the Content-type: header served to the browser 
+      whenever self.show() is called.
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">title</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">pagetemplate</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">styles</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="sig-arg">scripts</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="sig-arg">usemacros</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">state</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">showmenu</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">agentcheck</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">bbx</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">agent</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initialization for a CGIHandler.  It:</p>
+  <ul>
+    <li>
+      starts the page-load timer
+    </li>
+    <li>
+      populates default values
+    </li>
+    <li>
+      adds &quot;std.css&quot; to the list of stylesheets
+    </li>
+    <li>
+      adds &quot;eiLib.js&quot; to the list of javascript files
+    </li>
+  </ul>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>title</code></strong> - The <a href="eicpy.www.CGIHandler-class.html#title" 
+          class="link">title</a> to send to the page template</li>
+        <li><strong class="pname"><code>pagetemplate</code></strong> - the relative path to the page template
+          <ul>
+            <li>
+              OR - a string representing a page template
+            </li>
+          </ul></li>
+        <li><strong class="pname"><code>styles</code></strong> - a list of relative paths to CSS files to include in the page</li>
+        <li><strong class="pname"><code>scripts</code></strong> - a list of relative paths to Javascript files to include in the 
+          page</li>
+        <li><strong class="pname"><code>usemacros</code></strong> - provides the ability to not autoload macros for a page template</li>
+        <li><strong class="pname"><code>state</code></strong> - Override the agent's state.  The state is detected from the agent
+          number.  If you specify a state, no agent-state lookup will 
+          happen.</li>
+        <li><strong class="pname"><code>showmenu</code></strong> - Set to false to not include the navmenu in your page header.</li>
+        <li><strong class="pname"><code>agent</code></strong> - Passed agent number trumps all others</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="checkData"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">checkData</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">vars</span>,
+        <span class="sig-arg">redirectOnFail</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.checkData">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Method to validate CGI variables against regexps.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>vars</code></strong> - A dictionary where the key is the name of the variable and the 
+          value is a tuple describing where the variable is and the regexp 
+          to check it against. An example would look list this:
+          <p>{&quot;REMOTE_USER&quot;:('e',r'^\d{4}$')}</p>
+          <p>A description of the values of the tuple is as follows:</p>
+          <ol start="1">
+            <li>
+              either &quot;f&quot; or &quot;e&quot; for cgi.FieldStorage or
+              os.environ respectively.
+              <ul>
+                <li>
+                  optionally, add an &quot;o&quot; to make the field 
+                  optional (i.e. If the field is there, it must pass the 
+                  regexp test; if not, no one cares.)
+                </li>
+              </ul>
+            </li>
+            <li>
+              regular expression to check against.
+            </li>
+            <li>
+              (optional) function to call on failure that takes the key and
+              data as a tuple
+              <p>(ex. (&quot;key&quot;,&quot;f&quot;))</p>
+            </li>
+          </ol></li>
+        <li><strong class="pname"><code>redirectOnFail</code></strong> - In the case of a regexp check failure or a missing non-optional 
+          field, if set to True (the default) a friendly error page is 
+          returned and the program exits immediately, otherwise a 
+          ValueError is raised.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - If a regexp check fails or a non-optional field is missing and the 
+        redirectOnFail parameter is set to False, a ValueError exception is
+        raised.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="returnType"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">returnType</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">type</span>,
+        <span class="sig-arg">data</span>,
+        <span class="sig-arg">filename</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.returnType">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a specific datatype to the browser.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>type</code></strong> - The &quot;Content-Type&quot; to be passed.  &quot;text/html&quot;
+          is the most common.</li>
+        <li><strong class="pname"><code>data</code></strong> - The data to send.</li>
+        <li><strong class="pname"><code>filename</code></strong> - In the case that the <code class="link">type</code> is not a 
+          mime-type that the browser can render, this is a suggested 
+          filename for the browser to save the data under.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="redirect"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">redirect</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">link</span>,
+        <span class="sig-arg">usejs</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">delayed</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">priority</span>=<span class="sig-default">10</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.redirect">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Redirect the browser to a different page via an HTTP redirect or a 
+  javascript &quot;Loading...&quot; webpage.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>link</code></strong> - The url of where to redirect the user to.</li>
+        <li><strong class="pname"><code>usejs</code></strong> - Redirect the browser with a javascript page instead of an HTTP 
+          redirect.    This has the advantage of separating the URL of the 
+          redirecting page from the destination of the new page, in 
+          essence, restoring the functionality of the browser back button.</li>
+        <li><strong class="pname"><code>delayed</code></strong> - Set to True if you could set a higher priority destination. 
+          Redirect will be triggered by calling <a 
+          href="eicpy.www.CGIHandler-class.html#show" class="link">show</a>
+          or <a href="eicpy.www.CGIHandler-class.html#redirect" 
+          class="link">redirect</a> or <a 
+          href="eicpy.www.CGIHandler-class.html#msgredir" 
+          class="link">msgredir</a> with the delayed parameter set to 
+          False.</li>
+        <li><strong class="pname"><code>priority</code></strong> - When using the <code class="link">delayed</code> feature, having 
+          a higher priority means one message will override another.    A 
+          higher priority is defined as having a lower number.    For 
+          example: a message with priority 1 would override a message with 
+          priority 2.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        Using redirect without <code class="link">usejs</code> can break 
+        some browsers' back button functionality.  It is preferred to use 
+        <code class="link">usejs</code> also because it displays a 
+        &quot;Loading...&quot; message as the next page loads.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="msgredir"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">msgredir</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">message</span>,
+        <span class="sig-arg">link</span>,
+        <span class="sig-arg">delayed</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">priority</span>=<span class="sig-default">10</span>,
+        <span class="sig-arg">button</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">&amp;laquo; Go Back</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">title</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">Redirect</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.msgredir">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Redirect the browser but issue a message page that the user must click
+  through.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>message</code></strong> - The message to show on the redirect page.</li>
+        <li><strong class="pname"><code>link</code></strong> - The url of where to redirect the user to.</li>
+        <li><strong class="pname"><code>delayed</code></strong> - Set to True if you could set a higher priority destination. 
+          Redirect will be triggered by calling <a 
+          href="eicpy.www.CGIHandler-class.html#show" class="link">show</a>
+          or <a href="eicpy.www.CGIHandler-class.html#redirect" 
+          class="link">redirect</a> with the honormsgback parameter set to 
+          True.</li>
+        <li><strong class="pname"><code>priority</code></strong> - When using the <code class="link">delayed</code> feature, having 
+          a higher priority means one message will override another.    A 
+          higher priority is defined as having a lower number.    For 
+          example: a message with priority 1 would override a message with 
+          priority 2.</li>
+        <li><strong class="pname"><code>button</code></strong> - Allows you to change the button text.</li>
+        <li><strong class="pname"><code>title</code></strong> - Allows you to change the page title.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="msgexit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">msgexit</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">message</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.msgexit">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Display a message page for the user.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>message</code></strong> - The message to show on the page.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="show"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">show</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">vars</span>,
+        <span class="sig-arg">macros</span>=<span class="sig-default"><code class="variable-group">{</code><code class="variable-group">}</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.show">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Load the template and macros and render the page.</p>
+  <p>When calling show() to show a PageTemplate, CGIHandler provides 3 
+  dictionaries to the pagetemplate.  They are:</p>
+  <ol start="1">
+    <li>
+      <b>macros</b> contains all of the macros (*.mac or *.xml) that exist 
+      in the fragments folder.
+    </li>
+    <li>
+      <b>page</b> contains various standard page information tidbits.  
+      <b>page</b> is generated by CGIHandler and cannot be manipulated 
+      directly.  Page contains:
+      <ul>
+        <li>
+          <a href="eicpy.www.CGIHandler-class.html#title" 
+          class="link">title</a> - Page title as specified in the 
+          CGIHandler constructor
+        </li>
+        <li>
+          location - The state
+        </li>
+        <li>
+          <a href="eicpy.www.CGIHandler-class.html#styles" 
+          class="link">styles</a> - a list of stylesheets to be included in
+          the page
+        </li>
+        <li>
+          <code class="link">scripts</code> - a list of javascript files ot
+          be included in the page
+        </li>
+        <li>
+          menu - <a href="eicpy.www.CGIHandler-class.html#showmenu" 
+          class="link">showmenu</a> - a Boolean for if the navigation menu 
+          should be shown
+        </li>
+        <li>
+          loadtime - time in milliseconds it took for the page to load.
+        </li>
+        <li>
+          pagecss - CSS content from <a 
+          href="eicpy.www.CGIHandler-class.html#pagecss" 
+          class="link">self.pagecss</a>
+        </li>
+        <li>
+          pagejs - JS content from <a 
+          href="eicpy.www.CGIHandler-class.html#pagejs" 
+          class="link">self.pagejs</a>
+        </li>
+        <li>
+          condcomments - conditional comments from <a 
+          href="eicpy.www.CGIHandler-class.html#condcomments" 
+          class="link">self.condcomments</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <b>vars</b> is populated by subclasses of CGIHandler and passed in. 
+      CGIHandler does not add anything to vars.
+    </li>
+  </ol>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>vars</code></strong> - a dictionary of variables to send to the page template</li>
+        <li><strong class="pname"><code>macros</code></strong> - a dictionary of custom macros to use in the page template (it is 
+          rare that we would use this)</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="loadmacros"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">loadmacros</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.loadmacros">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>loadmacros() reads the *.xml files and *.mac files from the fragments 
+  directory and populates the returns a dictionary of the macros (and 
+  layouts) that it finds there.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>a dictionary of MeTAL macros loaded from the fragments directory.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="debug"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">debug</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">sent</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">textfile</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">emaillist</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="sig-arg">dev</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="eicpy.www-pysrc.html#CGIHandler.debug">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Debug is just an easy way to display variables on a page or write to a
+  file. If no textfile or emaillist is given, debug will output to a page 
+  with debugging information. Includes the class dict and environment 
+  variables by default.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>sent</code></strong> - an additional object to be printed</li>
+        <li><strong class="pname"><code>textfile</code></strong> - a string argument containing the name of a text file for writing</li>
+        <li><strong class="pname"><code>emaillist</code></strong> - a list argument containing a list of email addresses</li>
+        <li><strong class="pname"><code>dev</code></strong> - a list argument containing a list of email addresses (added for 
+          consistency with legacy dev lines)</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="pagejs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">pagejs</h3>
+  <p>self.pagejs contains straight javascript to be included in the 
+  &lt;head&gt; section of a page.  This mechanism is primarily intended 
+  declaring page data in javascript.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="pagecss"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">pagecss</h3>
+  <p>self.pagecss contains css to be included in the &lt;head&gt; section 
+  of a page.  This mechanism is intended for pages that need very little 
+  custom CSS in order to avoid the overhead of another HTTP request. Keep 
+  in mind that large files should be linked so that the client's browser 
+  will cache them.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="contenttype"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">contenttype</h3>
+  <p>self.contenttype is the Content-type: header served to the browser 
+  whenever self.show() is called.  It defaults to 'text/html'.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:39 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

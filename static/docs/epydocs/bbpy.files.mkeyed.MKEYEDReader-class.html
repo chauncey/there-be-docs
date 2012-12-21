@@ -1,0 +1,1197 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>bbpy.files.mkeyed.MKEYEDReader</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="bbpy-module.html">Package&nbsp;bbpy</a> ::
+        <a href="bbpy.files-module.html">Package&nbsp;files</a> ::
+        <a href="bbpy.files.mkeyed-module.html">Module&nbsp;mkeyed</a> ::
+        Class&nbsp;MKEYEDReader
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="bbpy.files.mkeyed.MKEYEDReader-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class MKEYEDReader</h1><p class="nomargin-top"><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">MKEYEDReader</strong>
+</pre>
+
+<hr />
+<p>Reader for MKEYED data files</p>
+  <p>This module is mostly abstracted with <a 
+  href="bbpy.files.template-module.html" class="link">template</a> module, 
+  you'll almost always want to use it instead.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Public Methods</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#readAll" class="summary-sig-name">readAll</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">keynum</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">field</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">numerics</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">stripzeros</span>=<span class="summary-sig-default">False</span>)</span><br />
+      ReadAll returns a list of all records with partial or full matches to
+      the supplied key.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.readAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#readGenerator" class="summary-sig-name">readGenerator</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">keynum</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">field</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">numerics</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">stripzeros</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Create a read generator.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.readGenerator">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#find" class="summary-sig-name">find</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">keynum</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">field</span>=<span class="summary-sig-default">0</span>)</span><br />
+      find() acts just like read() with one exception.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.find">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#read" class="summary-sig-name">read</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">keynum</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">field</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return a specific field of record data.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.read">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#readRecord" class="summary-sig-name">readRecord</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">keynum</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">stripzeros</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">readAll</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">nonumerics</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Return record data as a tuple of fields</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.readRecord">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#open" class="summary-sig-name">open</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span><br />
+      Open an MKEYED datafile</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.open">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="close"></a><span class="summary-sig-name">close</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Close an open file handle and reset the state variables.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.close">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getStats"></a><span class="summary-sig-name">getStats</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns a tuple of the keysize, number of records and record size.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.getStats">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#getKeylength" class="summary-sig-name">getKeylength</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      getKeyLength() returns the length of the key that the current 
+      instance of MKEYEDReader is looking at.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.getKeylength">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Support Methods</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span><br />
+      Build an <a href="bbpy.files.mkeyed.MKEYEDReader-class.html" 
+      class="link">MKEYEDReader</a> instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__iter__"></a><span class="summary-sig-name">__iter__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Support Python iteration</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.__iter__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__len__"></a><span class="summary-sig-name">__len__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return the number of records in the file</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.__len__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__del__"></a><span class="summary-sig-name">__del__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Whenever the <a href="bbpy.files.mkeyed.MKEYEDReader-class.html" 
+      class="link">MKEYEDReader</a> instance is deleted, close any open 
+      file handles.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.__del__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#next" class="summary-sig-name">next</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read the next record and advance the pointer</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.next">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_checkFileType"></a><span class="summary-sig-name">_checkFileType</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Throw an exception if this is an unsupported file type</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._checkFileType">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_readFileHeader"></a><span class="summary-sig-name">_readFileHeader</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get file information from the pre-data header.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._readFileHeader">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_readMKEYEDHeader"></a><span class="summary-sig-name">_readMKEYEDHeader</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read MKEYED file information</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._readMKEYEDHeader">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_readMKEYEDKeyDefinition"></a><span class="summary-sig-name">_readMKEYEDKeyDefinition</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read MKEYED key definition data</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._readMKEYEDKeyDefinition">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_readMKEYEDRecord"></a><span class="summary-sig-name">_readMKEYEDRecord</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">address</span>)</span><br />
+      Read a record from an MKEYED file based on address alone.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._readMKEYEDRecord">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_setKeyNum"></a><span class="summary-sig-name">_setKeyNum</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">keynum</span>)</span><br />
+      Set the current keynum and clear the _currentkey since it will no 
+      longer be relevant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._setKeyNum">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#_walkMKEYEDTree" class="summary-sig-name" onclick="show_private();">_walkMKEYEDTree</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">searchkey</span>,
+        <span class="summary-sig-arg">branch</span>)</span><br />
+      Recursively walk the tree in search of a key.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._walkMKEYEDTree">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="bbpy.files.mkeyed.MKEYEDReader-class.html#_splitRecordIntoFields" class="summary-sig-name" onclick="show_private();">_splitRecordIntoFields</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">stripzeros</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">nonumerics</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Split a MKEYED record into the delimited fields</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._splitRecordIntoFields">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_currentkey"></a><span class="summary-name">_currentkey</span><br />
+      The most recently accessed key.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_filelength"></a><span class="summary-name">_filelength</span><br />
+      The length of the file in bytes (not currently used)
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_indexblocks"></a><span class="summary-name">_indexblocks</span><br />
+      A list of the file offsets (addresses) of the index blocks
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_keycount"></a><span class="summary-name">_keycount</span><br />
+      The number of keys in the MKEYED file, should == len(keys)
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="bbpy.files.mkeyed.MKEYEDReader-class.html#_keysize" class="summary-name" onclick="show_private();">_keysize</a><br />
+      The size in characters of a record key, this is not always accurate.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="bbpy.files.mkeyed.MKEYEDReader-class.html#_nextaddr" class="summary-name" onclick="show_private();">_nextaddr</a><br />
+      The offset of where the next record will go.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="bbpy.files.mkeyed.MKEYEDReader-class.html#_recordcount" class="summary-name" onclick="show_private();">_recordcount</a><br />
+      The total number of records in an MKEYED file In the case of an 
+      MKEYED file, the normal file header has a value of &quot;0&quot;.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_recordsize"></a><span class="summary-name">_recordsize</span><br />
+      The total size in bytes of a record
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_type"></a><span class="summary-name">_type</span><br />
+      The filetype of the data file opened (should be FT_MKEYED)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="bbpy.files.mkeyed.MKEYEDReader-class.html#keynum" class="summary-name">keynum</a><br />
+      In &quot;Multi-KEYED&quot; files, you can have multiple keys (even 
+      though we typically only use one so this is typically 0).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="bbpy.files.mkeyed.MKEYEDReader-class.html#keys" class="summary-name">keys</a><br />
+      A list (typically holding only 1) of the keyfield descriptions for a 
+      record (<code class="link">MKEYEDKeyFieldDefinition</code>).
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Support Methods</th></tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>,
+        <span class="sig-arg">mode</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Build an <a href="bbpy.files.mkeyed.MKEYEDReader-class.html" 
+  class="link">MKEYEDReader</a> instance.  The instance can be used to read
+  records from an MKEYED file.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - The full path to a BBx data file or an open file object. (i.e. 
+          &quot;/usr/HTTPServer/data/ELFSUS&quot;)</li>
+        <li><strong class="pname"><code>mode</code></strong> - Allows the programmer to specify what mode to open the file in.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Instance of a <a href="bbpy.files.mkeyed.MKEYEDReader-class.html"
+          class="link">MKEYEDReader</a>.</dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readAll"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readAll</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">key</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">keynum</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">field</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">numerics</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">stripzeros</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.readAll">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>ReadAll returns a list of all records with partial or full matches to 
+  the supplied key. Passing no key or a key==&quot;&quot; will RETURN ALL 
+  RECORDS in the file.  This can be slow, consider yourself warned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>key</code></strong> - The key of the record you are searching for.  If this is left 
+          blank (None) then key will be read from self._currentkey</li>
+        <li><strong class="pname"><code>keynum</code></strong> - Keynum refers to which key in an MKEYED file the key should be 
+          searched on.</li>
+        <li><strong class="pname"><code>field</code></strong> - field specifies the field of the record to return, this is for 
+          numerics</li>
+        <li><strong class="pname"><code>numerics</code></strong> - Specifies if numerics should be returned with the string record.
+          If True, then the <code class="link">field</code> parameter is 
+          ignored.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A list of records that start with the key passed or if <code 
+          class="link">field</code> is specified, then that specific field.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="bbpy.files.mkeyed.BBPyKeyNotFoundError-class.html">BBPyKeyNotFoundError</a></strong></code> - BBPyKeyNotFoundError if key is not found</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readGenerator"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readGenerator</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">key</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">keynum</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">field</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">numerics</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">stripzeros</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.readGenerator">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a read generator.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>field</code></strong> - field specifies the field of the record to return, this is for 
+          numerics</li>
+        <li><strong class="pname"><code>numerics</code></strong> - Specifies if numerics should be returned with the string record.
+          If True, then the <code class="link">field</code> parameter is 
+          ignored.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A generator</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="find"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">find</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">key</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">keynum</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">field</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.find">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>find() acts just like read() with one exception.  Current key pointer 
+  is only updated if a full key is matched.  Unlike read() which will 
+  change it regardless of a successful key find</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>key</code></strong> - The key of the record you are searching for.  If this is left 
+          blank (None) then key will be read from self._currentkey</li>
+        <li><strong class="pname"><code>keynum</code></strong> - Keynum refers to which key in an MKEYED file the key should be 
+          searched on.</li>
+        <li><strong class="pname"><code>field</code></strong> - field specifies the field of the record to return, this is for 
+          numerics</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The first field for the record that matches the key passed or if 
+          <code class="link">field</code> is specified, then that specific 
+          field.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="bbpy.files.mkeyed.BBPyKeyNotFoundError-class.html">BBPyKeyNotFoundError</a></strong></code> - BBPyKeyNotFoundError if key is not found</li>
+        <li><code><strong class='fraise'><a href="bbpy.files.mkeyed.BBPyPartialKeyFoundException-class.html">BBPyPartialKeyFoundException</a></strong></code> - BBPyPartialKeyFoundException if a partial key is found</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        find() only modifies the current key pointer on a successful key 
+        match.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="read"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">key</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">keynum</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">field</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.read">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a specific field of record data.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>key</code></strong> - The key of the record you are searching for.  If this is left 
+          blank (None) then key will be read from self._currentkey</li>
+        <li><strong class="pname"><code>keynum</code></strong> - Keynum refers to which key in an MKEYED file the key should be 
+          searched on.</li>
+        <li><strong class="pname"><code>field</code></strong> - field specifies the field of the record to return, this is for 
+          numerics</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The first field for the record that matches the key passed or if 
+          field is specified, then that specific field.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="bbpy.files.mkeyed.BBPyKeyNotFoundError-class.html">BBPyKeyNotFoundError</a></strong></code> - BBPyKeyNotFoundError if key is not found</li>
+        <li><code><strong class='fraise'><a href="bbpy.files.mkeyed.BBPyPartialKeyFoundException-class.html">BBPyPartialKeyFoundException</a></strong></code> - BBPyPartialKeyFoundException if only a partial key is found</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        read() modifies the current key pointer.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="readRecord"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readRecord</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">key</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">keynum</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">stripzeros</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">readAll</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">nonumerics</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.readRecord">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return record data as a tuple of fields</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>key</code></strong> - The key of the record you are searching for.  If this is left 
+          blank (None) then key will be read from self._currentkey</li>
+        <li><strong class="pname"><code>keynum</code></strong> - Keynum refers to which key in an MKEYED file the key should be 
+          searched on.</li>
+        <li><strong class="pname"><code>stripzeros</code></strong> - This will strip off the last field as long as it only contains 
+          ' 's</li>
+        <li><strong class="pname"><code>readAll</code></strong> - Don't use this! It's for internal use.</li>
+        <li><strong class="pname"><code>nonumerics</code></strong> - Don't force fields after the first to numerics</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The record as a tuple of fields</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="bbpy.files.mkeyed.BBPyKeyNotFoundError-class.html">BBPyKeyNotFoundError</a></strong></code> - BBPyKeyNotFoundError if key is not found</li>
+        <li><code><strong class='fraise'><a href="bbpy.files.mkeyed.BBPyPartialKeyFoundException-class.html">BBPyPartialKeyFoundException</a></strong></code> - BBPyPartialKeyFoundException if only a partial key is found</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        readRecord() modifies the current key pointer.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="open"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">open</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>,
+        <span class="sig-arg">mode</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.open">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Open an MKEYED datafile</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - the full path to the datafile</li>
+        <li><strong class="pname"><code>mode</code></strong> - The file open mode to open the file with. The default is 
+          &quot;rb&quot;.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="next"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">next</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.next">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read the next record and advance the pointer</p>
+  <p>This is part of support for the Python iteration protocol.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getKeylength"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getKeylength</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader.getKeylength">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>getKeyLength() returns the length of the key that the current instance
+  of MKEYEDReader is looking at.  This is subject to change based on 
+  passing keynum to one of the read*/find methods.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_walkMKEYEDTree"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_walkMKEYEDTree</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">searchkey</span>,
+        <span class="sig-arg">branch</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._walkMKEYEDTree">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Recursively walk the tree in search of a key.  This is the heart of 
+  the whole process.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>searchkey</code></strong> - The key of the record we are looking for.</li>
+        <li><strong class="pname"><code>branch</code></strong> - The branch of the tree we are searching.  This is our recursive 
+          parameter</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>a tuple of the index key found, its address and the index key of 
+          the next record in sequential order or None if the next record is
+          the last record.</dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        if the key being searched for is not in the file, the tuple 
+        returned will contain the key and address of the record immediately
+        after where the sought after key should be.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="_splitRecordIntoFields"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_splitRecordIntoFields</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data</span>,
+        <span class="sig-arg">stripzeros</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">nonumerics</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="bbpy.files.mkeyed-pysrc.html#MKEYEDReader._splitRecordIntoFields">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Split a MKEYED record into the delimited fields</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>data</code></strong> - Data to read</li>
+        <li><strong class="pname"><code>stripzeros</code></strong> - Strip the zeros off the end</li>
+        <li><strong class="pname"><code>nonumerics</code></strong> - Don't force fields to numerics</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_keysize"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_keysize</h3>
+  The size in characters of a record key, this is not always accurate.  Use
+  self.getKeylength() to always get the accurate keysize.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_nextaddr"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_nextaddr</h3>
+  The offset of where the next record will go. (Not currently used).
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_recordcount"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_recordcount</h3>
+  The total number of records in an MKEYED file In the case of an MKEYED 
+  file, the normal file header has a value of &quot;0&quot;.  The proper 
+  value is retrieved from the MKEYED header.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="keynum"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">keynum</h3>
+  In &quot;Multi-KEYED&quot; files, you can have multiple keys (even though
+  we typically only use one so this is typically 0).  keynum specifies 
+  which key we are referring to.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="keys"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">keys</h3>
+  A list (typically holding only 1) of the keyfield descriptions for a 
+  record (<code class="link">MKEYEDKeyFieldDefinition</code>).  In SQL 
+  terms, each item in this list is a member of a primary key.  But since we
+  are using BBx records, it contains each definition uses the offset and 
+  length of the key field data.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:36 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

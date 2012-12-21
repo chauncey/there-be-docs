@@ -1,0 +1,53 @@
+<!doctype>
+<head>
+  <title>Help</title>
+  <script type="text/javascript" charset="utf-8" src="http://yui.yahooapis.com/3.7.3/build/yui/yui-min.js"></script>
+  <!--<script type="text/javascript" charset="utf-8" src="/scripts/yui-help.js"></script>-->
+  <link rel="stylesheet" type="text/css" href="/styles/help.css" />
+  <script type="text/javascript">
+  var helptxt = { "ai" : "Additional Insured must be the Leasing Company for leased vehicle on policy.", "busdrv" : "Please indicate the driver for business use.", "chgDriverAge" : "Changing the age of a driver requires re-rating.", "dlno" : "Please enter a driver's license number.", "dls" : "SR22 drivers must have a license in the state that will issue the policy.", "invalidVIN17" : "This VIN is invalid.  The VIN should contain 17 characters.", "invalidVIN617" : "This VIN is invalid.  The VIN should contain between 6 and 17 characters inclusive.", "maritalstatus" : "Select Married if the driver is married and residing with their spouse.", "missbusemp" : "Please enter an employer for the business driver.", "missbusoccup" : "Please enter an occupation for the business driver.", "missbussites" : "Please indicate how many job sites per day for business use.", "missdob" : "Please enter a birthdate.", "missfname" : "Please enter a first name.", "misslname" : "Please enter a last name.", "missvin" : "Please enter a VIN.", "paybtn" : "1/6 Down is only valid if application is uploaded through eLink.", "ssn" : "Invalid driver social security number.", "vinStatusDiffMakeM" : "This VIN is valid but does not match the vehicle specified.  The make and model will be changed to match the VIN.", "vinStatusDiffVeh" : "This VIN is valid but does not match the vehicle specified.  Please enter the appropriate VIN.", "vinStatusInvalidSM" : "This VIN contains an invalid serial number and does not match the specified vehicle.  Please re-enter the VIN.  Equity will need a copy of vehicle registration to complete this application.", "vinStatusInvalidSe" : "This VIN contains an invalid serial number.  Please verify the VIN.  Equity will need a copy of vehicle registration to complete this application.", "vinStatusNF" : "This VIN could not be found in our database.  Equity will need a copy of vehicle registration.", "vinStatusValidNF" : "This VIN appears to be valid but was not found in our database.  Equity will need a copy of vehicle registration to complete this application.", "inp3": "Booyah!", "but1": "Wazzup!"};
+
+  YUI_config = {
+    modules: {
+      'yui-help': {
+        fullpath: '/scripts/yui-help.js',
+        requires: ['overlay']
+      }
+    }
+  };
+  YUI().use("yui-help", function(Y){
+    Y.Help.init(helptxt);
+  });
+  </script>
+</h
+<body class="yui3-skin-sam">
+  <h3>Help page</h3>
+  <form id="helpform">
+    <div>
+      <input type="text" id="dlno" name="dlno" />
+      <br />
+      <input type="text" id="missfname" name="missfname" />
+      <br />
+      <input type="text" id="inp3" name="inp3" />
+      <br />
+      <select id="dls" name="dls">
+        <option>One</option>
+        <option>Two</option>
+      </select>
+      <br />
+      <button id="but1" name="but1">clicky</button>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+  </form>
+  <pre>
+    var loader = new Y.Loader({
+        modules: {
+                help: {
+                    path: '/htdocs/scripts/help.js'
+                }
+        },
+        require: ['help']
+    });
+  </pre>
+</body>
+</html>

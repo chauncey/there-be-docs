@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.coverage</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        Module&nbsp;coverage
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.coverage-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="eicpy.coverage-module.html">Module eicpy.coverage</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Coverage library for accessing rate coverages"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># $Id: coverage.py 7740 2011-03-28 19:28:32Z cchauncey $</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package bbpy=bbpy-module.html"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-0', 'bbpy', 'link-0');">bbpy</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module bbpy.config=bbpy.config-module.html"><a title="bbpy.config" class="py-name" href="#" onclick="return doclink('link-1', 'config', 'link-1');">config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class bbpy.config.Interface=bbpy.config.Interface-class.html"><a title="bbpy.config.Interface" class="py-name" href="#" onclick="return doclink('link-2', 'Interface', 'link-2');">Interface</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-3', 'bbpy', 'link-0');">bbpy</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module bbpy.strings=bbpy.strings-module.html"><a title="bbpy.strings" class="py-name" href="#" onclick="return doclink('link-4', 'strings', 'link-4');">strings</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class bbpy.strings.BBPyString=bbpy.strings.BBPyString-class.html"><a title="bbpy.strings.BBPyString" class="py-name" href="#" onclick="return doclink('link-5', 'BBPyString', 'link-5');">BBPyString</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name" targets="Package eicpy=eicpy-module.html"><a title="eicpy" class="py-name" href="#" onclick="return doclink('link-6', 'eicpy', 'link-6');">eicpy</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Module eicpy.sql=eicpy.sql-module.html"><a title="eicpy.sql" class="py-name" href="#" onclick="return doclink('link-7', 'sql', 'link-7');">sql</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Class eicpy.sql.ezsql=eicpy.sql.ezsql-class.html"><a title="eicpy.sql.ezsql" class="py-name" href="#" onclick="return doclink('link-8', 'ezsql', 'link-8');">ezsql</a></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable bbpy.files.template.CD=bbpy.files.template-module.html#CD,Variable eicpy.address.CD=eicpy.address-module.html#CD,Variable eicpy.bridge.common.CD=eicpy.bridge.common-module.html#CD,Variable eicpy.bridge.common_itc.CD=eicpy.bridge.common_itc-module.html#CD,Variable eicpy.coverage.CD=eicpy.coverage-module.html#CD,Variable eicpy.data.CD=eicpy.data-module.html#CD,Variable eicpy.endorsement.endapply.CD=eicpy.endorsement.endapply-module.html#CD,Variable eicpy.endorsement.epolicy.CD=eicpy.endorsement.epolicy-module.html#CD,Variable eicpy.endorsement.erequest.CD=eicpy.endorsement.erequest-module.html#CD,Variable eicpy.endorsement.ersdriver.CD=eicpy.endorsement.ersdriver-module.html#CD,Variable eicpy.endorsement.ersvehicle.CD=eicpy.endorsement.ersvehicle-module.html#CD,Variable eicpy.endorsement.evehicle.CD=eicpy.endorsement.evehicle-module.html#CD,Variable eicpy.erroremail.CD=eicpy.erroremail-module.html#CD,Variable eicpy.insureds.pesession.CD=eicpy.insureds.pesession-module.html#CD,Variable eicpy.multiagent.CD=eicpy.multiagent-module.html#CD,Variable eicpy.pdf.CD=eicpy.pdf-module.html#CD,Variable eicpy.rpc.location.CD=eicpy.rpc.location-module.html#CD"><a title="bbpy.files.template.CD
+eicpy.address.CD
+eicpy.bridge.common.CD
+eicpy.bridge.common_itc.CD
+eicpy.coverage.CD
+eicpy.data.CD
+eicpy.endorsement.endapply.CD
+eicpy.endorsement.epolicy.CD
+eicpy.endorsement.erequest.CD
+eicpy.endorsement.ersdriver.CD
+eicpy.endorsement.ersvehicle.CD
+eicpy.endorsement.evehicle.CD
+eicpy.erroremail.CD
+eicpy.insureds.pesession.CD
+eicpy.multiagent.CD
+eicpy.pdf.CD
+eicpy.rpc.location.CD" class="py-name" href="#" onclick="return doclink('link-9', 'CD', 'link-9');">CD</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="bbpy.config.Interface" class="py-name" href="#" onclick="return doclink('link-10', 'Interface', 'link-2');">Interface</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable bbpy.config.Interface.commondata=bbpy.config.Interface-class.html#commondata"><a title="bbpy.config.Interface.commondata" class="py-name" href="#" onclick="return doclink('link-11', 'commondata', 'link-11');">commondata</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="Coverage"></a><div id="Coverage-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="Coverage-toggle" onclick="return toggle('Coverage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.coverage.Coverage-class.html">Coverage</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Coverage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Coverage-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt class="py-docstring">"""Take care of handling coverages"""</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="Coverage.__init__"></a><div id="Coverage.__init__-def"><a name="L15"></a><tt class="py-lineno"> 15</tt> <a class="py-toggle" href="#" id="Coverage.__init__-toggle" onclick="return toggle('Coverage.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.coverage.Coverage-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Coverage.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Coverage.__init__-expanded"><a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">        <tt class="py-docstring">"""Create a coverage class"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Module eicpy.coverage=eicpy.coverage-module.html"><a title="eicpy.coverage" class="py-name" href="#" onclick="return doclink('link-12', 'coverage', 'link-12');">coverage</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+</div><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="Coverage.getCoverage"></a><div id="Coverage.getCoverage-def"><a name="L19"></a><tt class="py-lineno"> 19</tt> <a class="py-toggle" href="#" id="Coverage.getCoverage-toggle" onclick="return toggle('Coverage.getCoverage');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.coverage.Coverage-class.html#getCoverage">getCoverage</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">state</tt><tt class="py-op">,</tt> <tt class="py-param">rtypes</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">edate</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Coverage.getCoverage-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Coverage.getCoverage-expanded"><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">        For each coverage we get a list of values</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">        from rate.db for the given state</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">        These coverages are covered :)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">        BI,UM,UMBI,UMPD,UMTY,UMDD,UIM,MP,COMP,COLL,TL,RENT,AD,P_AD,P_MP</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        @param state: 2 char alpha for state</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        @param rtypes: Specify specific ratetypes to grab</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; import coverage</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; coverage.Coverage().getCoverage('MO')</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">        {u'COMP': [u'250', u'500', u'1000', u'1500', u'2000']</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">        , u'UIM': [u'0/0', u'25/50']</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">        , u'BI': [u'25/50/10', u'25/50/25']</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">        , u'UM': [u'25/50']</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">        , u'UMBI': [u'25/50']</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">        , u'COLL': [u'250', u'500', u'1000', u'1500', u'2000']</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">        , u'MP': [u'0', u'500', u'1000', u'2000', u'5000']</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">        , u'RENT': [u'30']</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">        , u'TL': [u'50']}</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; coverage.Coverage().getCoverage('MO', ['UIM'])</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; {u'UIM': [u'0/0', u'25/50']}</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-comment"># types we want from rate</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-comment"># to add more - add type to the list</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-comment"># not all are available for a particular state</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">rtypes</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-name">rtypes</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> <tt class="py-string">u"BI"</tt><tt class="py-op">,</tt> <tt class="py-string">u"UM"</tt><tt class="py-op">,</tt> <tt class="py-string">u"UMBI"</tt><tt class="py-op">,</tt> <tt class="py-string">u"UMPD"</tt><tt class="py-op">,</tt> <tt class="py-string">u"MP"</tt><tt class="py-op">,</tt> <tt class="py-string">u"COMP"</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                     <tt class="py-op">,</tt> <tt class="py-string">u"COLL"</tt><tt class="py-op">,</tt> <tt class="py-string">u"TL"</tt><tt class="py-op">,</tt> <tt class="py-string">u"RENT"</tt><tt class="py-op">,</tt> <tt class="py-string">u"AD"</tt><tt class="py-op">,</tt> <tt class="py-string">u"P_AD"</tt><tt class="py-op">,</tt> <tt class="py-string">u"P_MP"</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                     <tt class="py-op">,</tt> <tt class="py-string">u"UMDD"</tt><tt class="py-op">,</tt> <tt class="py-string">u"UIM"</tt><tt class="py-op">,</tt> <tt class="py-string">u"UMTY"</tt> <tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">edate</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt class="py-name">edate</tt> <tt class="py-op">=</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">date</tt><tt class="py-op">.</tt><tt class="py-name">today</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="eicpy.sql.ezsql" class="py-name" href="#" onclick="return doclink('link-13', 'ezsql', 'link-8');">ezsql</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method eicpy.sql.ezsql.connect()=eicpy.sql.ezsql-class.html#connect"><a title="eicpy.sql.ezsql.connect" class="py-name" href="#" onclick="return doclink('link-14', 'connect', 'link-14');">connect</a></tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="bbpy.files.template.CD
+eicpy.address.CD
+eicpy.bridge.common.CD
+eicpy.bridge.common_itc.CD
+eicpy.coverage.CD
+eicpy.data.CD
+eicpy.endorsement.endapply.CD
+eicpy.endorsement.epolicy.CD
+eicpy.endorsement.erequest.CD
+eicpy.endorsement.ersdriver.CD
+eicpy.endorsement.ersvehicle.CD
+eicpy.endorsement.evehicle.CD
+eicpy.erroremail.CD
+eicpy.insureds.pesession.CD
+eicpy.multiagent.CD
+eicpy.pdf.CD
+eicpy.rpc.location.CD" class="py-name" href="#" onclick="return doclink('link-15', 'CD', 'link-9');">CD</a></tt> <tt class="py-op">+</tt> <tt class="py-string">'rate.db'</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">rk</tt> <tt class="py-op">=</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">(</tt><tt class="py-string">"select ratecode from Ratekey where state=?\</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-string">                               and datetype='N'\</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-string">                               and effdate &lt;= ?\</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-string">                               order by effdate desc\</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-string">                               limit 1;"</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">state</tt><tt class="py-op">,</tt> <tt class="py-name">edate</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">fetchone</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">table</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">state</tt> <tt class="py-op">+</tt> <tt class="py-name">rk</tt><tt class="py-op">.</tt><tt class="py-name">ratecode</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-comment"># Get Coverages</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">(</tt><tt class="py-string">'select type,value from %s \</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-string">                        where value NOT LIKE "BASE_" \</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-string">                        and value!="BASE" \</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-string">                        and eopt!="U"'</tt> <tt class="py-op">%</tt> <tt class="py-name">table</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">row</tt> <tt class="py-keyword">in</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">fetchall</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable bbpy.strings.BBPyStringTemplateField.type=bbpy.strings.BBPyStringTemplateField-class.html#type"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-16', 'type', 'link-16');">type</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">rtypes</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-comment"># some comp/coll end in L/H for rating</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                <tt class="py-comment"># since we only want the coverage value</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                <tt class="py-comment"># we're good to ignore the others</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-17', 'type', 'link-16');">type</a></tt> <tt class="py-op">==</tt> <tt class="py-string">u"COMP"</tt> <tt class="py-keyword">and</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">value</tt><tt class="py-op">[</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> <tt class="py-op">]</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt> <tt class="py-string">u"H"</tt><tt class="py-op">,</tt> <tt class="py-string">u"L"</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method eicpy.coverage.Coverage.appendCoverage()=eicpy.coverage.Coverage-class.html#appendCoverage"><a title="eicpy.coverage.Coverage.appendCoverage" class="py-name" href="#" onclick="return doclink('link-18', 'appendCoverage', 'link-18');">appendCoverage</a></tt><tt class="py-op">(</tt><tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-19', 'type', 'link-16');">type</a></tt><tt class="py-op">,</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-20', 'type', 'link-16');">type</a></tt> <tt class="py-op">==</tt> <tt class="py-string">u"COLL"</tt> <tt class="py-keyword">and</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">value</tt><tt class="py-op">[</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> <tt class="py-op">]</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt> <tt class="py-string">u"H"</tt><tt class="py-op">,</tt> <tt class="py-string">u"L"</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="eicpy.coverage.Coverage.appendCoverage" class="py-name" href="#" onclick="return doclink('link-21', 'appendCoverage', 'link-18');">appendCoverage</a></tt><tt class="py-op">(</tt><tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-22', 'type', 'link-16');">type</a></tt><tt class="py-op">,</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-23', 'type', 'link-16');">type</a></tt> <tt class="py-op">==</tt> <tt class="py-string">u"MP"</tt> <tt class="py-keyword">or</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-24', 'type', 'link-16');">type</a></tt> <tt class="py-op">==</tt> <tt class="py-string">u"P_MP"</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="eicpy.coverage.Coverage.appendCoverage" class="py-name" href="#" onclick="return doclink('link-25', 'appendCoverage', 'link-18');">appendCoverage</a></tt><tt class="py-op">(</tt><tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-26', 'type', 'link-16');">type</a></tt><tt class="py-op">,</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-27', 'type', 'link-16');">type</a></tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt> <tt class="py-string">u"COMP"</tt><tt class="py-op">,</tt> <tt class="py-string">u"COLL"</tt><tt class="py-op">,</tt> <tt class="py-string">u"MP"</tt><tt class="py-op">,</tt> <tt class="py-string">u"P_MP"</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="eicpy.coverage.Coverage.appendCoverage" class="py-name" href="#" onclick="return doclink('link-28', 'appendCoverage', 'link-18');">appendCoverage</a></tt><tt class="py-op">(</tt><tt class="py-name">row</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.type" class="py-name" href="#" onclick="return doclink('link-29', 'type', 'link-16');">type</a></tt><tt class="py-op">,</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDReader.close()=bbpy.files.mkeyed.MKEYEDReader-class.html#close"><a title="bbpy.files.mkeyed.MKEYEDReader.close" class="py-name" href="#" onclick="return doclink('link-30', 'close', 'link-30');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="eicpy.coverage" class="py-name" href="#" onclick="return doclink('link-31', 'coverage', 'link-12');">coverage</a></tt> </tt>
+</div><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="Coverage.appendCoverage"></a><div id="Coverage.appendCoverage-def"><a name="L89"></a><tt class="py-lineno"> 89</tt> <a class="py-toggle" href="#" id="Coverage.appendCoverage-toggle" onclick="return toggle('Coverage.appendCoverage');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.coverage.Coverage-class.html#appendCoverage">appendCoverage</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">rtype</tt><tt class="py-op">,</tt> <tt class="py-param">rvalue</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Coverage.appendCoverage-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Coverage.appendCoverage-expanded"><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-docstring">"""Append coverage to list of coverages"""</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">rtype</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="eicpy.coverage" class="py-name" href="#" onclick="return doclink('link-32', 'coverage', 'link-12');">coverage</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method simplejson.ordered_dict.OrderedDict.iterkeys()=simplejson.ordered_dict.OrderedDict-class.html#iterkeys"><a title="simplejson.ordered_dict.OrderedDict.iterkeys" class="py-name" href="#" onclick="return doclink('link-33', 'iterkeys', 'link-33');">iterkeys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="eicpy.coverage" class="py-name" href="#" onclick="return doclink('link-34', 'coverage', 'link-12');">coverage</a></tt><tt class="py-op">[</tt><tt class="py-name">rtype</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="eicpy.coverage" class="py-name" href="#" onclick="return doclink('link-35', 'coverage', 'link-12');">coverage</a></tt><tt class="py-op">[</tt><tt class="py-name">rtype</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">rvalue</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="findClosest"></a><div id="findClosest-def"><a name="L96"></a><tt class="py-lineno"> 96</tt> <a class="py-toggle" href="#" id="findClosest-toggle" onclick="return toggle('findClosest');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.coverage-module.html#findClosest">findClosest</a><tt class="py-op">(</tt><tt class="py-param">cvglist</tt><tt class="py-op">,</tt> <tt class="py-param">cvg</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="findClosest-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="findClosest-expanded"><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">    Take the coverage list and coverage passed and find next lowest value</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a = coverage.getCoverage('AR')</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; b = coverage.findClosest(a['COMP'], u"767")</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; c = coverage.findClosest(a['COLL'], u"345")</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; d = coverage.findClosest(a['COMP'], u"12345")</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; e = coverage.findClosest(a['UM'], u"25")</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; f = coverage.findClosest( a['UM'], u"50/100/50" )</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; pprint.pprint(a)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">    {u'BI': [u'25/50/25'],</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">    u'COLL': [u'250', u'500', u'1000', u'1500', u'2000'],</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">    u'COMP': [u'250', u'500', u'1000', u'1500', u'2000'],</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">    u'MP': [u'0', u'500', u'1000', u'2000'],</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">    u'P_AD': [u'5000'],</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">    u'P_MP': [u'0', u'5000'],</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">    u'RENT': [u'30'],</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">    u'TL': [u'50'],</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">    u'UM': [u'0/0/0', u'25/50/0', u'25/50/25'],</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">    u'UMBI': [u'000/000', u'025/050', u'050/100', u'100/300'],</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">    u'UMPD': [u'0', u'25', u'50']}</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; b</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">    u'500'</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; c</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">    u'250'</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; d</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">    u'2000'</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; e</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">    u'0/0/0'</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; f</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">    u'25/50/25'</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt class="py-comment"># do we have number</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">cvg</tt> <tt class="py-op">==</tt> <tt class="py-string">u"None"</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">cvg</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt class="py-comment"># do we even need to check the list</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">cvglist</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">cvglist</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">    <tt class="py-comment"># those crazy 0/0/0 values</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-name">slash</tt> <tt class="py-op">=</tt> <tt class="py-name">cvg</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Method bbpy.config.FileFinder.find()=bbpy.config.FileFinder-class.html#find,Method bbpy.files.mkeyed.MKEYEDReader.find()=bbpy.files.mkeyed.MKEYEDReader-class.html#find"><a title="bbpy.config.FileFinder.find
+bbpy.files.mkeyed.MKEYEDReader.find" class="py-name" href="#" onclick="return doclink('link-36', 'find', 'link-36');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">    <tt class="py-comment"># no slashes in cvg or in cvglist</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">slash</tt> <tt class="py-op">==</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> <tt class="py-keyword">and</tt> <tt class="py-name">cvglist</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="bbpy.config.FileFinder.find
+bbpy.files.mkeyed.MKEYEDReader.find" class="py-name" href="#" onclick="return doclink('link-37', 'find', 'link-36');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">cvg</tt><tt class="py-op">)</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">c</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">cvglist</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">cvglist</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">idx</tt><tt class="py-op">,</tt><tt class="py-name">num</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">cvglist</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt class="py-name">num</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">num</tt><tt class="py-op">)</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">num</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">c</tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">cvglist</tt><tt class="py-op">[</tt> <tt class="py-name">idx</tt> <tt class="py-op">]</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">    <tt class="py-comment"># slashes in both cvg and cvglist</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">slash</tt> <tt class="py-op">&gt;</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> <tt class="py-keyword">and</tt> <tt class="py-name">cvglist</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="bbpy.config.FileFinder.find
+bbpy.files.mkeyed.MKEYEDReader.find" class="py-name" href="#" onclick="return doclink('link-38', 'find', 'link-36');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt> <tt class="py-name">cvg</tt><tt class="py-op">[</tt> <tt class="py-op">:</tt><tt class="py-name">slash</tt> <tt class="py-op">]</tt> <tt class="py-op">)</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">idx</tt><tt class="py-op">,</tt><tt class="py-name">num</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">cvglist</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">            <tt class="py-name">num</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt> <tt class="py-name">num</tt><tt class="py-op">[</tt> <tt class="py-op">:</tt><tt class="py-name">num</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="bbpy.config.FileFinder.find
+bbpy.files.mkeyed.MKEYEDReader.find" class="py-name" href="#" onclick="return doclink('link-39', 'find', 'link-36');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt> <tt class="py-op">)</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">num</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">c</tt><tt class="py-op">:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">cvglist</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">idx</tt> <tt class="py-op">==</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">cvglist</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">cvglist</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-comment"># if nothing else worked</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">cvglist</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-comment"># vi: set tabstop=4 expandtab filetype=python:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:41 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

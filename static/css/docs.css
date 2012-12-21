@@ -1,0 +1,22 @@
+.hero-unit {
+   background: #98BBED;
+}
+.nav-list > .active > a, .nav-list > .active > a:hover {
+    background-color: #729BD4;
+}
+a { color:#729BD4 }
+
+li {
+  line-height: 160%;
+}
+h3 {
+  margin-top: 1em;
+}
+.msg {
+  margin: 1em auto;
+  border: 1px black solid;
+  background-color: #ADABC4;
+  padding: 1em;
+  border-radius: 15px;
+  width: 95%;
+}

@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JSON RPC Script Docs</title>
+  <link href="/prettify/sunburst.css" type="text/css" rel="stylesheet" />
+  <link href="/styles/docs.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/connection/connection_core-min.js&2.9.0/build/json/json-min.js"></script> 
+  <script src="http://yui.yahooapis.com/3.8.0/build/yui/yui-min.js"></script>
+  <!-- Example 1 -->
+  <!-- vehicle -->
+  <script type="text/javascript">
+  // YUI3
+  YUI_config = {
+    modules: {
+      "eic_rpcjson": {
+         fullpath: "/scripts/eic_rpcjson.js",
+         requires: ['io-base', 'json-parse', 'json-stringify', 'node']
+      }
+    }
+  };
+  // post 2 param values to jsonrpc
+  var echorequest = function() {
+    YUI().use('eic_rpcjson', function(Y) {
+      Y.Rpc.send('/rpc/echo'
+                , Y.JSON.stringify({'param1': 'param1value'
+                                   ,'param2': 'param2value'}))
+      Y.one("#e1message").setHTML(Y.Rpc.resp.result);
+      Y.one("#e1message").addClass('msg');
+    });
+  };
+  // send an empty get request to echo (does not use eic_rpcjson module)
+  var echorequest2 = function() {
+    YUI().use('io-base', 'node-base', function(Y) {
+      var callback = {
+        timeout: 3000,
+        sync: true
+      };
+      var request = Y.io('/rpc/echo', callback);
+      Y.one("#e2message").setHTML(request.responseText);
+      Y.one("#e2message").addClass('msg');
+    });
+  };
+  // YUI2
+  // post 2 param values to jsonrpc
+  var echorequest3 = function() {
+    var callback = {
+      success: function(o) {
+        var res = YAHOO.lang.JSON.parse(o.responseText);
+        document.getElementById('e3message').innerHTML = res.result;
+        YAHOO.util.Dom.addClass('e3message', 'msg');
+      }
+    };
+    var data = YAHOO.lang.JSON.stringify({'param1': 'param1value'
+                                     ,'param2': 'param2value'});
+    YAHOO.util.Connect.setDefaultPostHeader(false);
+    YAHOO.util.Connect.initHeader("Content-Type","application/json; charset=utf-8");
+    YAHOO.util.Connect.asyncRequest('POST', '/rpc/echo', callback, data);
+  };
+  // send an empty get request to echo
+  var echorequest4 = function() {
+    var callback = {
+      success: function(o) {
+        document.getElementById('e4message').innerHTML = o.responseText;
+        YAHOO.util.Dom.addClass('e4message', 'msg');
+      }
+    };
+    YAHOO.util.Connect.asyncRequest('GET', '/rpc/echo', callback);
+  };
+  </script>
+  <script src="/prettify/prettify.js" type="text/javascript"></script>
+</head>
+<body style="margin: 2em; background-color: white; color: black; font-family: sans-serif;" onload="prettyPrint()">
+  <h2>JSON RPC Script Docs</h2>
+  <hr>
+  <h4>Examples of sending JSON information to a server script with JavaScript.</h4>
+  <hr>
+  <div id="TOC">
+    <h3>Table of Contents</h3>
+    <ol style="list-style: upper-roman;">
+      <li><a href="#j">jsonrpc.py script</a></li>
+    </ol>
+  </div><!-- TOC -->
+  <h2>jsonrpc.py script</h2>
+  <p><a id="e">The contents of jsonrpc.py. Apache is configured to route all urls from http://domain.com/rpc to jsonrpc. So http://domain.com/rpc/vehicle/getmakes goes to the getmakes function.</a></p>
+  <pre class="prettyprint">
+#!/usr/bin/env python2.7
+'''Rpc tools to use with json'''
+
+import json
+import sqlite3
+from bbpy.config import Interface
+from eicpy import vehicle as veh
+from eicpy.rpc import location as loc
+from eicpy import sql
+from flask import Flask, jsonify, request
+app = Flask(__name__)
+
+CD = Interface().commondata
+
+
+@app.route('/vehicle/getmakes', methods=['POST'])
+def getmakes():
+    '''Retrieve a list of makes based on year'''
+    jsonbody = json.load(request.stream)
+    v = veh.Vehicle()
+    try:
+        makes = v.getMakesFromYear(jsonbody['year'])
+        return jsonify({'makes': makes})
+    except veh.MakesYearNotFoundError:
+        return jsonify({'error': 'Not Found'})
+    except (veh.MakesInvalidYearError, veh.MakesYearNotFoundError):
+        return jsonify({'error': 'Invalid Year'})
+
+@app.route('/vehicle/getmodels', methods=['POST'])
+def getmodels():
+    '''Retrieve a list of models based on year and make'''
+    jsonbody = json.load(request.stream)
+    v = veh.Vehicle()
+    try:
+        models = v.getModelsFromYearMake(jsonbody['year'], jsonbody['make'])
+        return jsonify({'models': models})
+    except veh.ModelsNotFoundError:
+        return jsonify({'error': 'Not Found'})
+
+@app.route('/vehicle/getveh', methods=['POST'])
+def getveh():
+    '''Retrieve a vehicle based on vin, year and possibly make'''
+    jsonbody = json.load(request.stream)
+    v = veh.Vehicle()
+    try:
+        thisveh = v.getInfoFromVin(jsonbody['vin'], jsonbody['year'], make=jsonbody.get('make', None))
+        return jsonify({'veh': thisveh})
+    except Exception:
+        return jsonify({'error': 'Not Found'})
+
+@app.route('/location', methods=['POST'])
+def location():
+    '''Retrieve a list of city and state information for a zip'''
+    jsonbody = json.load(request.stream)
+    zipcode = jsonbody.get('zip', '')
+    state = jsonbody.get('state', None)
+    try:
+        fullzips = []
+        zipcityst = {}
+        conn = sqlite3.connect(CD + 'nmp01.db')
+        conn.row_factory = sql.RowFactory
+        c = conn.cursor()
+        c.execute('select city,state,zipext from NMP01 where zip=(?)', (zipcode,))
+        for row in c:
+            if state and state != row.state:
+                return jsonify({'error': 'Your are logged into {0}. Zipcode is not found in this state.'.format(state)})
+            fullzips.append(zipcode + row.zipext)
+            zipcityst[zipcode + row.zipext] = '{0}, {1}'.format(row.city, row.state)
+        if not zipcityst:
+            return jsonify({'error': 'Zip code is not in our data base. Please call 800-777-0404 option 2'})
+        return jsonify({'locations': (fullzips, zipcityst)})
+    except Exception, e:
+        return jsonify({'error': 'Error finding information for zip code.'})
+
+@app.route('/echo', methods=['GET', 'POST'])
+def echo():
+    '''Testing echo route'''
+    if request.method == 'POST':
+        jsonbody = json.load(request.stream)
+        return jsonify({'result': repr(jsonbody)})
+    return jsonify({'result': request.args.get('params', 'Nada')})
+
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run()</pre>
+  <p>Each route handles a specific lookup. Additional functions with routes can be added when needed without affecting the existing.</p>
+  <hr />
+  <h3>Usage Examples</h3>
+  <hr />
+  <div id="example">
+    <h4><a id="ec">Echo examples</a></h4>
+    <p>Code:</p>
+    <pre class="prettyprint">
+    // YUI3 using our eic_rpcjson module to send to params in JSON format
+    var echorequest = function() {
+      YUI().use('eic_rpcjson', function(Y) {
+        Y.Rpc.send('/rpc/echo'
+                  , Y.JSON.stringify({'param1': 'param1value'
+                                     ,'param2': 'param2value'}))
+        alert(Y.Rpc.resp.result);
+      });
+    };</pre>
+    <button type="button" onclick="echorequest();">Echo call</button>
+    <p id="e1message"></p>
+    <hr />
+    <p>Code:</p>
+    <pre class="prettyprint">
+    // YUI3 empty get request
+    var echorequest2 = function() {
+      YUI().use('io-base', function(Y) {
+        var callback = {
+          timeout: 3000,
+          sync: true
+        };
+        var request = Y.io('/rpc/echo', callback);
+        alert(request.responseText);
+      });
+    };</pre>
+    <button type="button" onclick="echorequest2();">Echo call</button>
+    <p id="e2message"></p>
+    <hr />
+    <p>Code:</p>
+    <pre class="prettyprint">
+    // YUI2 send params in JSON format
+    var echorequest3 = function() {
+      var callback = {
+        success: function(o) {
+          var res = YAHOO.lang.JSON.parse(o.responseText);
+          alert(res.result);
+        }
+      };
+      var data = YAHOO.lang.JSON.stringify({'param1': 'param1value'
+                                       ,'param2': 'param2value'});
+      YAHOO.util.Connect.setDefaultPostHeader(false);
+      YAHOO.util.Connect.initHeader("Content-Type","application/json; charset=utf-8");
+      YAHOO.util.Connect.asyncRequest('POST', '/rpc/echo', callback, data);
+    };</pre>
+    <button type="button" onclick="echorequest3();">Echo call</button>
+    <p id="e3message"></p>
+    <hr />
+    <p>Code:</p>
+    <pre class="prettyprint">
+    // send an empty get request to echo
+    var echorequest4 = function() {
+      var callback = {
+        success: function(o) {
+          var res = YAHOO.lang.JSON.parse(o.responseText);
+          alert(res);
+        }
+      };
+      YAHOO.util.Connect.asyncRequest('GET', '/rpc/echo', callback);
+    };</pre>
+    <button type="button" onclick="echorequest4();">Echo call</button>
+    <p id="e4message"></p>
+  </div><!-- example -->
+</body>
+</html>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.rpc.vehicle</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        <a href="eicpy.rpc-module.html">Package&nbsp;rpc</a> ::
+        Module&nbsp;vehicle
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.rpc.vehicle-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="eicpy.rpc.vehicle-module.html" onclick="show_private();">Module eicpy.rpc.vehicle</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># $Id: vehicle.py 3148 2008-05-27 18:32:35Z cchauncey $</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">"""Vehicle tools for XML-RPC."""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package eicpy=eicpy-module.html"><a title="eicpy" class="py-name" href="#" onclick="return doclink('link-0', 'eicpy', 'link-0');">eicpy</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module eicpy.rpc.vehicle=eicpy.rpc.vehicle-module.html,Module eicpy.vehicle=eicpy.vehicle-module.html"><a title="eicpy.rpc.vehicle
+eicpy.vehicle" class="py-name" href="#" onclick="return doclink('link-1', 'vehicle', 'link-1');">vehicle</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">veh</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Package bbpy=bbpy-module.html"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-2', 'bbpy', 'link-2');">bbpy</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Package bbpy.files=bbpy.files-module.html"><a title="bbpy.files" class="py-name" href="#" onclick="return doclink('link-3', 'files', 'link-3');">files</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module bbpy.files.mkeyed=bbpy.files.mkeyed-module.html"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-4', 'mkeyed', 'link-4');">mkeyed</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class bbpy.files.mkeyed.BBPyKeyNotFoundError=bbpy.files.mkeyed.BBPyKeyNotFoundError-class.html"><a title="bbpy.files.mkeyed.BBPyKeyNotFoundError" class="py-name" href="#" onclick="return doclink('link-5', 'BBPyKeyNotFoundError', 'link-5');">BBPyKeyNotFoundError</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># Regular expression matching</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">re</tt> <tt class="py-keyword">import</tt> <tt class="py-name">match</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># XMLRPC error handling</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">xmlrpclib</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Fault</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"># Vehicle related methods for XML-RPC</tt> </tt>
+<a name="Vehicle"></a><div id="Vehicle-def"><a name="L12"></a><tt class="py-lineno">12</tt> <a class="py-toggle" href="#" id="Vehicle-toggle" onclick="return toggle('Vehicle');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.rpc.vehicle.Vehicle-class.html">Vehicle</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Vehicle-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Vehicle-expanded"><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt class="py-docstring">"""Vehicle tools for XML-RPC - these are mostly calls to eicpy.vehicle"""</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="Vehicle.getMakes"></a><div id="Vehicle.getMakes-def"><a name="L15"></a><tt class="py-lineno">15</tt> <a class="py-toggle" href="#" id="Vehicle.getMakes-toggle" onclick="return toggle('Vehicle.getMakes');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.rpc.vehicle.Vehicle-class.html#getMakes">getMakes</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">year</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Vehicle.getMakes-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Vehicle.getMakes-expanded"><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-docstring">"""Vehicle.getMakes calls eicpy.vehicle's getMakesFromYear</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">        @param year: A year of two or four digits</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">        @returns: a list of 3 or 4 digit ISO manufacturer codes.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-comment"># this calls our master vehicle lookups</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">            <tt id="link-6" class="py-name" targets="Variable eicpy.bridge.common_itc.TurboRaterCustomXMLContentHandler.makes=eicpy.bridge.common_itc.TurboRaterCustomXMLContentHandler-class.html#makes"><a title="eicpy.bridge.common_itc.TurboRaterCustomXMLContentHandler.makes" class="py-name" href="#" onclick="return doclink('link-6', 'makes', 'link-6');">makes</a></tt> <tt class="py-op">=</tt> <tt class="py-name">veh</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Class eicpy.elf.Vehicle=eicpy.elf.Vehicle-class.html,Class eicpy.endorsement.ersvehicle.Vehicle=eicpy.endorsement.ersvehicle.Vehicle-class.html,Class eicpy.insureds.policelink.Vehicle=eicpy.insureds.policelink.Vehicle-class.html,Class eicpy.rpc.vehicle.Vehicle=eicpy.rpc.vehicle.Vehicle-class.html,Class eicpy.vehicle.Vehicle=eicpy.vehicle.Vehicle-class.html"><a title="eicpy.elf.Vehicle
+eicpy.endorsement.ersvehicle.Vehicle
+eicpy.insureds.policelink.Vehicle
+eicpy.rpc.vehicle.Vehicle
+eicpy.vehicle.Vehicle" class="py-name" href="#" onclick="return doclink('link-7', 'Vehicle', 'link-7');">Vehicle</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Function eicpy.data.getMakesFromYear()=eicpy.data-module.html#getMakesFromYear,Method eicpy.vehicle.Vehicle.getMakesFromYear()=eicpy.vehicle.Vehicle-class.html#getMakesFromYear"><a title="eicpy.data.getMakesFromYear
+eicpy.vehicle.Vehicle.getMakesFromYear" class="py-name" href="#" onclick="return doclink('link-8', 'getMakesFromYear', 'link-8');">getMakesFromYear</a></tt><tt class="py-op">(</tt><tt id="link-9" class="py-name" targets="Variable dateutil.parser.parser._result.year=dateutil.parser.parser._result-class.html#year"><a title="dateutil.parser.parser._result.year" class="py-name" href="#" onclick="return doclink('link-9', 'year', 'link-9');">year</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">veh</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Class eicpy.data.MakesInvalidYearError=eicpy.data.MakesInvalidYearError-class.html,Class eicpy.vehicle.MakesInvalidYearError=eicpy.vehicle.MakesInvalidYearError-class.html"><a title="eicpy.data.MakesInvalidYearError
+eicpy.vehicle.MakesInvalidYearError" class="py-name" href="#" onclick="return doclink('link-10', 'MakesInvalidYearError', 'link-10');">MakesInvalidYearError</a></tt><tt class="py-op">,</tt> <tt class="py-name">veh</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Class eicpy.data.MakesYearNotFoundError=eicpy.data.MakesYearNotFoundError-class.html,Class eicpy.vehicle.MakesYearNotFoundError=eicpy.vehicle.MakesYearNotFoundError-class.html"><a title="eicpy.data.MakesYearNotFoundError
+eicpy.vehicle.MakesYearNotFoundError" class="py-name" href="#" onclick="return doclink('link-11', 'MakesYearNotFoundError', 'link-11');">MakesYearNotFoundError</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">"Information for year not found"</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-12" class="py-name"><a title="eicpy.bridge.common_itc.TurboRaterCustomXMLContentHandler.makes" class="py-name" href="#" onclick="return doclink('link-12', 'makes', 'link-6');">makes</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">"Information for year not found"</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-13" class="py-name"><a title="eicpy.bridge.common_itc.TurboRaterCustomXMLContentHandler.makes" class="py-name" href="#" onclick="return doclink('link-13', 'makes', 'link-6');">makes</a></tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="Vehicle.getModels"></a><div id="Vehicle.getModels-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="Vehicle.getModels-toggle" onclick="return toggle('Vehicle.getModels');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.rpc.vehicle.Vehicle-class.html#getModels">getModels</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">year</tt><tt class="py-op">,</tt> <tt class="py-param">make</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Vehicle.getModels-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Vehicle.getModels-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-docstring">"""Vehicle.getModels calls eicpy.vehicle's getModelsFromYearMake</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        @param year: a 2 or 4 digit year</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">        @param make: 4 character code</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-docstring">        @returns: a list of 42-character model descriptions.</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">            <tt class="py-name">models</tt> <tt class="py-op">=</tt> <tt class="py-name">veh</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="eicpy.elf.Vehicle
+eicpy.endorsement.ersvehicle.Vehicle
+eicpy.insureds.policelink.Vehicle
+eicpy.rpc.vehicle.Vehicle
+eicpy.vehicle.Vehicle" class="py-name" href="#" onclick="return doclink('link-14', 'Vehicle', 'link-7');">Vehicle</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method eicpy.vehicle.Vehicle.getModelsFromYearMake()=eicpy.vehicle.Vehicle-class.html#getModelsFromYearMake"><a title="eicpy.vehicle.Vehicle.getModelsFromYearMake" class="py-name" href="#" onclick="return doclink('link-15', 'getModelsFromYearMake', 'link-15');">getModelsFromYearMake</a></tt><tt class="py-op">(</tt><tt id="link-16" class="py-name"><a title="dateutil.parser.parser._result.year" class="py-name" href="#" onclick="return doclink('link-16', 'year', 'link-9');">year</a></tt><tt class="py-op">,</tt> <tt class="py-name">make</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">veh</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Class eicpy.vehicle.ModelsNotFoundError=eicpy.vehicle.ModelsNotFoundError-class.html"><a title="eicpy.vehicle.ModelsNotFoundError" class="py-name" href="#" onclick="return doclink('link-17', 'ModelsNotFoundError', 'link-17');">ModelsNotFoundError</a></tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name"><a title="bbpy.files.mkeyed.BBPyKeyNotFoundError" class="py-name" href="#" onclick="return doclink('link-18', 'BBPyKeyNotFoundError', 'link-5');">BBPyKeyNotFoundError</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt> <tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-string">""</tt><tt class="py-op">)</tt> <tt class="py-comment"># js handles msg</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">models</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-string">"No models found"</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">models</tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"> </tt>
+<a name="Vehicle.getVinInfo"></a><div id="Vehicle.getVinInfo-def"><a name="L50"></a><tt class="py-lineno">50</tt> <a class="py-toggle" href="#" id="Vehicle.getVinInfo-toggle" onclick="return toggle('Vehicle.getVinInfo');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.rpc.vehicle.Vehicle-class.html#getVinInfo">getVinInfo</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">vin</tt><tt class="py-op">,</tt> <tt class="py-param">year</tt><tt class="py-op">,</tt> <tt class="py-param">make</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Vehicle.getVinInfo-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Vehicle.getVinInfo-expanded"><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-docstring">"""Vehicle.getVinInfo calls eicpy.vehicle's getInfoFromVin</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-docstring">        @param vin: A vehicle identification number</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"><tt class="py-docstring">        @param year: a 2 or 4 digit year</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt class="py-docstring">        @param make: 4 character code</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"><tt class="py-docstring">        @returns: a structure containing vehicle information if the</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-docstring">            status is GOOD or partial information if the status is INC.</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-comment"># returns an ERR status instead of raising an exception</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">veh</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="eicpy.elf.Vehicle
+eicpy.endorsement.ersvehicle.Vehicle
+eicpy.insureds.policelink.Vehicle
+eicpy.rpc.vehicle.Vehicle
+eicpy.vehicle.Vehicle" class="py-name" href="#" onclick="return doclink('link-19', 'Vehicle', 'link-7');">Vehicle</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method eicpy.vehicle.Vehicle.getInfoFromVin()=eicpy.vehicle.Vehicle-class.html#getInfoFromVin"><a title="eicpy.vehicle.Vehicle.getInfoFromVin" class="py-name" href="#" onclick="return doclink('link-20', 'getInfoFromVin', 'link-20');">getInfoFromVin</a></tt><tt class="py-op">(</tt><tt class="py-name">vin</tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="dateutil.parser.parser._result.year" class="py-name" href="#" onclick="return doclink('link-21', 'year', 'link-9');">year</a></tt><tt class="py-op">,</tt> <tt class="py-name">make</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"><tt class="py-comment"># vi: set tabstop=4 expandtab textwidth=70 filetype=python:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:49 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

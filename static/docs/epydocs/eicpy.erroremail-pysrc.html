@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.erroremail</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        Module&nbsp;erroremail
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.erroremail-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="eicpy.erroremail-module.html">Module eicpy.erroremail</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""This script is designed to handle error emails for the web side for both Python and BBx.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Based on the originating host and doc root (for stage), it figures out the list of recipients.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">This list can be overridden by sending your own list of addresses.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># $Id: erroremail.py 7740 2011-03-28 19:28:32Z cchauncey $</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># For writing the BBx log</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package bbpy=bbpy-module.html"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-0', 'bbpy', 'link-0');">bbpy</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package bbpy.files=bbpy.files-module.html"><a title="bbpy.files" class="py-name" href="#" onclick="return doclink('link-1', 'files', 'link-1');">files</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module bbpy.files.mkeyed=bbpy.files.mkeyed-module.html"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-2', 'mkeyed', 'link-2');">mkeyed</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class bbpy.files.mkeyed.MKEYEDWriter=bbpy.files.mkeyed.MKEYEDWriter-class.html"><a title="bbpy.files.mkeyed.MKEYEDWriter" class="py-name" href="#" onclick="return doclink('link-3', 'MKEYEDWriter', 'link-3');">MKEYEDWriter</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Class bbpy.files.mkeyed.BBPyWriterIOError=bbpy.files.mkeyed.BBPyWriterIOError-class.html"><a title="bbpy.files.mkeyed.BBPyWriterIOError" class="py-name" href="#" onclick="return doclink('link-4', 'BBPyWriterIOError', 'link-4');">BBPyWriterIOError</a></tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Class bbpy.files.mkeyed.BBPyWriterUnknownError=bbpy.files.mkeyed.BBPyWriterUnknownError-class.html"><a title="bbpy.files.mkeyed.BBPyWriterUnknownError" class="py-name" href="#" onclick="return doclink('link-5', 'BBPyWriterUnknownError', 'link-5');">BBPyWriterUnknownError</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">os</tt> <tt class="py-keyword">import</tt> <tt class="py-name">environ</tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name" targets="Method eicpy.insureds.pesession.Session.remove()=eicpy.insureds.pesession.Session-class.html#remove"><a title="eicpy.insureds.pesession.Session.remove" class="py-name" href="#" onclick="return doclink('link-6', 'remove', 'link-6');">remove</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-7" class="py-name" targets="Package eicpy=eicpy-module.html"><a title="eicpy" class="py-name" href="#" onclick="return doclink('link-7', 'eicpy', 'link-7');">eicpy</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module eicpy.sql=eicpy.sql-module.html"><a title="eicpy.sql" class="py-name" href="#" onclick="return doclink('link-8', 'sql', 'link-8');">sql</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Class eicpy.sql.ezsql=eicpy.sql.ezsql-class.html"><a title="eicpy.sql.ezsql" class="py-name" href="#" onclick="return doclink('link-9', 'ezsql', 'link-9');">ezsql</a></tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">datetime</tt> <tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">socket</tt> <tt class="py-keyword">import</tt> <tt class="py-name">gethostname</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"># Interface reads bbw.config for paths</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-10" class="py-name"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-10', 'bbpy', 'link-0');">bbpy</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Module bbpy.config=bbpy.config-module.html"><a title="bbpy.config" class="py-name" href="#" onclick="return doclink('link-11', 'config', 'link-11');">config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-12" class="py-name" targets="Class bbpy.config.Interface=bbpy.config.Interface-class.html"><a title="bbpy.config.Interface" class="py-name" href="#" onclick="return doclink('link-12', 'Interface', 'link-12');">Interface</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"># This puts '/test/data' or /eic/data/ or /stage/data' into CD</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt id="link-13" class="py-name" targets="Variable bbpy.files.template.CD=bbpy.files.template-module.html#CD,Variable eicpy.address.CD=eicpy.address-module.html#CD,Variable eicpy.bridge.common.CD=eicpy.bridge.common-module.html#CD,Variable eicpy.bridge.common_itc.CD=eicpy.bridge.common_itc-module.html#CD,Variable eicpy.coverage.CD=eicpy.coverage-module.html#CD,Variable eicpy.data.CD=eicpy.data-module.html#CD,Variable eicpy.endorsement.endapply.CD=eicpy.endorsement.endapply-module.html#CD,Variable eicpy.endorsement.epolicy.CD=eicpy.endorsement.epolicy-module.html#CD,Variable eicpy.endorsement.erequest.CD=eicpy.endorsement.erequest-module.html#CD,Variable eicpy.endorsement.ersdriver.CD=eicpy.endorsement.ersdriver-module.html#CD,Variable eicpy.endorsement.ersvehicle.CD=eicpy.endorsement.ersvehicle-module.html#CD,Variable eicpy.endorsement.evehicle.CD=eicpy.endorsement.evehicle-module.html#CD,Variable eicpy.erroremail.CD=eicpy.erroremail-module.html#CD,Variable eicpy.insureds.pesession.CD=eicpy.insureds.pesession-module.html#CD,Variable eicpy.multiagent.CD=eicpy.multiagent-module.html#CD,Variable eicpy.pdf.CD=eicpy.pdf-module.html#CD,Variable eicpy.rpc.location.CD=eicpy.rpc.location-module.html#CD"><a title="bbpy.files.template.CD
+eicpy.address.CD
+eicpy.bridge.common.CD
+eicpy.bridge.common_itc.CD
+eicpy.coverage.CD
+eicpy.data.CD
+eicpy.endorsement.endapply.CD
+eicpy.endorsement.epolicy.CD
+eicpy.endorsement.erequest.CD
+eicpy.endorsement.ersdriver.CD
+eicpy.endorsement.ersvehicle.CD
+eicpy.endorsement.evehicle.CD
+eicpy.erroremail.CD
+eicpy.insureds.pesession.CD
+eicpy.multiagent.CD
+eicpy.pdf.CD
+eicpy.rpc.location.CD" class="py-name" href="#" onclick="return doclink('link-13', 'CD', 'link-13');">CD</a></tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="bbpy.config.Interface" class="py-name" href="#" onclick="return doclink('link-14', 'Interface', 'link-12');">Interface</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable bbpy.config.Interface.commondata=bbpy.config.Interface-class.html#commondata"><a title="bbpy.config.Interface.commondata" class="py-name" href="#" onclick="return doclink('link-15', 'commondata', 'link-15');">commondata</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="ErrorEmail"></a><div id="ErrorEmail-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="ErrorEmail-toggle" onclick="return toggle('ErrorEmail');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.erroremail.ErrorEmail-class.html">ErrorEmail</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ErrorEmail-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ErrorEmail-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-docstring">"""Compose an error email, lookup the email recipients, and send the message"""</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="ErrorEmail.__init__"></a><div id="ErrorEmail.__init__-def"><a name="L23"></a><tt class="py-lineno"> 23</tt> <a class="py-toggle" href="#" id="ErrorEmail.__init__-toggle" onclick="return toggle('ErrorEmail.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.erroremail.ErrorEmail-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">msg</tt><tt class="py-op">,</tt> <tt class="py-param">subj</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-param">dev</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">call</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ErrorEmail.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ErrorEmail.__init__-expanded"><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">        @param msg: The email message body</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">        @param subj: (optional) The email subject line</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        @param dev: (optional) List of email addresses, no addresses prompts a lookup</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">                    from webdev.db</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">        @param call: (optional) Calling program for BBx error messages</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-comment"># msg we have to have but the rest is optional</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-comment"># we make msg specifically a string for mkeyed writing</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">msg</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt> <tt class="py-op">=</tt> <tt class="py-name">subj</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dev</tt> <tt class="py-op">=</tt> <tt class="py-name">dev</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">call</tt> <tt class="py-op">=</tt> <tt class="py-name">call</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-comment"># date in Python datetime format</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">date</tt> <tt class="py-op">=</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">today</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="ErrorEmail.writeLog"></a><div id="ErrorEmail.writeLog-def"><a name="L41"></a><tt class="py-lineno"> 41</tt> <a class="py-toggle" href="#" id="ErrorEmail.writeLog-toggle" onclick="return toggle('ErrorEmail.writeLog');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.erroremail.ErrorEmail-class.html#writeLog">writeLog</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ErrorEmail.writeLog-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ErrorEmail.writeLog-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-docstring">"""Write the EPAY.WEBERRS log file"""</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-comment"># the temp file &amp; backup temp file</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">kissfile</tt> <tt class="py-op">=</tt> <tt class="py-string">"/tmp/KISS%s"</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">date</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">"%m%d%H%M%S"</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">tmpfile</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="bbpy.files.template.CD
+eicpy.address.CD
+eicpy.bridge.common.CD
+eicpy.bridge.common_itc.CD
+eicpy.coverage.CD
+eicpy.data.CD
+eicpy.endorsement.endapply.CD
+eicpy.endorsement.epolicy.CD
+eicpy.endorsement.erequest.CD
+eicpy.endorsement.ersdriver.CD
+eicpy.endorsement.ersvehicle.CD
+eicpy.endorsement.evehicle.CD
+eicpy.erroremail.CD
+eicpy.insureds.pesession.CD
+eicpy.multiagent.CD
+eicpy.pdf.CD
+eicpy.rpc.location.CD" class="py-name" href="#" onclick="return doclink('link-16', 'CD', 'link-13');">CD</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"EPAY.WEBERR.EMAIL"</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-comment">## Log message Agent + Date + Time + Error ##</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-comment"># agent</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-name">logmsg</tt> <tt class="py-op">=</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">'REMOTE_USER'</tt><tt class="py-op">]</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">            <tt class="py-name">logmsg</tt> <tt class="py-op">=</tt> <tt class="py-string">"No agent"</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-comment"># format it for leading zeroes, etc.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">logmsg</tt> <tt class="py-op">+=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">date</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">"%Y%m%d%H%M%S"</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-comment"># add message sent from BBx</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">logmsg</tt> <tt class="py-op">+=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-comment"># try the regular log file, if that fails</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-comment"># write the 'old' log file</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDReader.open()=bbpy.files.mkeyed.MKEYEDReader-class.html#open"><a title="bbpy.files.mkeyed.MKEYEDReader.open" class="py-name" href="#" onclick="return doclink('link-17', 'open', 'link-17');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">kissfile</tt><tt class="py-op">,</tt> <tt class="py-string">'a'</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDWriter.write()=bbpy.files.mkeyed.MKEYEDWriter-class.html#write,Method eicpy.insureds.pesession.Session.write()=eicpy.insureds.pesession.Session-class.html#write"><a title="bbpy.files.mkeyed.MKEYEDWriter.write
+eicpy.insureds.pesession.Session.write" class="py-name" href="#" onclick="return doclink('link-18', 'write', 'link-18');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">logmsg</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDReader.close()=bbpy.files.mkeyed.MKEYEDReader-class.html#close"><a title="bbpy.files.mkeyed.MKEYEDReader.close" class="py-name" href="#" onclick="return doclink('link-19', 'close', 'link-19');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">kissfile</tt> <tt class="py-op">=</tt> <tt class="py-name">kissfile</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="bbpy.files.mkeyed.MKEYEDReader.open" class="py-name" href="#" onclick="return doclink('link-20', 'open', 'link-17');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">tmpfile</tt><tt class="py-op">,</tt> <tt class="py-string">'a'</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="bbpy.files.mkeyed.MKEYEDWriter.write
+eicpy.insureds.pesession.Session.write" class="py-name" href="#" onclick="return doclink('link-21', 'write', 'link-18');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">logmsg</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">            <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="bbpy.files.mkeyed.MKEYEDReader.close" class="py-name" href="#" onclick="return doclink('link-22', 'close', 'link-19');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-comment"># Write to the BBx file</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-name">mw</tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="bbpy.files.mkeyed.MKEYEDWriter" class="py-name" href="#" onclick="return doclink('link-23', 'MKEYEDWriter', 'link-3');">MKEYEDWriter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-comment"># Send filename, key, full record and whether to check it</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">logmsg</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">79</tt><tt class="py-op">:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-name">logmsg</tt> <tt class="py-op">=</tt> <tt class="py-name">logmsg</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">79</tt><tt class="py-op">]</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-name">logmsg</tt><tt class="py-op">.</tt><tt class="py-name">ljust</tt><tt class="py-op">(</tt><tt class="py-number">80</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">mw</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="bbpy.files.mkeyed.MKEYEDWriter.write
+eicpy.insureds.pesession.Session.write" class="py-name" href="#" onclick="return doclink('link-24', 'write', 'link-18');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"EPAY.WEBERRS"</tt><tt class="py-op">,</tt> <tt class="py-name">logmsg</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">18</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">logmsg</tt><tt class="py-op">,</tt> <tt class="py-name">checkrec</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">mw</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDWriter.flush()=bbpy.files.mkeyed.MKEYEDWriter-class.html#flush"><a title="bbpy.files.mkeyed.MKEYEDWriter.flush" class="py-name" href="#" onclick="return doclink('link-25', 'flush', 'link-25');">flush</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="bbpy.files.mkeyed.BBPyWriterIOError" class="py-name" href="#" onclick="return doclink('link-26', 'BBPyWriterIOError', 'link-4');">BBPyWriterIOError</a></tt><tt class="py-op">,</tt> <tt id="link-27" class="py-name"><a title="bbpy.files.mkeyed.BBPyWriterUnknownError" class="py-name" href="#" onclick="return doclink('link-27', 'BBPyWriterUnknownError', 'link-5');">BBPyWriterUnknownError</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-name">me</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name" targets="Class eicpy.erroremail.ErrorEmail=eicpy.erroremail.ErrorEmail-class.html"><a title="eicpy.erroremail.ErrorEmail" class="py-name" href="#" onclick="return doclink('link-28', 'ErrorEmail', 'link-28');">ErrorEmail</a></tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">,</tt> <tt class="py-string">'ErrorEmail MKWriter error'</tt><tt class="py-op">,</tt><tt class="py-name">dev</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-string">'cchauncey@equityins.net'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-name">me</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method eicpy.erroremail.ErrorEmail.sendEmail()=eicpy.erroremail.ErrorEmail-class.html#sendEmail"><a title="eicpy.erroremail.ErrorEmail.sendEmail" class="py-name" href="#" onclick="return doclink('link-29', 'sendEmail', 'link-29');">sendEmail</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="ErrorEmail.sendEmail"></a><div id="ErrorEmail.sendEmail-def"><a name="L89"></a><tt class="py-lineno"> 89</tt> <a class="py-toggle" href="#" id="ErrorEmail.sendEmail-toggle" onclick="return toggle('ErrorEmail.sendEmail');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.erroremail.ErrorEmail-class.html#sendEmail">sendEmail</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">origin</tt><tt class="py-op">=</tt><tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ErrorEmail.sendEmail-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ErrorEmail.sendEmail-expanded"><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-docstring">"""Sends email and finds recipients if necessary from webdev.db"""</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-comment"># Find out where we are</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-comment"># gethostname() returns tulsap522 or tulsap521</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">host</tt> <tt class="py-op">=</tt> <tt class="py-name">gethostname</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-comment"># From line</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-comment"># String formatting converts the %s in this string to</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-comment"># whatever's in the host variable</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">frm</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"nobody@%s.equityins.net"</tt> <tt class="py-op">%</tt> <tt class="py-name">host</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-comment"># We will use the flag later for the db lookup</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-comment"># we create it here so it's available later,</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-comment"># otherwise as soon as we bounced out of the if</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-comment"># loop, it would be garbage collected</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">flag</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-comment"># Figure out host, subject, and flag based on where we are.</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">host</tt> <tt class="py-op">==</tt> <tt class="py-string">'tulsap522'</tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">            <tt class="py-comment"># Stage/StageIT == special</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-string">'stageit'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">'DOCUMENT_ROOT'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                <tt class="py-name">flag</tt> <tt class="py-op">=</tt> <tt class="py-string">'stage'</tt> <tt class="py-comment"># use stage flag for email list</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'StageIT WEB ERROR - %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-string">'stage'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">'DOCUMENT_ROOT'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                <tt class="py-name">flag</tt> <tt class="py-op">=</tt> <tt class="py-string">'stage'</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'Stage WEB ERROR - %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                <tt class="py-name">flag</tt> <tt class="py-op">=</tt> <tt class="py-string">'test'</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'Test WEB ERROR - %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt><tt class="py-op">)</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">host</tt> <tt class="py-op">==</tt> <tt class="py-string">'tulsap521'</tt><tt class="py-op">:</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">            <tt class="py-name">flag</tt> <tt class="py-op">=</tt> <tt class="py-string">'prod'</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'Production WEB ERROR - %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">            <tt class="py-name">flag</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'test'</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">            <tt class="py-name">subject</tt> <tt class="py-op">=</tt> <tt class="py-string">"Unknown Host - I don't know where I am and I'm scared."</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-comment"># It's possible that we were sent a list of addresses</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-comment"># in the dev variable, so check to see if it's Empty/None.</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-comment"># If it is do the db lookup</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dev</tt><tt class="py-op">:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">            <tt class="py-comment"># Our flags are:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">            <tt class="py-comment">#   prodbbx, stagebbx, testbbx, prodpy, stagepy, testpy</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">            <tt class="py-comment"># So we'll add on the correct ending to our flag</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">origin</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                <tt class="py-name">flag</tt> <tt class="py-op">+=</tt> <tt class="py-name">origin</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                <tt class="py-name">flag</tt> <tt class="py-op">+=</tt> <tt class="py-string">'py'</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt class="py-comment"># Connect to the db</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">            <tt class="py-name">db</tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="eicpy.sql.ezsql" class="py-name" href="#" onclick="return doclink('link-30', 'ezsql', 'link-9');">ezsql</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method eicpy.sql.ezsql.connect()=eicpy.sql.ezsql-class.html#connect"><a title="eicpy.sql.ezsql.connect" class="py-name" href="#" onclick="return doclink('link-31', 'connect', 'link-31');">connect</a></tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="bbpy.files.template.CD
+eicpy.address.CD
+eicpy.bridge.common.CD
+eicpy.bridge.common_itc.CD
+eicpy.coverage.CD
+eicpy.data.CD
+eicpy.endorsement.endapply.CD
+eicpy.endorsement.epolicy.CD
+eicpy.endorsement.erequest.CD
+eicpy.endorsement.ersdriver.CD
+eicpy.endorsement.ersvehicle.CD
+eicpy.endorsement.evehicle.CD
+eicpy.erroremail.CD
+eicpy.insureds.pesession.CD
+eicpy.multiagent.CD
+eicpy.pdf.CD
+eicpy.rpc.location.CD" class="py-name" href="#" onclick="return doclink('link-32', 'CD', 'link-13');">CD</a></tt> <tt class="py-op">+</tt> <tt class="py-string">'webdev.db'</tt><tt class="py-op">)</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">            <tt class="py-comment"># The following one line of code should rarely ever need to be changed unless</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">            <tt class="py-comment"># the structure of the database changes which requires a rewrite.</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt class="py-comment"># So for efficiency, it's written as a list comprehension but if you're</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt class="py-comment"># not familiar with list comps, read below for an alternate method that might</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt class="py-comment"># shed some light on what it does:</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-string">'''</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-string">            Select all email addresses based on flags, returns a list (array) of email addresses.</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-string">             - This is much like an array of BBx templated strings - think 'EMAIL:C(40)' so that</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-string">            each item in the array can have an email accesssed by each.email.</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-string">            recs = db.execute('select email from Errorlist where %s="Y"' % flag)</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-string">            - recs is the result of our query so let's grab all the results into one package</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-string">            which is a list (array in BBx)</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-string">            rows = recs.fetchall()</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-string">            - Loop through rows and grab just the email and add it to the self.dev list</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-string">               for each in rows:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-string">                   self.dev.append(each)</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-string">            '''</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">            <tt class="py-comment"># fetch a list of addresses based on the flags we send</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dev</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">each</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Function eicpy.misc.email()=eicpy.misc-module.html#email"><a title="eicpy.misc.email" class="py-name" href="#" onclick="return doclink('link-33', 'email', 'link-33');">email</a></tt> <tt class="py-keyword">for</tt> <tt class="py-name">each</tt> <tt class="py-keyword">in</tt> <tt class="py-name">db</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">(</tt><tt class="py-string">'select email from Errorlist where %s="Y"'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">flag</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">fetchall</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-comment"># Create the message body</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-comment"># Use the same String formatting as before</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">        <tt class="py-comment"># ( %s replaced by the next item in the tuple )</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-comment"># The ','.join takes the self.dev list and makes</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-comment"># a string out of it, separated by commas</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">            <tt class="py-name">ag</tt> <tt class="py-op">=</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">'REMOTE_USER'</tt><tt class="py-op">]</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">            <tt class="py-name">ag</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">        <tt class="py-name">msg_body</tt> <tt class="py-op">=</tt> <tt class="py-string">"""\</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-string">From: %s</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-string">To: %s</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-string">Subject: %s</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-string">Agent: %s</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-string">Date: %s</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"><tt class="py-string">Time: %s</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-string">Call: %s</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"><tt class="py-string">Error: %s</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-string">"""</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt> <tt class="py-name">frm</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-op">,</tt> <tt class="py-string">","</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dev</tt> <tt class="py-op">)</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">subj</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">        <tt class="py-op">,</tt> <tt class="py-name">ag</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">date</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">"%m/%d/%Y"</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">date</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">"%H:%M:%S"</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">call</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> <tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">        <tt class="py-comment"># Here we actually send the email</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">smtplib</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">        <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">smtplib</tt><tt class="py-op">.</tt><tt class="py-name">SMTP</tt><tt class="py-op">(</tt> <tt class="py-string">"wacoexc01.homestate.net"</tt> <tt class="py-op">)</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">sendmail</tt><tt class="py-op">(</tt> <tt class="py-name">frm</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dev</tt><tt class="py-op">,</tt> <tt class="py-name">msg_body</tt> <tt class="py-op">)</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">        <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">quit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">        <tt class="py-comment"># remove tmpfile but only if it exists</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-string">"kissfile"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">            <tt id="link-34" class="py-name"><a title="eicpy.insureds.pesession.Session.remove" class="py-name" href="#" onclick="return doclink('link-34', 'remove', 'link-6');">remove</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">kissfile</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:41 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

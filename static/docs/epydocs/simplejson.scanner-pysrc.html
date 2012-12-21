@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>simplejson.scanner</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="simplejson-module.html">Package&nbsp;simplejson</a> ::
+        Module&nbsp;scanner
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="simplejson.scanner-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="simplejson.scanner-module.html" onclick="show_private();">Module simplejson.scanner</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""JSON token scanner</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="_import_c_make_scanner"></a><div id="_import_c_make_scanner-def"><a name="L4"></a><tt class="py-lineno"> 4</tt> <a class="py-toggle" href="#" id="_import_c_make_scanner-toggle" onclick="return toggle('_import_c_make_scanner');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="simplejson.scanner-module.html#_import_c_make_scanner">_import_c_make_scanner</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_import_c_make_scanner-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_import_c_make_scanner-expanded"><a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package simplejson=simplejson-module.html"><a title="simplejson" class="py-name" href="#" onclick="return doclink('link-0', 'simplejson', 'link-0');">simplejson</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module simplejson._speedups=simplejson._speedups-module.html"><a title="simplejson._speedups" class="py-name" href="#" onclick="return doclink('link-1', '_speedups', 'link-1');">_speedups</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class simplejson.scanner.make_scanner=simplejson.scanner.make_scanner-class.html"><a title="simplejson.scanner.make_scanner" class="py-name" href="#" onclick="return doclink('link-2', 'make_scanner', 'link-2');">make_scanner</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-3" class="py-name"><a title="simplejson.scanner.make_scanner" class="py-name" href="#" onclick="return doclink('link-3', 'make_scanner', 'link-2');">make_scanner</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-name">c_make_scanner</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name" targets="Function simplejson.scanner._import_c_make_scanner()=simplejson.scanner-module.html#_import_c_make_scanner"><a title="simplejson.scanner._import_c_make_scanner" class="py-name" href="#" onclick="return doclink('link-4', '_import_c_make_scanner', 'link-4');">_import_c_make_scanner</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'make_scanner'</tt><tt class="py-op">]</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable simplejson.scanner.NUMBER_RE=simplejson.scanner-module.html#NUMBER_RE"><a title="simplejson.scanner.NUMBER_RE" class="py-name" href="#" onclick="return doclink('link-5', 'NUMBER_RE', 'link-5');">NUMBER_RE</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">compile</tt><tt class="py-op">(</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt class="py-string">r'(-?(?:0|[1-9]\d*))(\.\d+)?([eE][-+]?\d+)?'</tt><tt class="py-op">,</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt class="py-op">(</tt><tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">VERBOSE</tt> <tt class="py-op">|</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">MULTILINE</tt> <tt class="py-op">|</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">DOTALL</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="py_make_scanner"></a><div id="py_make_scanner-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="py_make_scanner-toggle" onclick="return toggle('py_make_scanner');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="simplejson.scanner-module.html#py_make_scanner">py_make_scanner</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="py_make_scanner-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="py_make_scanner-expanded"><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-name">parse_object</tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">parse_object</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-name">parse_array</tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">parse_array</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-name">parse_string</tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">parse_string</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-name">match_number</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="simplejson.scanner.NUMBER_RE" class="py-name" href="#" onclick="return doclink('link-6', 'NUMBER_RE', 'link-5');">NUMBER_RE</a></tt><tt class="py-op">.</tt><tt class="py-name">match</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable simplejson.scanner.make_scanner.encoding=simplejson.scanner.make_scanner-class.html#encoding"><a title="simplejson.scanner.make_scanner.encoding" class="py-name" href="#" onclick="return doclink('link-7', 'encoding', 'link-7');">encoding</a></tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="simplejson.scanner.make_scanner.encoding" class="py-name" href="#" onclick="return doclink('link-8', 'encoding', 'link-7');">encoding</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable simplejson.scanner.make_scanner.strict=simplejson.scanner.make_scanner-class.html#strict"><a title="simplejson.scanner.make_scanner.strict" class="py-name" href="#" onclick="return doclink('link-9', 'strict', 'link-9');">strict</a></tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="simplejson.scanner.make_scanner.strict" class="py-name" href="#" onclick="return doclink('link-10', 'strict', 'link-9');">strict</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Variable simplejson.scanner.make_scanner.parse_float=simplejson.scanner.make_scanner-class.html#parse_float"><a title="simplejson.scanner.make_scanner.parse_float" class="py-name" href="#" onclick="return doclink('link-11', 'parse_float', 'link-11');">parse_float</a></tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="simplejson.scanner.make_scanner.parse_float" class="py-name" href="#" onclick="return doclink('link-12', 'parse_float', 'link-11');">parse_float</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt id="link-13" class="py-name" targets="Variable simplejson.scanner.make_scanner.parse_int=simplejson.scanner.make_scanner-class.html#parse_int"><a title="simplejson.scanner.make_scanner.parse_int" class="py-name" href="#" onclick="return doclink('link-13', 'parse_int', 'link-13');">parse_int</a></tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="simplejson.scanner.make_scanner.parse_int" class="py-name" href="#" onclick="return doclink('link-14', 'parse_int', 'link-13');">parse_int</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt id="link-15" class="py-name" targets="Variable simplejson.scanner.make_scanner.parse_constant=simplejson.scanner.make_scanner-class.html#parse_constant"><a title="simplejson.scanner.make_scanner.parse_constant" class="py-name" href="#" onclick="return doclink('link-15', 'parse_constant', 'link-15');">parse_constant</a></tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="simplejson.scanner.make_scanner.parse_constant" class="py-name" href="#" onclick="return doclink('link-16', 'parse_constant', 'link-15');">parse_constant</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt id="link-17" class="py-name" targets="Variable simplejson.scanner.make_scanner.object_hook=simplejson.scanner.make_scanner-class.html#object_hook"><a title="simplejson.scanner.make_scanner.object_hook" class="py-name" href="#" onclick="return doclink('link-17', 'object_hook', 'link-17');">object_hook</a></tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="simplejson.scanner.make_scanner.object_hook" class="py-name" href="#" onclick="return doclink('link-18', 'object_hook', 'link-17');">object_hook</a></tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Variable simplejson.scanner.make_scanner.object_pairs_hook=simplejson.scanner.make_scanner-class.html#object_pairs_hook"><a title="simplejson.scanner.make_scanner.object_pairs_hook" class="py-name" href="#" onclick="return doclink('link-19', 'object_pairs_hook', 'link-19');">object_pairs_hook</a></tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="simplejson.scanner.make_scanner.object_pairs_hook" class="py-name" href="#" onclick="return doclink('link-20', 'object_pairs_hook', 'link-19');">object_pairs_hook</a></tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-name">memo</tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">memo</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">_scan_once</tt><tt class="py-op">(</tt><tt class="py-param">string</tt><tt class="py-op">,</tt> <tt class="py-param">idx</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">            <tt class="py-name">nextchar</tt> <tt class="py-op">=</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">IndexError</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">StopIteration</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'"'</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">parse_string</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="simplejson.scanner.make_scanner.encoding" class="py-name" href="#" onclick="return doclink('link-21', 'encoding', 'link-7');">encoding</a></tt><tt class="py-op">,</tt> <tt id="link-22" class="py-name"><a title="simplejson.scanner.make_scanner.strict" class="py-name" href="#" onclick="return doclink('link-22', 'strict', 'link-9');">strict</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'{'</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">parse_object</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name"><a title="simplejson.scanner.make_scanner.encoding" class="py-name" href="#" onclick="return doclink('link-23', 'encoding', 'link-7');">encoding</a></tt><tt class="py-op">,</tt> <tt id="link-24" class="py-name"><a title="simplejson.scanner.make_scanner.strict" class="py-name" href="#" onclick="return doclink('link-24', 'strict', 'link-9');">strict</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                <tt class="py-name">_scan_once</tt><tt class="py-op">,</tt> <tt id="link-25" class="py-name"><a title="simplejson.scanner.make_scanner.object_hook" class="py-name" href="#" onclick="return doclink('link-25', 'object_hook', 'link-17');">object_hook</a></tt><tt class="py-op">,</tt> <tt id="link-26" class="py-name"><a title="simplejson.scanner.make_scanner.object_pairs_hook" class="py-name" href="#" onclick="return doclink('link-26', 'object_pairs_hook', 'link-19');">object_pairs_hook</a></tt><tt class="py-op">,</tt> <tt class="py-name">memo</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'['</tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">parse_array</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">_scan_once</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'n'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">:</tt><tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">4</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'null'</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">4</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'t'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">:</tt><tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">4</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'true'</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">4</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'f'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">:</tt><tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">5</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'false'</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">5</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-name">match_number</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">m</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">            <tt class="py-name">integer</tt><tt class="py-op">,</tt> <tt class="py-name">frac</tt><tt class="py-op">,</tt> <tt class="py-name">exp</tt> <tt class="py-op">=</tt> <tt class="py-name">m</tt><tt class="py-op">.</tt><tt class="py-name">groups</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">frac</tt> <tt class="py-keyword">or</tt> <tt class="py-name">exp</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">                <tt class="py-name">res</tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name"><a title="simplejson.scanner.make_scanner.parse_float" class="py-name" href="#" onclick="return doclink('link-27', 'parse_float', 'link-11');">parse_float</a></tt><tt class="py-op">(</tt><tt class="py-name">integer</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-name">frac</tt> <tt class="py-keyword">or</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-name">exp</tt> <tt class="py-keyword">or</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">                <tt class="py-name">res</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name"><a title="simplejson.scanner.make_scanner.parse_int" class="py-name" href="#" onclick="return doclink('link-28', 'parse_int', 'link-13');">parse_int</a></tt><tt class="py-op">(</tt><tt class="py-name">integer</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">res</tt><tt class="py-op">,</tt> <tt class="py-name">m</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Variable dateutil.parser._tzparser._result.end=dateutil.parser._tzparser._result-class.html#end"><a title="dateutil.parser._tzparser._result.end" class="py-name" href="#" onclick="return doclink('link-29', 'end', 'link-29');">end</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'N'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">:</tt><tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">3</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'NaN'</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-30" class="py-name"><a title="simplejson.scanner.make_scanner.parse_constant" class="py-name" href="#" onclick="return doclink('link-30', 'parse_constant', 'link-15');">parse_constant</a></tt><tt class="py-op">(</tt><tt class="py-string">'NaN'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">3</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'I'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">:</tt><tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">8</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'Infinity'</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-31" class="py-name"><a title="simplejson.scanner.make_scanner.parse_constant" class="py-name" href="#" onclick="return doclink('link-31', 'parse_constant', 'link-15');">parse_constant</a></tt><tt class="py-op">(</tt><tt class="py-string">'Infinity'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">8</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">nextchar</tt> <tt class="py-op">==</tt> <tt class="py-string">'-'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">:</tt><tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">9</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'-Infinity'</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-32" class="py-name"><a title="simplejson.scanner.make_scanner.parse_constant" class="py-name" href="#" onclick="return doclink('link-32', 'parse_constant', 'link-15');">parse_constant</a></tt><tt class="py-op">(</tt><tt class="py-string">'-Infinity'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt> <tt class="py-op">+</tt> <tt class="py-number">9</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">StopIteration</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">scan_once</tt><tt class="py-op">(</tt><tt class="py-param">string</tt><tt class="py-op">,</tt> <tt class="py-param">idx</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">_scan_once</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">,</tt> <tt class="py-name">idx</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">            <tt class="py-name">memo</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDWriter.clear()=bbpy.files.mkeyed.MKEYEDWriter-class.html#clear,Method eicpy.irupload.GetLinkedObjects.clear()=eicpy.irupload.GetLinkedObjects-class.html#clear,Method simplejson.ordered_dict.OrderedDict.clear()=simplejson.ordered_dict.OrderedDict-class.html#clear"><a title="bbpy.files.mkeyed.MKEYEDWriter.clear
+eicpy.irupload.GetLinkedObjects.clear
+simplejson.ordered_dict.OrderedDict.clear" class="py-name" href="#" onclick="return doclink('link-33', 'clear', 'link-33');">clear</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">scan_once</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"><tt id="link-34" class="py-name"><a title="simplejson.scanner.make_scanner" class="py-name" href="#" onclick="return doclink('link-34', 'make_scanner', 'link-2');">make_scanner</a></tt> <tt class="py-op">=</tt> <tt class="py-name">c_make_scanner</tt> <tt class="py-keyword">or</tt> <tt id="link-35" class="py-name" targets="Function simplejson.scanner.py_make_scanner()=simplejson.scanner-module.html#py_make_scanner"><a title="simplejson.scanner.py_make_scanner" class="py-name" href="#" onclick="return doclink('link-35', 'py_make_scanner', 'link-35');">py_make_scanner</a></tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:42 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

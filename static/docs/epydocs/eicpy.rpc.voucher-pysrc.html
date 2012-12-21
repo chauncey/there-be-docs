@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.rpc.voucher</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        <a href="eicpy.rpc-module.html">Package&nbsp;rpc</a> ::
+        Module&nbsp;voucher
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.rpc.voucher-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="eicpy.rpc.voucher-module.html" onclick="show_private();">Module eicpy.rpc.voucher</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># $Id: voucher.py 2853 2008-04-04 20:57:14Z tdfarrell $</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">"""Voucher tools for XML-RPC."""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># OS tools: environmental variables</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">os</tt> <tt class="py-keyword">import</tt> <tt class="py-name">environ</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># Regular expression matching</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">re</tt> <tt class="py-keyword">import</tt> <tt class="py-name">match</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># XMLRPC error handling</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">xmlrpclib</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Fault</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package eicpy=eicpy-module.html"><a title="eicpy" class="py-name" href="#" onclick="return doclink('link-0', 'eicpy', 'link-0');">eicpy</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Variable bbpy.config.Interface.data=bbpy.config.Interface-class.html#data,Variable eicpy.bridge.acordxml.ACORDXML_1_1_0_ContentHandler.data=eicpy.bridge.acordxml.ACORDXML_1_1_0_ContentHandler-class.html#data,Module eicpy.data=eicpy.data-module.html"><a title="bbpy.config.Interface.data
+eicpy.bridge.acordxml.ACORDXML_1_1_0_ContentHandler.data
+eicpy.data" class="py-name" href="#" onclick="return doclink('link-1', 'data', 'link-1');">data</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Function eicpy.data.getAgentRecs()=eicpy.data-module.html#getAgentRecs"><a title="eicpy.data.getAgentRecs" class="py-name" href="#" onclick="return doclink('link-2', 'getAgentRecs', 'link-2');">getAgentRecs</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Package bbpy=bbpy-module.html"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-3', 'bbpy', 'link-3');">bbpy</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Package bbpy.files=bbpy.files-module.html"><a title="bbpy.files" class="py-name" href="#" onclick="return doclink('link-4', 'files', 'link-4');">files</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Module bbpy.files.mkeyed=bbpy.files.mkeyed-module.html"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-5', 'mkeyed', 'link-5');">mkeyed</a></tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name" targets="Module bbpy.files.template=bbpy.files.template-module.html"><a title="bbpy.files.template" class="py-name" href="#" onclick="return doclink('link-6', 'template', 'link-6');">template</a></tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-7" class="py-name"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-7', 'bbpy', 'link-3');">bbpy</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Module bbpy.config=bbpy.config-module.html"><a title="bbpy.config" class="py-name" href="#" onclick="return doclink('link-8', 'config', 'link-8');">config</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-9" class="py-name"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-9', 'bbpy', 'link-3');">bbpy</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Module bbpy.strings=bbpy.strings-module.html"><a title="bbpy.strings" class="py-name" href="#" onclick="return doclink('link-10', 'strings', 'link-10');">strings</a></tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Class bbpy.strings.BBPyString=bbpy.strings.BBPyString-class.html"><a title="bbpy.strings.BBPyString" class="py-name" href="#" onclick="return doclink('link-11', 'BBPyString', 'link-11');">BBPyString</a></tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-12" class="py-name"><a title="eicpy" class="py-name" href="#" onclick="return doclink('link-12', 'eicpy', 'link-0');">eicpy</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Module eicpy.sql=eicpy.sql-module.html"><a title="eicpy.sql" class="py-name" href="#" onclick="return doclink('link-13', 'sql', 'link-13');">sql</a></tt> <tt class="py-keyword">import</tt> <tt id="link-14" class="py-name" targets="Class eicpy.sql.ezsql=eicpy.sql.ezsql-class.html"><a title="eicpy.sql.ezsql" class="py-name" href="#" onclick="return doclink('link-14', 'ezsql', 'link-14');">ezsql</a></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">datetime</tt> <tt class="py-keyword">import</tt> <tt class="py-name">date</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt id="link-15" class="py-name" targets="Variable eicpy.bridge.common_itc.FF=eicpy.bridge.common_itc-module.html#FF,Variable eicpy.rpc.voucher.FF=eicpy.rpc.voucher-module.html#FF"><a title="eicpy.bridge.common_itc.FF
+eicpy.rpc.voucher.FF" class="py-name" href="#" onclick="return doclink('link-15', 'FF', 'link-15');">FF</a></tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="bbpy.config" class="py-name" href="#" onclick="return doclink('link-16', 'config', 'link-8');">config</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Class bbpy.config.FileFinder=bbpy.config.FileFinder-class.html"><a title="bbpy.config.FileFinder" class="py-name" href="#" onclick="return doclink('link-17', 'FileFinder', 'link-17');">FileFinder</a></tt><tt class="py-op">(</tt><tt class="py-string">"bbw.config"</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-comment"># Voucher related methods for XML-RPC</tt> </tt>
+<a name="Voucher"></a><div id="Voucher-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="Voucher-toggle" onclick="return toggle('Voucher');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.rpc.voucher.Voucher-class.html">Voucher</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Voucher-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Voucher-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-docstring">"""Voucher tools for XML-RPC</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">    verifyVoucher(auth, key)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">        - auth - A four digit authorization code for the voucher</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">        - key - The 23-character key for the application</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">        - returns boolean</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="Voucher.verifyVoucher"></a><div id="Voucher.verifyVoucher-def"><a name="L30"></a><tt class="py-lineno">30</tt> <a class="py-toggle" href="#" id="Voucher.verifyVoucher-toggle" onclick="return toggle('Voucher.verifyVoucher');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.rpc.voucher.Voucher-class.html#verifyVoucher">verifyVoucher</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">auth</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Voucher.verifyVoucher-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Voucher.verifyVoucher-expanded"><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-docstring">"""Voucher.verifyVoucher( "1234", "050101 ANYBODY" ) =&gt; true</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">        Returns a boolean indicating the validity of the voucher authorization code.</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">auth</tt> <tt class="py-keyword">and</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">auth</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">4</tt> \ </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">           <tt class="py-keyword">and</tt> <tt class="py-name">match</tt><tt class="py-op">(</tt><tt class="py-string">"^\d{6} \w[a-zA-Z0-9_ ]{0,8}"</tt><tt class="py-op">,</tt> <tt class="py-name">key</tt><tt class="py-op">)</tt> \ </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">           <tt class="py-keyword">and</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">"REMOTE_USER"</tt><tt class="py-op">]</tt> \ </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">           <tt class="py-keyword">and</tt> <tt class="py-name">match</tt><tt class="py-op">(</tt><tt class="py-string">"^\d{4}$"</tt><tt class="py-op">,</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">"REMOTE_USER"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">            <tt class="py-name">agent</tt> <tt class="py-op">=</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">"REMOTE_USER"</tt><tt class="py-op">]</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">            <tt class="py-comment"># BBx keylength 25 so pad our key so</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">            <tt class="py-comment"># that when we add '00' or '21' that</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">            <tt class="py-comment"># we have the right length</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">            <tt class="py-name">strkey</tt> <tt class="py-op">=</tt> <tt class="py-string">"090"</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">agent</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">            <tt class="py-name">key</tt> <tt class="py-op">=</tt> <tt class="py-name">strkey</tt><tt class="py-op">.</tt><tt class="py-name">ljust</tt><tt class="py-op">(</tt><tt class="py-number">23</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">            <tt class="py-name">agrecs</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="eicpy.data.getAgentRecs" class="py-name" href="#" onclick="return doclink('link-18', 'getAgentRecs', 'link-2');">getAgentRecs</a></tt><tt class="py-op">(</tt><tt class="py-name">agent</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">            <tt class="py-comment"># see if we have an app for that key</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                <tt class="py-name">appins</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="bbpy.files.template" class="py-name" href="#" onclick="return doclink('link-19', 'template', 'link-6');">template</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Function bbpy.files.template.getrec()=bbpy.files.template-module.html#getrec"><a title="bbpy.files.template.getrec" class="py-name" href="#" onclick="return doclink('link-20', 'getrec', 'link-20');">getrec</a></tt><tt class="py-op">(</tt> <tt class="py-string">'ELF.APINS.TPL'</tt><tt class="py-op">,</tt><tt class="py-string">'ELFKEY.TPL'</tt><tt class="py-op">,</tt><tt class="py-string">'ELFAPP'</tt><tt class="py-op">,</tt> <tt class="py-name">key</tt> <tt class="py-op">+</tt> <tt class="py-string">u"01"</tt> <tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt id="link-21" class="py-name"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-21', 'mkeyed', 'link-5');">mkeyed</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Class bbpy.files.mkeyed.BBPyKeyNotFoundError=bbpy.files.mkeyed.BBPyKeyNotFoundError-class.html"><a title="bbpy.files.mkeyed.BBPyKeyNotFoundError" class="py-name" href="#" onclick="return doclink('link-22', 'BBPyKeyNotFoundError', 'link-22');">BBPyKeyNotFoundError</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">            <tt class="py-comment"># grab the ratecode</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">                <tt class="py-name">sus01</tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="bbpy.files.template" class="py-name" href="#" onclick="return doclink('link-23', 'template', 'link-6');">template</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="bbpy.files.template.getrec" class="py-name" href="#" onclick="return doclink('link-24', 'getrec', 'link-20');">getrec</a></tt><tt class="py-op">(</tt> <tt class="py-string">'ELF01.TPL'</tt><tt class="py-op">,</tt><tt class="py-string">'ELFKEY.TPL'</tt><tt class="py-op">,</tt><tt class="py-string">'ELFSUS'</tt><tt class="py-op">,</tt> <tt class="py-name">key</tt><tt class="py-op">+</tt> <tt class="py-string">u"01"</tt> <tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt id="link-25" class="py-name"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-25', 'mkeyed', 'link-5');">mkeyed</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="bbpy.files.mkeyed.BBPyKeyNotFoundError" class="py-name" href="#" onclick="return doclink('link-26', 'BBPyKeyNotFoundError', 'link-22');">BBPyKeyNotFoundError</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">            <tt class="py-comment"># find the credit card fee for that ratecode</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">            <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name"><a title="eicpy.sql.ezsql" class="py-name" href="#" onclick="return doclink('link-27', 'ezsql', 'link-14');">ezsql</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method eicpy.sql.ezsql.connect()=eicpy.sql.ezsql-class.html#connect"><a title="eicpy.sql.ezsql.connect" class="py-name" href="#" onclick="return doclink('link-28', 'connect', 'link-28');">connect</a></tt><tt class="py-op">(</tt> <tt id="link-29" class="py-name"><a title="eicpy.bridge.common_itc.FF
+eicpy.rpc.voucher.FF" class="py-name" href="#" onclick="return doclink('link-29', 'FF', 'link-15');">FF</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method bbpy.config.FileFinder.find()=bbpy.config.FileFinder-class.html#find,Method bbpy.files.mkeyed.MKEYEDReader.find()=bbpy.files.mkeyed.MKEYEDReader-class.html#find"><a title="bbpy.config.FileFinder.find
+bbpy.files.mkeyed.MKEYEDReader.find" class="py-name" href="#" onclick="return doclink('link-30', 'find', 'link-30');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'rate.db'</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">            <tt class="py-name">tablename</tt> <tt class="py-op">=</tt> <tt class="py-name">agrecs</tt><tt class="py-op">.</tt><tt class="py-name">state</tt> <tt class="py-op">+</tt> <tt class="py-name">sus01</tt><tt class="py-op">.</tt><tt class="py-name">ratecode</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">            <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">(</tt><tt class="py-string">'select baseN from %s where type="%s" and value="%s"'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">tablename</tt><tt class="py-op">,</tt> <tt class="py-string">"FEE"</tt><tt class="py-op">,</tt> <tt class="py-string">"CRC"</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">            <tt class="py-name">ccfee</tt> <tt class="py-op">=</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">fetchone</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method eicpy.sql.ezRow.values()=eicpy.sql.ezRow-class.html#values,Method simplejson.ordered_dict.OrderedDict.values()=simplejson.ordered_dict.OrderedDict-class.html#values"><a title="eicpy.sql.ezRow.values
+simplejson.ordered_dict.OrderedDict.values" class="py-name" href="#" onclick="return doclink('link-31', 'values', 'link-31');">values</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">            <tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDReader.close()=bbpy.files.mkeyed.MKEYEDReader-class.html#close"><a title="bbpy.files.mkeyed.MKEYEDReader.close" class="py-name" href="#" onclick="return doclink('link-32', 'close', 'link-32');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">            <tt class="py-comment"># check AGSD02 then AGSP01 for voucher rec</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">            <tt class="py-name">agskey</tt> <tt class="py-op">=</tt> <tt class="py-string">u"090"</tt> <tt class="py-op">+</tt> <tt class="py-name">date</tt><tt class="py-op">.</tt><tt class="py-name">today</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">"%m%d"</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">auth</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">                <tt class="py-comment"># we want the string, numeric, and terminators</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">                <tt class="py-name">agsrec</tt><tt class="py-op">,</tt><tt class="py-name">agsnum</tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="bbpy.files.template" class="py-name" href="#" onclick="return doclink('link-33', 'template', 'link-6');">template</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Function bbpy.files.template.getStrNums()=bbpy.files.template-module.html#getStrNums"><a title="bbpy.files.template.getStrNums" class="py-name" href="#" onclick="return doclink('link-34', 'getStrNums', 'link-34');">getStrNums</a></tt><tt class="py-op">(</tt><tt class="py-string">'AGSP01.TPL'</tt><tt class="py-op">,</tt> <tt class="py-name">datafile</tt><tt class="py-op">=</tt><tt class="py-string">'AGSP01'</tt><tt class="py-op">,</tt><tt class="py-name">key</tt><tt class="py-op">=</tt><tt class="py-name">agskey</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-35', 'mkeyed', 'link-5');">mkeyed</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="bbpy.files.mkeyed.BBPyKeyNotFoundError" class="py-name" href="#" onclick="return doclink('link-36', 'BBPyKeyNotFoundError', 'link-22');">BBPyKeyNotFoundError</a></tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-37', 'mkeyed', 'link-5');">mkeyed</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Class bbpy.files.mkeyed.MKEYEDReaderEOF=bbpy.files.mkeyed.MKEYEDReaderEOF-class.html"><a title="bbpy.files.mkeyed.MKEYEDReaderEOF" class="py-name" href="#" onclick="return doclink('link-38', 'MKEYEDReaderEOF', 'link-38');">MKEYEDReaderEOF</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">                    <tt class="py-name">agsrec</tt><tt class="py-op">,</tt><tt class="py-name">agsnum</tt> <tt class="py-op">=</tt> <tt id="link-39" class="py-name"><a title="bbpy.files.template" class="py-name" href="#" onclick="return doclink('link-39', 'template', 'link-6');">template</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="bbpy.files.template.getStrNums" class="py-name" href="#" onclick="return doclink('link-40', 'getStrNums', 'link-34');">getStrNums</a></tt><tt class="py-op">(</tt><tt class="py-string">'AGSP01.TPL'</tt><tt class="py-op">,</tt> <tt class="py-name">datafile</tt><tt class="py-op">=</tt><tt class="py-string">'AGSD02'</tt><tt class="py-op">,</tt><tt class="py-name">key</tt><tt class="py-op">=</tt><tt class="py-name">agskey</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-41', 'mkeyed', 'link-5');">mkeyed</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="bbpy.files.mkeyed.BBPyKeyNotFoundError" class="py-name" href="#" onclick="return doclink('link-42', 'BBPyKeyNotFoundError', 'link-22');">BBPyKeyNotFoundError</a></tt><tt class="py-op">,</tt> <tt id="link-43" class="py-name"><a title="bbpy.files.mkeyed" class="py-name" href="#" onclick="return doclink('link-43', 'mkeyed', 'link-5');">mkeyed</a></tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="bbpy.files.mkeyed.MKEYEDReaderEOF" class="py-name" href="#" onclick="return doclink('link-44', 'MKEYEDReaderEOF', 'link-38');">MKEYEDReaderEOF</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">                    <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">            <tt class="py-comment"># check the first letter of last name (how it was done in BBx)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">agsrec</tt><tt class="py-op">[</tt><tt class="py-number">47</tt><tt class="py-op">:</tt><tt class="py-number">48</tt><tt class="py-op">]</tt> <tt class="py-op">!=</tt> <tt class="py-name">appins</tt><tt class="py-op">.</tt><tt class="py-name">lname</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">            <tt class="py-comment"># check amount</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">            <tt class="py-name">ap00</tt> <tt class="py-op">=</tt> <tt id="link-45" class="py-name"><a title="bbpy.files.template" class="py-name" href="#" onclick="return doclink('link-45', 'template', 'link-6');">template</a></tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="bbpy.files.template.getrec" class="py-name" href="#" onclick="return doclink('link-46', 'getrec', 'link-20');">getrec</a></tt><tt class="py-op">(</tt> <tt class="py-string">'ELF.AP00.TPL'</tt><tt class="py-op">,</tt><tt class="py-string">'ELFKEY.TPL'</tt><tt class="py-op">,</tt><tt class="py-string">'ELFAPP'</tt><tt class="py-op">,</tt> <tt class="py-name">key</tt> <tt class="py-op">+</tt> <tt class="py-string">u"00"</tt> <tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">ap00</tt><tt class="py-op">.</tt><tt class="py-name">down</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">ccfee</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-name">agsnum</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">            <tt class="py-comment"># apply a template to agsrec</tt> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">agsrec</tt><tt class="py-op">.</tt><tt class="py-name">howpaid</tt> <tt class="py-op">!=</tt> <tt class="py-string">u"5"</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">agsrec</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Function eicpy.insureds.mobile.eicmobile.policy()=eicpy.insureds.mobile.eicmobile-module.html#policy"><a title="eicpy.insureds.mobile.eicmobile.policy" class="py-name" href="#" onclick="return doclink('link-47', 'policy', 'link-47');">policy</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> <tt class="py-op">!=</tt> <tt class="py-string">u"NEW"</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L91"></a><tt class="py-lineno">91</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L92"></a><tt class="py-lineno">92</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L93"></a><tt class="py-lineno">93</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno">94</tt>  <tt class="py-line">            <tt class="py-comment"># raise an error</tt> </tt>
+<a name="L95"></a><tt class="py-lineno">95</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">"Voucher.verifyVoucher: invalid parameter"</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L96"></a><tt class="py-lineno">96</tt>  <tt class="py-line"> </tt>
+<a name="L97"></a><tt class="py-lineno">97</tt>  <tt class="py-line"><tt class="py-comment"># vi: set tabstop=4 expandtab textwidth=70 filetype=python:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno">98</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:48 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

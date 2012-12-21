@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.rpc.location</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        <a href="eicpy.rpc-module.html">Package&nbsp;rpc</a> ::
+        Module&nbsp;location
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.rpc.location-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="eicpy.rpc.location-module.html" onclick="show_private();">Module eicpy.rpc.location</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># $Id: location.py 5261 2009-09-25 18:08:03Z cchauncey $</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">"""Location tools for XML-RPC.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">Using triple quotes allows for multiline docstrings.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># OS tools: environmental variables and process open (uses pipes)</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">os</tt> <tt class="py-keyword">import</tt> <tt class="py-name">popen</tt><tt class="py-op">,</tt> <tt class="py-name">environ</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Regular expression matching</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">re</tt> <tt class="py-keyword">import</tt> <tt class="py-name">match</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"># XMLRPC error handling</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">xmlrpclib</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Fault</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package eicpy=eicpy-module.html"><a title="eicpy" class="py-name" href="#" onclick="return doclink('link-0', 'eicpy', 'link-0');">eicpy</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module eicpy.sql=eicpy.sql-module.html"><a title="eicpy.sql" class="py-name" href="#" onclick="return doclink('link-1', 'sql', 'link-1');">sql</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class eicpy.sql.ezsql=eicpy.sql.ezsql-class.html"><a title="eicpy.sql.ezsql" class="py-name" href="#" onclick="return doclink('link-2', 'ezsql', 'link-2');">ezsql</a></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Package bbpy=bbpy-module.html"><a title="bbpy" class="py-name" href="#" onclick="return doclink('link-3', 'bbpy', 'link-3');">bbpy</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module bbpy.config=bbpy.config-module.html"><a title="bbpy.config" class="py-name" href="#" onclick="return doclink('link-4', 'config', 'link-4');">config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class bbpy.config.Interface=bbpy.config.Interface-class.html"><a title="bbpy.config.Interface" class="py-name" href="#" onclick="return doclink('link-5', 'Interface', 'link-5');">Interface</a></tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable bbpy.files.template.CD=bbpy.files.template-module.html#CD,Variable eicpy.address.CD=eicpy.address-module.html#CD,Variable eicpy.bridge.common.CD=eicpy.bridge.common-module.html#CD,Variable eicpy.bridge.common_itc.CD=eicpy.bridge.common_itc-module.html#CD,Variable eicpy.coverage.CD=eicpy.coverage-module.html#CD,Variable eicpy.data.CD=eicpy.data-module.html#CD,Variable eicpy.endorsement.endapply.CD=eicpy.endorsement.endapply-module.html#CD,Variable eicpy.endorsement.epolicy.CD=eicpy.endorsement.epolicy-module.html#CD,Variable eicpy.endorsement.erequest.CD=eicpy.endorsement.erequest-module.html#CD,Variable eicpy.endorsement.ersdriver.CD=eicpy.endorsement.ersdriver-module.html#CD,Variable eicpy.endorsement.ersvehicle.CD=eicpy.endorsement.ersvehicle-module.html#CD,Variable eicpy.endorsement.evehicle.CD=eicpy.endorsement.evehicle-module.html#CD,Variable eicpy.erroremail.CD=eicpy.erroremail-module.html#CD,Variable eicpy.insureds.pesession.CD=eicpy.insureds.pesession-module.html#CD,Variable eicpy.multiagent.CD=eicpy.multiagent-module.html#CD,Variable eicpy.pdf.CD=eicpy.pdf-module.html#CD,Variable eicpy.rpc.location.CD=eicpy.rpc.location-module.html#CD"><a title="bbpy.files.template.CD
+eicpy.address.CD
+eicpy.bridge.common.CD
+eicpy.bridge.common_itc.CD
+eicpy.coverage.CD
+eicpy.data.CD
+eicpy.endorsement.endapply.CD
+eicpy.endorsement.epolicy.CD
+eicpy.endorsement.erequest.CD
+eicpy.endorsement.ersdriver.CD
+eicpy.endorsement.ersvehicle.CD
+eicpy.endorsement.evehicle.CD
+eicpy.erroremail.CD
+eicpy.insureds.pesession.CD
+eicpy.multiagent.CD
+eicpy.pdf.CD
+eicpy.rpc.location.CD" class="py-name" href="#" onclick="return doclink('link-6', 'CD', 'link-6');">CD</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="bbpy.config.Interface" class="py-name" href="#" onclick="return doclink('link-7', 'Interface', 'link-5');">Interface</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Variable bbpy.config.Interface.commondata=bbpy.config.Interface-class.html#commondata"><a title="bbpy.config.Interface.commondata" class="py-name" href="#" onclick="return doclink('link-8', 'commondata', 'link-8');">commondata</a></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"># Location related methods for RPC</tt> </tt>
+<a name="Location"></a><div id="Location-def"><a name="L19"></a><tt class="py-lineno"> 19</tt> <a class="py-toggle" href="#" id="Location-toggle" onclick="return toggle('Location');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.rpc.location.Location-class.html">Location</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Location-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Location-expanded"><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-docstring">"""Location tools for XML/JSON-RPC"""</tt> </tt>
+<a name="Location.getCityStateFromZip"></a><div id="Location.getCityStateFromZip-def"><a name="L21"></a><tt class="py-lineno"> 21</tt> <a class="py-toggle" href="#" id="Location.getCityStateFromZip-toggle" onclick="return toggle('Location.getCityStateFromZip');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.rpc.location.Location-class.html#getCityStateFromZip">getCityStateFromZip</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">zipcode</tt><tt class="py-op">,</tt> <tt class="py-param">state</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Location.getCityStateFromZip-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Location.getCityStateFromZip-expanded"><a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">        Location.getCityStateFromZip('74055') =&gt; [['740550000'], {'740550000': 'Owasso, OK'}]</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">        getCityStateFromZip('74331') =&gt; [['743310000', '743310001', '743310002'], {'743310000': 'Bernice, OK', '743310001': 'Afton, OK', '743310002': 'Monkey Island, OK'}]</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">        @param zipcode: A ZIP code of five or nine digits</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        @returns: an array of 5+4 ZIP codes and an object of ZIP:City,State records.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-comment"># if we have the zipcode variable a string</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-comment"># and it matches a pattern of four digits then we proceed</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">zipcode</tt> <tt class="py-keyword">and</tt> <tt class="py-name">match</tt><tt class="py-op">(</tt><tt class="py-string">"^\d{5}(-?\d{4})?$"</tt><tt class="py-op">,</tt> <tt class="py-name">zipcode</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">            <tt class="py-name">zipcode</tt> <tt class="py-op">=</tt> <tt class="py-name">zipcode</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">5</tt><tt class="py-op">]</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">            <tt class="py-name">fullzips</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">            <tt class="py-name">zipcityst</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">            <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="eicpy.sql.ezsql" class="py-name" href="#" onclick="return doclink('link-9', 'ezsql', 'link-2');">ezsql</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method eicpy.sql.ezsql.connect()=eicpy.sql.ezsql-class.html#connect"><a title="eicpy.sql.ezsql.connect" class="py-name" href="#" onclick="return doclink('link-10', 'connect', 'link-10');">connect</a></tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="bbpy.files.template.CD
+eicpy.address.CD
+eicpy.bridge.common.CD
+eicpy.bridge.common_itc.CD
+eicpy.coverage.CD
+eicpy.data.CD
+eicpy.endorsement.endapply.CD
+eicpy.endorsement.epolicy.CD
+eicpy.endorsement.erequest.CD
+eicpy.endorsement.ersdriver.CD
+eicpy.endorsement.ersvehicle.CD
+eicpy.endorsement.evehicle.CD
+eicpy.erroremail.CD
+eicpy.insureds.pesession.CD
+eicpy.multiagent.CD
+eicpy.pdf.CD
+eicpy.rpc.location.CD" class="py-name" href="#" onclick="return doclink('link-11', 'CD', 'link-6');">CD</a></tt> <tt class="py-op">+</tt> <tt class="py-string">'nmp01.db'</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">            <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">(</tt><tt class="py-string">'select city,state,zipext from NMP01 where zip=(?)'</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">zipcode</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">row</tt> <tt class="py-keyword">in</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">fetchall</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">state</tt> <tt class="py-keyword">and</tt> <tt class="py-name">state</tt> <tt class="py-op">!=</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">state</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                    <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-string">u""</tt><tt class="py-op">)</tt> <tt class="py-comment"># js handles msg</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                <tt class="py-name">fullzips</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">zipcode</tt> <tt class="py-op">+</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">zipext</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                <tt class="py-name">zipcityst</tt><tt class="py-op">[</tt> <tt class="py-name">zipcode</tt> <tt class="py-op">+</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">zipext</tt> <tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">city</tt> <tt class="py-op">+</tt> <tt class="py-string">", "</tt> <tt class="py-op">+</tt> <tt class="py-name">row</tt><tt class="py-op">.</tt><tt class="py-name">state</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">zipcityst</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-string">u""</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">fullzips</tt><tt class="py-op">,</tt> <tt class="py-name">zipcityst</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">            <tt class="py-comment"># raise an error</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">"Location.getCityStateFromZip: Invalid ZIP code"</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="HSLocation"></a><div id="HSLocation-def"><a name="L54"></a><tt class="py-lineno"> 54</tt> <a class="py-toggle" href="#" id="HSLocation-toggle" onclick="return toggle('HSLocation');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.rpc.location.HSLocation-class.html">HSLocation</a><tt class="py-op">(</tt><tt class="py-base-class">Location</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HSLocation-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="HSLocation-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-docstring">"""Location utilities specific to Home State Texas"""</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="HSLocation.getCityCountyFromZip"></a><div id="HSLocation.getCityCountyFromZip-def"><a name="L57"></a><tt class="py-lineno"> 57</tt> <a class="py-toggle" href="#" id="HSLocation.getCityCountyFromZip-toggle" onclick="return toggle('HSLocation.getCityCountyFromZip');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.rpc.location.HSLocation-class.html#getCityCountyFromZip">getCityCountyFromZip</a><tt class="py-op">(</tt> <tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">zipcode</tt><tt class="py-op">,</tt> <tt class="py-param">ratecode</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HSLocation.getCityCountyFromZip-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="HSLocation.getCityCountyFromZip-expanded"><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-docstring">"""Location.getCityCountyFromZip("75028","3")</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">        [['750280001', '750280000'], {'750280001': 'Lewisville, TX', '750280000': 'Flower Mound, TX'}, ['061', '057'], {'061': 'Denton', '057': 'Dallas'}]</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        @param zipcode: A ZIP code of five or nine digits</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">        @param ratecode: current ratecode for county retrieval only</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">        @returns: an &lt;array&gt; of ZIP codes, a &lt;struct&gt; of ZIP code: city</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">            records, an &lt;array&gt; of county codes, and a &lt;struct&gt; of county</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">            code: county name records.</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">zipcode</tt> <tt class="py-keyword">and</tt> <tt class="py-name">match</tt><tt class="py-op">(</tt><tt class="py-string">"^\d{5}(-?\d{4})?$"</tt><tt class="py-op">,</tt> <tt class="py-name">zipcode</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">"REMOTE_USER"</tt><tt class="py-op">]</tt> \ </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                <tt class="py-keyword">and</tt> <tt class="py-name">match</tt><tt class="py-op">(</tt><tt class="py-string">"^\d{4}$"</tt><tt class="py-op">,</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">"REMOTE_USER"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                <tt class="py-name">u</tt> <tt class="py-op">=</tt> <tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">"REMOTE_USER"</tt><tt class="py-op">]</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">z</tt> <tt class="py-op">=</tt> <tt class="py-name">zipcode</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt class="py-name">ratecode</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">            <tt class="py-comment"># Call the BBx program</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-name">pipe</tt> <tt class="py-op">=</tt> <tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"%s -q -c%s -tIO %s - %s %s %s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Variable bbpy.files.mkeyed.PRO5=bbpy.files.mkeyed-module.html#PRO5,Variable eicpy.bridge.common_itc.PRO5=eicpy.bridge.common_itc-module.html#PRO5,Variable eicpy.rpc.driver.PRO5=eicpy.rpc.driver-module.html#PRO5"><a title="bbpy.files.mkeyed.PRO5
+eicpy.bridge.common_itc.PRO5
+eicpy.rpc.driver.PRO5" class="py-name" href="#" onclick="return doclink('link-12', 'PRO5', 'link-12');">PRO5</a></tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                                                           <tt class="py-op">,</tt><tt id="link-13" class="py-name" targets="Variable bbpy.files.mkeyed.PRO5CONFIG=bbpy.files.mkeyed-module.html#PRO5CONFIG,Variable eicpy.bridge.common_itc.PRO5CONFIG=eicpy.bridge.common_itc-module.html#PRO5CONFIG,Variable eicpy.rpc.driver.PRO5CONFIG=eicpy.rpc.driver-module.html#PRO5CONFIG"><a title="bbpy.files.mkeyed.PRO5CONFIG
+eicpy.bridge.common_itc.PRO5CONFIG
+eicpy.rpc.driver.PRO5CONFIG" class="py-name" href="#" onclick="return doclink('link-13', 'PRO5CONFIG', 'link-13');">PRO5CONFIG</a></tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                                                           <tt class="py-op">,</tt><tt class="py-string">"SH.ZIP2STR.CITYCOUNTY"</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                                                           <tt class="py-op">,</tt> <tt class="py-name">z</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                                                           <tt class="py-op">,</tt> <tt class="py-name">c</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                                                           <tt class="py-op">,</tt> <tt class="py-name">u</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"r"</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt class="py-name">pipe</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDReader.read()=bbpy.files.mkeyed.MKEYEDReader-class.html#read"><a title="bbpy.files.mkeyed.MKEYEDReader.read" class="py-name" href="#" onclick="return doclink('link-14', 'read', 'link-14');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-comment"># Error checking</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">result</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">"ERROR:"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">result</tt> <tt class="py-op">)</tt> <tt class="py-comment"># this exits the method</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">result</tt><tt class="py-op">:</tt> <tt class="py-comment"># no data</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">"Location.getCityCountyFromZip: No data returned"</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-name">zips</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-name">counties</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-comment"># Find the cities data</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">            <tt class="py-name">lines</tt> <tt class="py-op">=</tt> <tt class="py-name">iter</tt><tt class="py-op">(</tt><tt class="py-name">result</tt><tt class="py-op">.</tt><tt class="py-name">splitlines</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-name">oktoparse</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">lines</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">line</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">"Cities:"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># we're in the right place</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                        <tt class="py-name">oktoparse</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                    <tt class="py-keyword">elif</tt> <tt class="py-name">line</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">"Counties:"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># go on to parse county data</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                        <tt class="py-keyword">break</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                    <tt class="py-keyword">elif</tt> <tt class="py-name">oktoparse</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                        <tt class="py-name">zipcode</tt><tt class="py-op">,</tt> <tt class="py-name">cityst</tt> <tt class="py-op">=</tt> <tt class="py-name">line</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Class Method dateutil.parser._timelex.split()=dateutil.parser._timelex-class.html#split"><a title="dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-15', 'split', 'link-15');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">" "</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> <tt class="py-comment"># Split at the first space</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                        <tt class="py-name">zips</tt><tt class="py-op">[</tt><tt class="py-name">zipcode</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">cityst</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-comment"># we don't need this data, whatever it might be</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                        <tt class="py-keyword">pass</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">StopIteration</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">"Location.getCityCountyFromZip: No matching cities found"</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">lines</tt><tt class="py-op">:</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                <tt class="py-name">countycode</tt><tt class="py-op">,</tt> <tt class="py-name">county</tt> <tt class="py-op">=</tt> <tt class="py-name">line</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-16', 'split', 'link-15');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">" "</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> <tt class="py-comment"># Split at the first space</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                <tt class="py-name">counties</tt><tt class="py-op">[</tt><tt class="py-name">countycode</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">county</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">zips</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method bbpy.strings.BBPyString.keys()=bbpy.strings.BBPyString-class.html#keys,Method dateutil.tz.tzical.keys()=dateutil.tz.tzical-class.html#keys,Method eicpy.sql.ezRow.keys()=eicpy.sql.ezRow-class.html#keys,Method simplejson.ordered_dict.OrderedDict.keys()=simplejson.ordered_dict.OrderedDict-class.html#keys"><a title="bbpy.strings.BBPyString.keys
+dateutil.tz.tzical.keys
+eicpy.sql.ezRow.keys
+simplejson.ordered_dict.OrderedDict.keys" class="py-name" href="#" onclick="return doclink('link-17', 'keys', 'link-17');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">zips</tt><tt class="py-op">,</tt> <tt class="py-name">counties</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="bbpy.strings.BBPyString.keys
+dateutil.tz.tzical.keys
+eicpy.sql.ezRow.keys
+simplejson.ordered_dict.OrderedDict.keys" class="py-name" href="#" onclick="return doclink('link-18', 'keys', 'link-17');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">counties</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-comment"># raise an error</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">Fault</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">"Location.getCityCountyFromZip: Invalid ZIP code"</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-comment"># vi: set tabstop=4 expandtab textwidth=70 filetype=python:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:42 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

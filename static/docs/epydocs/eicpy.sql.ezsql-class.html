@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.sql.ezsql</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        <a href="eicpy.sql-module.html">Module&nbsp;sql</a> ::
+        Class&nbsp;ezsql
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.sql.ezsql-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ezsql</h1><p class="nomargin-top"><span class="codelink"><a href="eicpy.sql-pysrc.html#ezsql">source&nbsp;code</a></span></p>
+<p><b>ezsql</b> is convenience wrapper class around Python's sqlite3 
+  module. It adds functionality to a normal database access.  Its features 
+  are:</p>
+  <ul>
+    <li>
+      an ezsql connection to a database supports extended Python datatypes 
+      in addition to sqlite's NULL, REAL, INTEGER, TEXT, BLOB:
+      <ul>
+        <li>
+          bool
+        </li>
+        <li>
+          date
+        </li>
+        <li>
+          datetime (as timestamp)
+        </li>
+      </ul>
+    </li>
+    <li>
+      row attributes can be referenced by fieldname in Python attribute 
+      format ( row.id ) or Python dictionary format ( row['id'] )
+    </li>
+    <li>
+      the database connection and cursor object are combined into one 
+      object to reduce boilerplate code and confusion.
+    </li>
+  </ul>
+  <p>Doctests (usage examples):</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>c = ezsql().connect(<span class="py-string">&quot;:memory:&quot;</span>,create=True)
+<span class="py-prompt">&gt;&gt;&gt; </span>a = c.execute(<span class="py-string">&quot;create table test ( a text, b int primary key );&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">items</span> = ((<span class="py-string">&quot;a&quot;</span>,1),(<span class="py-string">&quot;b&quot;</span>,2))
+<span class="py-prompt">&gt;&gt;&gt; </span>a = c.executemany(<span class="py-string">&quot;insert into test values (?,?);&quot;</span>,<span class="py-builtin">items</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>a = c.execute(<span class="py-string">&quot;select * from test;&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> x <span class="py-keyword">in</span> a.fetchall():
+<span class="py-more">... </span>   <span class="py-keyword">print</span> x
+<span class="py-more">...</span>
+<span class="py-output">ezRow({'a': u'a', 'b': 1})</span>
+<span class="py-output">ezRow({'a': u'b', 'b': 2})</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>sqlstr = <span class="py-string">'update test set a=&quot;abcdefg&quot; where b=1;'</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>a = c.executescript(sqlstr)
+<span class="py-prompt">&gt;&gt;&gt; </span>a = c.execute(<span class="py-string">&quot;select * from test;&quot;</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>result = c.fetchone()
+<span class="py-prompt">&gt;&gt;&gt; </span>result
+<span class="py-output">ezRow({'a': u'abcdefg', 'b': 1})</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>result = c.fetchone()
+<span class="py-prompt">&gt;&gt;&gt; </span>result
+<span class="py-output">ezRow({'a': u'b', 'b': 2})</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>result.keys()
+<span class="py-output">['a', 'b']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>result.a
+<span class="py-output">u'b'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>result.A
+<span class="py-except">Traceback (most recent call last):</span>
+<span class="py-except">    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class="py-except">    File &quot;sql.py&quot;, line 49, in __getattr__</span>
+<span class="py-except">        raise KeyError, &quot;No such field %s.&quot; % name</span>
+<span class="py-except">KeyError: 'No such field A.'</span>
+<span class="py-except"></span><span class="py-prompt">&gt;&gt;&gt; </span>result[<span class="py-string">'b'</span>]
+<span class="py-output">2</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>result[<span class="py-string">'B'</span>]
+<span class="py-except">Traceback (most recent call last):</span>
+<span class="py-except">    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class="py-except">    File &quot;sql.py&quot;, line 49, in __getattr__</span>
+<span class="py-except">        raise KeyError, &quot;No such field %s.&quot; % name</span>
+<span class="py-except">KeyError: 'No such field B.'</span>
+<span class="py-except"></span><span class="py-prompt">&gt;&gt;&gt; </span>result.get(<span class="py-string">'c'</span>,<span class="py-string">&quot;c doesn't exist&quot;</span>)
+<span class="py-output">&quot;c doesn't exist&quot;</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>result = c.fetchone()
+<span class="py-prompt">&gt;&gt;&gt; </span>result
+<span class="py-prompt">&gt;&gt;&gt; </span>c.close()</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.sql-pysrc.html#ezsql.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getattr__"></a><span class="summary-sig-name">__getattr__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.sql-pysrc.html#ezsql.__getattr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.sql-pysrc.html#ezsql.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__str__"></a><span class="summary-sig-name">__str__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.sql-pysrc.html#ezsql.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="connect"></a><span class="summary-sig-name">connect</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dbname</span>,
+        <span class="summary-sig-arg">create</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">timeout</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="eicpy.sql-pysrc.html#ezsql.connect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:39 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

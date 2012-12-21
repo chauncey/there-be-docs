@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>YUI RPC-JSON Calls to Server Docs</title>
+  <link href="/prettify/sunburst.css" type="text/css" rel="stylesheet" />
+  <link href="/styles/docs.css" type="text/css" rel="stylesheet" />
+  <script src="http://yui.yahooapis.com/3.8.0/build/yui/yui-min.js"></script>
+  <!-- Example 1 -->
+  <!-- vehicle -->
+  <script type="text/javascript">
+  YUI_config = {
+    modules: {
+      "eic_rpcjson": {
+         fullpath: "/scripts/eic_rpcjson.js",
+         requires: ['io-base', 'json-parse', 'json-stringify', 'node']
+      }
+    }
+  };
+  var veh1request = function() {
+    YUI().use('eic_rpcjson', function(Y) {
+      var year = Y.one('#veh1year').get("value");
+      var vin = Y.one('#veh1vin').get("value");
+      Y.Rpc.send('/rpc/vehicle/getveh'
+                , Y.JSON.stringify({'year': year, 'vin': vin}));
+      vehstr = Y.Rpc.resp.veh.make + " " + Y.Rpc.resp.veh.model + " " + Y.Rpc.resp.veh.status;
+      Y.one("#veh1message").setHTML(vehstr);
+      Y.one("#veh1message").addClass('msg');
+    });
+  };
+  var veh2request = function() {
+    YUI().use('eic_rpcjson', function(Y) {
+      var year = Y.one('#veh2year').get("value");
+      var make = Y.one('#veh2make').get("value");
+      make = make.toUpperCase();
+      var modelstr = "";
+      Y.Rpc.send('/rpc/vehicle/getmodels'
+                , Y.JSON.stringify({'year': year, 'make': make}));
+      for( var each in Y.Rpc.resp.models ) {
+        if( modelstr ) {
+          modelstr = modelstr + "<br />" + Y.Rpc.resp.models[each];
+        } else {
+          modelstr = Y.Rpc.resp.models[each];
+        }
+      }
+      Y.one("#veh2message").setHTML(modelstr);
+      Y.one("#veh2message").addClass('msg');
+    });
+  };
+  var loc1request = function() {
+    YUI().use('eic_rpcjson', function(Y) {
+      var zip = Y.one('#loc1zip').get("value");
+      var locstr = "";
+      Y.Rpc.send('/rpc/location'
+                , Y.JSON.stringify({'zip': zip}));
+      for(var i = 0; i < Y.Rpc.resp.locations[0].length; i++) {
+        if( locstr ){
+          locstr = locstr + "<br />" + Y.Rpc.resp.locations[0][i]  + ": " + Y.Rpc.resp.locations[1][Y.Rpc.resp.locations[0][i]];
+        } else {
+          locstr = Y.Rpc.resp.locations[0][i]  + ": " + Y.Rpc.resp.locations[1][Y.Rpc.resp.locations[0][i]];
+        }
+      }
+      Y.one("#loc1message").setHTML(locstr);
+      Y.one("#loc1message").addClass('msg');
+    });
+  };
+  </script>
+  <script src="/prettify/prettify.js" type="text/javascript"></script>
+</head>
+<body style="margin: 2em; background-color: white; color: black; font-family: sans-serif;" onload="prettyPrint()">
+  <h2>YUI RPC-JSON Calls to Server Docs</h2>
+  <hr>
+  <h4>Examples of sending JSON information to a server script with JavaScript.</h4>
+  <hr>
+  <div id="TOC">
+    <h3>Table of Contents</h3>
+    <ol style="list-style: upper-roman;">
+      <li><a href="#e">eic_rpcjson.js</a></li>
+      <li><a href="#v1">Vehicle Example 1</a></li>
+      <li><a href="#v2">Vehicle Example 2</a></li>
+      <li><a href="#z">Location Example</a></li>
+      <li><a href="#j">From jsolait to YUI3</a></li>
+    </ol>
+  </div><!-- TOC -->
+  <h2>YUI eic_rpcjson.js module</h2>
+  <p><a id="e">The contents of eic_rpcson.js.</a></p>
+  <pre class="prettyprint">
+  YUI.add('eic_rpcjson', function(Y) {
+    var rpc = Y.namespace('Rpc');
+
+    var callback = {
+      method: 'post',
+      timeout: 3000,
+      sync: true,
+      headers: { 'Content-Type': 'application/json'}
+    }
+
+    rpc.send = function(uri, data) {
+      callback.data = data;
+      request = Y.io(uri, callback);
+      rpc.resp = Y.JSON.parse(request.responseText);
+    }
+
+  });</pre>
+  <p>This sets up a YUI module called eic_rpcjson that you can use in any page by including it in the config.</p>
+  <pre class="prettyprint">
+  YUI_config = {
+    modules: {
+      "eic_rpcjson": {
+         fullpath: "/scripts/eic_rpcjson.js",
+         requires: ['io-base', 'json-parse', 'json-stringify', 'node']
+      }
+    }
+  };</pre>
+  <hr />
+  <h3>Usage Examples</h3>
+  <hr />
+  <div id="example">
+    <!-- vehicle example 1 -->
+    <h4><a id="v1">Vehicle Example 1:</a></h4>
+    <p>Code:</p>
+    <pre class="prettyprint">
+    var veh1request = function() {
+      YUI().use('eic_rpcjson', function(Y) {
+        var year = Y.one('#veh1year').get("value");
+        var vin = Y.one('#veh1vin').get("value");
+        Y.Rpc.send('/rpc/vehicle/getveh', Y.JSON.stringify({'year': year, 'vin': vin}));
+        vehstr = Y.Rpc.resp.veh.make + " " + Y.Rpc.resp.veh.model + " " + Y.Rpc.resp.veh.status;
+        Y.one("#veh1message").setHTML(vehstr);
+      });
+    };</pre>
+    <label for="veh1vin">Vehicle vin:</label>
+    <br />
+    <input type="text" id="veh1vin" maxlength="17" size="18" value="" />
+    <br />
+    <label for="veh1year">Vehicle year:</label>
+    <br />
+    <input type="text" id="veh1year" maxlength="4" size="5" value="" />
+    <br />
+    <br />
+    <button type="button" onclick="veh1request();">Vehicle 1 Lookup</button>
+    <p id="veh1message"></p>
+    <hr />
+    <!-- vehicle example 2 -->
+    <h4><a id="v2">Vehicle Example 2:</a></h4>
+    <p>Code:</p>
+    <pre class="prettyprint">
+    var veh2request = function() {
+      YUI().use('eic_rpcjson', function(Y) {
+        var year = Y.one('#veh2year').get("value");
+        var make = Y.one('#veh2make').get("value");
+        var modelstr = "";
+        Y.Rpc.send('/rpc/vehicle/getmodels', Y.JSON.stringify({'year': year, 'make': make}));
+        for( var each in Y.Rpc.resp.models ) {
+          modelstr = modelstr + "&lt;br &gt;" + Y.Rpc.resp.models[each];
+        }
+        Y.one("#veh2message").setHTML(modelstr);
+      });
+    };</pre>
+    <label for="veh2year">Vehicle year:</label>
+    <br />
+    <input type="text" id="veh2year" maxlength="4" size="5" value="" />
+    <br />
+    <label for="veh2make">Vehicle make:</label>
+    <br />
+    <input type="text" id="veh2make" maxlength="4" size="5" value="" />
+    <br />
+    <br />
+    <button type="button" onclick="veh2request();">Vehicle 2 Lookup</button>
+    <p id="veh2message"></p>
+    <hr />
+    <!-- location example -->
+    <h4><a id="z">Location Example:</a></h4>
+    <p>Code:</p>
+    <pre class="prettyprint">
+    var loc1request = function() {
+      YUI().use('eic_rpcjson', function(Y) {
+        var zip = Y.one('#loc1zip').get("value");
+        var locstr = "";
+        Y.Rpc.send('/rpc/location'
+                  , Y.JSON.stringify({'zip': zip}));
+        for(var each in Y.Rpc.resp.locations) {
+          locstr = locstr + "&lt;br /&gt;" + Y.Rpc.resp.locations[each];
+        }
+        Y.one("#loc1message").setHTML(locstr);
+      });
+    };</pre>
+    <label for="loc1zip">Location zip:</label>
+    <br />
+    <input type="text" id="loc1zip" maxlength="5" size="6" value="" />
+    <br />
+    <button type="button" onclick="loc1request();">Location Lookup</button>
+    <p id="loc1message"></p>
+    <hr />
+  </div><!-- example -->
+  <div id="jsolait">
+    <h3><a id="j">JSolait to YUI3 Conversion example</a></h3>
+    <p>Before:</p>
+    <pre class="prettyprint">
+    function vehicleGetInfoFromVin( vin, year ) {
+
+      // Send the vin to the server (XML-RPC) and see
+      // what we get.
+      try {
+        var r = rpcproxy.Vehicle.getVinInfo( vin, year );
+      } catch( err ) {
+        if( err.faultCode != 1 ) { // Not Fault 1
+          reportException( err );
+          return false;
+        } else {
+          // Try a few times in case of Apache bug - issue543
+          for ( i = 0; i &lt; 5; i++ ) {
+            try {
+              r = rpcproxy.Vehicle.getVinInfo( vin, year );
+            } catch( err ) {
+              // If it errors repeatedly, just bail out
+              if ( i == 4 ) {
+                reportException( err );
+                return false;
+              }
+            }
+          } // for
+        }
+        reportException( err );
+        return false;
+      }
+      .
+      .
+      .
+    }
+    </pre>
+    <p>After:</p>
+    <pre class="prettyprint">
+    function vehicleGetInfoFromVin( vin, year ) {
+      var thisveh = this;
+
+      YUI().use('eic_rpcjson', function(Y) {
+        // workaround for apache bug with empty requests
+        for( var j = 0; j &lt; 5; j++ ) {
+          Y.Rpc.send('/rpc/vehicle/getveh', Y.JSON.stringify({'year': year, 'vin': vin}));
+          if( 'error' in Y.Rpc.resp ) {
+            if( j === 4 ) {
+              alert(Y.Rpc.resp.error);
+              return true;
+            }
+            continue;
+          } else {
+            break;
+          }
+        }
+        var r = Y.Rpc.resp.veh;
+        .
+        .
+        .
+      });
+    }
+    </pre>
+    <p>Breakdown:</p>
+    <pre class="prettyprint">
+    function vehicleGetInfoFromVin( vin, year ) {
+      // save what's in this for us to use inside the YUI section
+      var thisveh = this;
+
+      // reference our "eic_rpcjson" that we established in the config
+      // and use it for our calls
+      YUI().use('eic_rpcjson', function(Y) {
+        // workaround for apache bug with empty requests
+        for(var j = 0; j &lt; 5; j++) {
+          // In our module "eic_rpcjson" we have a "Rpc" namespace.
+          // As part of that namespace we have a send function that
+          // takes a uri and JSON data for an rpc call.
+          Y.Rpc.send('/rpc/vehicle/getveh', Y.JSON.stringify({'year': year, 'vin': vin}));
+          // The server side rpc script returns a JSON structure with an error key if there
+          // is an error in our lookup. The error value is that string for the alert.
+          if('error' in Y.Rpc.resp) {
+            if( j === 4 ) {
+              alert(Y.Rpc.resp.error);
+              return true;
+            }
+            continue;
+          } else {
+            // If we don't have an error, then we have a resp so we can quit trying.
+            break;
+          }
+        }
+        // set the r variable to our return structure which is like the JSolait structure
+        var r = Y.Rpc.resp.veh;
+        .
+        .
+        .
+      });
+    }
+    </pre>
+  </div><!-- jsolait -->
+</body>
+</html>

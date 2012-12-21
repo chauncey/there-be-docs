@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>eicpy.sql</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="eicpy-module.html">Package&nbsp;eicpy</a> ::
+        Module&nbsp;sql
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="eicpy.sql-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="eicpy.sql-module.html">Module eicpy.sql</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">""" This module contains ezsql and supporting classes and functions."""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sqlite3</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable eicpy.bridge.acordxml.ACORDXML_1_1_0_ContentHandler.path=eicpy.bridge.acordxml.ACORDXML_1_1_0_ContentHandler-class.html#path"><a title="eicpy.bridge.acordxml.ACORDXML_1_1_0_ContentHandler.path" class="py-name" href="#" onclick="return doclink('link-0', 'path', 'link-0');">path</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="RowFactory"></a><div id="RowFactory-def"><a name="L6"></a><tt class="py-lineno">  6</tt> <a class="py-toggle" href="#" id="RowFactory-toggle" onclick="return toggle('RowFactory');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.sql.RowFactory-class.html">RowFactory</a><tt class="py-op">(</tt><tt class="py-base-class">sqlite3</tt><tt class="py-op">.</tt><tt class="py-base-class">Row</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RowFactory-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="RowFactory-expanded"><a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line">    <tt class="py-docstring">'''Row factory for getting dot notation and dict access. sqlite3.Row is</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">    a very performant solution.'''</tt> </tt>
+<a name="RowFactory.__getattr__"></a><div id="RowFactory.__getattr__-def"><a name="L9"></a><tt class="py-lineno">  9</tt> <a class="py-toggle" href="#" id="RowFactory.__getattr__-toggle" onclick="return toggle('RowFactory.__getattr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.RowFactory-class.html#__getattr__">__getattr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">attr</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RowFactory.__getattr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RowFactory.__getattr__-expanded"><a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">        <tt class="py-docstring">'''The good stuff where we make the dot notation work'''</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method bbpy.strings.BBPyString.__getitem__()=bbpy.strings.BBPyString-class.html#__getitem__,Method dateutil.rrule.rrulebase.__getitem__()=dateutil.rrule.rrulebase-class.html#__getitem__,Method eicpy.sql.ezRow.__getitem__()=eicpy.sql.ezRow-class.html#__getitem__"><a title="bbpy.strings.BBPyString.__getitem__
+dateutil.rrule.rrulebase.__getitem__
+eicpy.sql.ezRow.__getitem__" class="py-name" href="#" onclick="return doclink('link-1', '__getitem__', 'link-1');">__getitem__</a></tt><tt class="py-op">(</tt><tt class="py-name">attr</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="get"></a><div id="get-def"><a name="L14"></a><tt class="py-lineno"> 14</tt> <a class="py-toggle" href="#" id="get-toggle" onclick="return toggle('get');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql-module.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">row</tt><tt class="py-op">,</tt><tt class="py-param">field</tt><tt class="py-op">,</tt><tt class="py-param">fallback</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get-expanded"><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-docstring">"""Old function for backward compatibility.  Use ezRow.get() instead."""</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">row</tt><tt class="py-op">[</tt><tt class="py-name">field</tt><tt class="py-op">]</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">fallback</tt> </tt>
+</div><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable eicpy.sql.FILTERITEMS=eicpy.sql-module.html#FILTERITEMS"><a title="eicpy.sql.FILTERITEMS" class="py-name" href="#" onclick="return doclink('link-2', 'FILTERITEMS', 'link-2');">FILTERITEMS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'get'</tt><tt class="py-op">,</tt><tt class="py-string">'keys'</tt><tt class="py-op">,</tt><tt class="py-string">'items'</tt><tt class="py-op">,</tt><tt class="py-string">'values'</tt><tt class="py-op">,</tt><tt class="py-string">'filteritems'</tt><tt class="py-op">]</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="ezRow"></a><div id="ezRow-def"><a name="L23"></a><tt class="py-lineno"> 23</tt> <a class="py-toggle" href="#" id="ezRow-toggle" onclick="return toggle('ezRow');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html">ezRow</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ezRow-expanded"><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-docstring">"""\</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    ezRow is a sqlite3 row object that provides the following features:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">        - a dictionary-like get function for convenience.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        - row attributes can be referenced by fieldname in Python attribute</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">            format ( row.id ) or Python dictionary format ( row['id'] )</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    Whenever you call fetch(one|all|many) from an ezsql object, you will get</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    a list of ezRows for which the above features apply.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable eicpy.sql.ezRow.filteritems=eicpy.sql.ezRow-class.html#filteritems"><a title="eicpy.sql.ezRow.filteritems" class="py-name" href="#" onclick="return doclink('link-3', 'filteritems', 'link-3');">filteritems</a></tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="eicpy.sql.FILTERITEMS" class="py-name" href="#" onclick="return doclink('link-4', 'FILTERITEMS', 'link-2');">FILTERITEMS</a></tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.__init__"></a><div id="ezRow.__init__-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="ezRow.__init__-toggle" onclick="return toggle('ezRow.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow.__init__-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method bbpy.strings.BBPyString.get()=bbpy.strings.BBPyString-class.html#get,Method dateutil.tz.tzical.get()=dateutil.tz.tzical-class.html#get,Function eicpy.sql.get()=eicpy.sql-module.html#get"><a title="bbpy.strings.BBPyString.get
+dateutil.tz.tzical.get
+eicpy.sql.get" class="py-name" href="#" onclick="return doclink('link-5', 'get', 'link-5');">get</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="bbpy.strings.BBPyString.get
+dateutil.tz.tzical.get
+eicpy.sql.get" class="py-name" href="#" onclick="return doclink('link-6', 'get', 'link-5');">get</a></tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-comment"># dict-like functions</tt> </tt>
+<a name="ezRow.keys"></a><div id="ezRow.keys-def"><a name="L41"></a><tt class="py-lineno"> 41</tt> <a class="py-toggle" href="#" id="ezRow.keys-toggle" onclick="return toggle('ezRow.keys');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#keys">keys</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow.keys-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow.keys-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">k</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method bbpy.strings.BBPyString.keys()=bbpy.strings.BBPyString-class.html#keys,Method dateutil.tz.tzical.keys()=dateutil.tz.tzical-class.html#keys,Method eicpy.sql.ezRow.keys()=eicpy.sql.ezRow-class.html#keys,Method simplejson.ordered_dict.OrderedDict.keys()=simplejson.ordered_dict.OrderedDict-class.html#keys"><a title="bbpy.strings.BBPyString.keys
+dateutil.tz.tzical.keys
+eicpy.sql.ezRow.keys
+simplejson.ordered_dict.OrderedDict.keys" class="py-name" href="#" onclick="return doclink('link-7', 'keys', 'link-7');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">k</tt> <tt class="py-op">=</tt> <tt class="py-name">filter</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method eicpy.sql.ezRow._filter()=eicpy.sql.ezRow-class.html#_filter"><a title="eicpy.sql.ezRow._filter" class="py-name" href="#" onclick="return doclink('link-8', '_filter', 'link-8');">_filter</a></tt><tt class="py-op">,</tt> <tt class="py-name">k</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">k</tt> </tt>
+</div><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.values"></a><div id="ezRow.values-def"><a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="ezRow.values-toggle" onclick="return toggle('ezRow.values');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#values">values</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow.values-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow.values-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt id="link-9" class="py-name" targets="Variable simplejson.encoder.i=simplejson.encoder-module.html#i"><a title="simplejson.encoder.i" class="py-name" href="#" onclick="return doclink('link-9', 'i', 'link-9');">i</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method eicpy.sql.ezRow.items()=eicpy.sql.ezRow-class.html#items,Method simplejson.ordered_dict.OrderedDict.items()=simplejson.ordered_dict.OrderedDict-class.html#items"><a title="eicpy.sql.ezRow.items
+simplejson.ordered_dict.OrderedDict.items" class="py-name" href="#" onclick="return doclink('link-10', 'items', 'link-10');">items</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt id="link-11" class="py-name"><a title="simplejson.encoder.i" class="py-name" href="#" onclick="return doclink('link-11', 'i', 'link-9');">i</a></tt> <tt class="py-op">=</tt> <tt class="py-name">filter</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">a</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="eicpy.sql.ezRow._filter" class="py-name" href="#" onclick="return doclink('link-12', '_filter', 'link-8');">_filter</a></tt><tt class="py-op">(</tt><tt class="py-name">a</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name"><a title="simplejson.encoder.i" class="py-name" href="#" onclick="return doclink('link-13', 'i', 'link-9');">i</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-name">j</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-14" class="py-name" targets="Variable dateutil.relativedelta.x=dateutil.relativedelta-module.html#x,Variable dateutil.rrule.x=dateutil.rrule-module.html#x"><a title="dateutil.relativedelta.x
+dateutil.rrule.x" class="py-name" href="#" onclick="return doclink('link-14', 'x', 'link-14');">x</a></tt> <tt class="py-keyword">in</tt> <tt id="link-15" class="py-name"><a title="simplejson.encoder.i" class="py-name" href="#" onclick="return doclink('link-15', 'i', 'link-9');">i</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">            <tt class="py-name">j</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-16" class="py-name"><a title="dateutil.relativedelta.x
+dateutil.rrule.x" class="py-name" href="#" onclick="return doclink('link-16', 'x', 'link-14');">x</a></tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">j</tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.items"></a><div id="ezRow.items-def"><a name="L54"></a><tt class="py-lineno"> 54</tt> <a class="py-toggle" href="#" id="ezRow.items-toggle" onclick="return toggle('ezRow.items');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#items">items</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow.items-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow.items-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="simplejson.encoder.i" class="py-name" href="#" onclick="return doclink('link-17', 'i', 'link-9');">i</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="eicpy.sql.ezRow.items
+simplejson.ordered_dict.OrderedDict.items" class="py-name" href="#" onclick="return doclink('link-18', 'items', 'link-10');">items</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt id="link-19" class="py-name"><a title="simplejson.encoder.i" class="py-name" href="#" onclick="return doclink('link-19', 'i', 'link-9');">i</a></tt> <tt class="py-op">=</tt> <tt class="py-name">filter</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">a</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="eicpy.sql.ezRow._filter" class="py-name" href="#" onclick="return doclink('link-20', '_filter', 'link-8');">_filter</a></tt><tt class="py-op">(</tt><tt class="py-name">a</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="simplejson.encoder.i" class="py-name" href="#" onclick="return doclink('link-21', 'i', 'link-9');">i</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-22" class="py-name"><a title="simplejson.encoder.i" class="py-name" href="#" onclick="return doclink('link-22', 'i', 'link-9');">i</a></tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-comment"># operations #</tt> </tt>
+<a name="ezRow._filter"></a><div id="ezRow._filter-def"><a name="L60"></a><tt class="py-lineno"> 60</tt> <a class="py-toggle" href="#" id="ezRow._filter-toggle" onclick="return toggle('ezRow._filter');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#_filter">_filter</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">item</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow._filter-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow._filter-expanded"><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-docstring">"""Filter out the names of public functions from the supplied dict."""</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">item</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="eicpy.sql.ezRow.filteritems" class="py-name" href="#" onclick="return doclink('link-23', 'filteritems', 'link-3');">filteritems</a></tt> </tt>
+</div><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.__getattr__"></a><div id="ezRow.__getattr__-def"><a name="L64"></a><tt class="py-lineno"> 64</tt> <a class="py-toggle" href="#" id="ezRow.__getattr__-toggle" onclick="return toggle('ezRow.__getattr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#__getattr__">__getattr__</a><tt class="py-op">(</tt> <tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow.__getattr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow.__getattr__-expanded"><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return field data"""</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">[</tt> <tt id="link-24" class="py-name" targets="Variable bbpy.strings.BBPyStringTemplateField.name=bbpy.strings.BBPyStringTemplateField-class.html#name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-24', 'name', 'link-24');">name</a></tt> <tt class="py-op">]</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-25" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-25', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-string">'get'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="bbpy.strings.BBPyString.get
+dateutil.tz.tzical.get
+eicpy.sql.get" class="py-name" href="#" onclick="return doclink('link-26', 'get', 'link-5');">get</a></tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">KeyError</tt><tt class="py-op">,</tt> <tt class="py-string">"No such field %s."</tt> <tt class="py-op">%</tt> <tt id="link-27" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-27', 'name', 'link-24');">name</a></tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.__getitem__"></a><div id="ezRow.__getitem__-def"><a name="L73"></a><tt class="py-lineno"> 73</tt> <a class="py-toggle" href="#" id="ezRow.__getitem__-toggle" onclick="return toggle('ezRow.__getitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#__getitem__">__getitem__</a><tt class="py-op">(</tt> <tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># allows string[ "field" ] for reading</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return field data"""</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method bbpy.strings.BBPyString.__getattr__()=bbpy.strings.BBPyString-class.html#__getattr__,Method eicpy.elf.Driver.__getattr__()=eicpy.elf.Driver-class.html#__getattr__,Method eicpy.elf.Vehicle.__getattr__()=eicpy.elf.Vehicle-class.html#__getattr__,Method eicpy.endorsement.endapply.BBPystr.__getattr__()=eicpy.endorsement.endapply.BBPystr-class.html#__getattr__,Method eicpy.insureds.policelink.BBPystr.__getattr__()=eicpy.insureds.policelink.BBPystr-class.html#__getattr__,Method eicpy.sql.RowFactory.__getattr__()=eicpy.sql.RowFactory-class.html#__getattr__,Method eicpy.sql.ezRow.__getattr__()=eicpy.sql.ezRow-class.html#__getattr__,Method eicpy.sql.ezsql.__getattr__()=eicpy.sql.ezsql-class.html#__getattr__"><a title="bbpy.strings.BBPyString.__getattr__
+eicpy.elf.Driver.__getattr__
+eicpy.elf.Vehicle.__getattr__
+eicpy.endorsement.endapply.BBPystr.__getattr__
+eicpy.insureds.policelink.BBPystr.__getattr__
+eicpy.sql.RowFactory.__getattr__
+eicpy.sql.ezRow.__getattr__
+eicpy.sql.ezsql.__getattr__" class="py-name" href="#" onclick="return doclink('link-28', '__getattr__', 'link-28');">__getattr__</a></tt><tt class="py-op">(</tt><tt id="link-29" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-29', 'name', 'link-24');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.__setattr__"></a><div id="ezRow.__setattr__-def"><a name="L77"></a><tt class="py-lineno"> 77</tt> <a class="py-toggle" href="#" id="ezRow.__setattr__-toggle" onclick="return toggle('ezRow.__setattr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#__setattr__">__setattr__</a><tt class="py-op">(</tt> <tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow.__setattr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow.__setattr__-expanded"><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-docstring">"""Allow attribute assignment"""</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">[</tt> <tt id="link-30" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-30', 'name', 'link-24');">name</a></tt> <tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">value</tt> </tt>
+</div><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.__setattr__"></a><div id="ezRow.__setattr__-def"><a name="L81"></a><tt class="py-lineno"> 81</tt> <a class="py-toggle" href="#" id="ezRow.__setattr__-toggle" onclick="return toggle('ezRow.__setattr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#__setattr__">__setattr__</a><tt class="py-op">(</tt> <tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow.__setattr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow.__setattr__-expanded"><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-docstring">"""Allow attribute assignment"""</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-31" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-31', 'name', 'link-24');">name</a></tt> <tt class="py-op">==</tt> <tt class="py-string">u"_dict"</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">object</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Method bbpy.strings.BBPyString.__setattr__()=bbpy.strings.BBPyString-class.html#__setattr__,Method eicpy.elf.Driver.__setattr__()=eicpy.elf.Driver-class.html#__setattr__,Method eicpy.elf.Vehicle.__setattr__()=eicpy.elf.Vehicle-class.html#__setattr__,Method eicpy.endorsement.endapply.BBPystr.__setattr__()=eicpy.endorsement.endapply.BBPystr-class.html#__setattr__,Method eicpy.insureds.policelink.BBPystr.__setattr__()=eicpy.insureds.policelink.BBPystr-class.html#__setattr__,Method eicpy.sql.ezRow.__setattr__()=eicpy.sql.ezRow-class.html#__setattr__"><a title="bbpy.strings.BBPyString.__setattr__
+eicpy.elf.Driver.__setattr__
+eicpy.elf.Vehicle.__setattr__
+eicpy.endorsement.endapply.BBPystr.__setattr__
+eicpy.insureds.policelink.BBPystr.__setattr__
+eicpy.sql.ezRow.__setattr__" class="py-name" href="#" onclick="return doclink('link-32', '__setattr__', 'link-32');">__setattr__</a></tt><tt class="py-op">(</tt> <tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-33" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-33', 'name', 'link-24');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">value</tt> <tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">[</tt> <tt id="link-34" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-34', 'name', 'link-24');">name</a></tt> <tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">value</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.__setitem__"></a><div id="ezRow.__setitem__-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="ezRow.__setitem__-toggle" onclick="return toggle('ezRow.__setitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#__setitem__">__setitem__</a><tt class="py-op">(</tt> <tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># allows string[ "field" ] = value</tt> </tt>
+</div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-docstring">"""Allow attribute assignment"""</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="bbpy.strings.BBPyString.__setattr__
+eicpy.elf.Driver.__setattr__
+eicpy.elf.Vehicle.__setattr__
+eicpy.endorsement.endapply.BBPystr.__setattr__
+eicpy.insureds.policelink.BBPystr.__setattr__
+eicpy.sql.ezRow.__setattr__" class="py-name" href="#" onclick="return doclink('link-35', '__setattr__', 'link-32');">__setattr__</a></tt><tt class="py-op">(</tt><tt id="link-36" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-36', 'name', 'link-24');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="ezRow.__str__"></a><div id="ezRow.__str__-def"><a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="ezRow.__str__-toggle" onclick="return toggle('ezRow.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezRow-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezRow.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezRow.__str__-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">temp</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-37" class="py-name"><a title="dateutil.relativedelta.x
+dateutil.rrule.x" class="py-name" href="#" onclick="return doclink('link-37', 'x', 'link-14');">x</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="eicpy.sql.ezRow.filteritems" class="py-name" href="#" onclick="return doclink('link-38', 'filteritems', 'link-3');">filteritems</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">temp</tt><tt class="py-op">.</tt><tt class="py-name">has_key</tt><tt class="py-op">(</tt><tt id="link-39" class="py-name"><a title="dateutil.relativedelta.x
+dateutil.rrule.x" class="py-name" href="#" onclick="return doclink('link-39', 'x', 'link-14');">x</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                <tt class="py-keyword">del</tt> <tt class="py-name">temp</tt><tt class="py-op">[</tt><tt id="link-40" class="py-name"><a title="dateutil.relativedelta.x
+dateutil.rrule.x" class="py-name" href="#" onclick="return doclink('link-40', 'x', 'link-14');">x</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-string">'ezRow(%s)'</tt> <tt class="py-op">%</tt> <tt class="py-name">temp</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt id="link-41" class="py-name" targets="Method bbpy.strings.BBPyString.__repr__()=bbpy.strings.BBPyString-class.html#__repr__,Method bbpy.strings.BBPyStringTemplate.__repr__()=bbpy.strings.BBPyStringTemplate-class.html#__repr__,Method bbpy.strings.BBPyStringTemplateField.__repr__()=bbpy.strings.BBPyStringTemplateField-class.html#__repr__,Method dateutil.parser._resultbase.__repr__()=dateutil.parser._resultbase-class.html#__repr__,Method dateutil.parser._tzparser._result.__repr__()=dateutil.parser._tzparser._result-class.html#__repr__,Method dateutil.relativedelta.relativedelta.__repr__()=dateutil.relativedelta.relativedelta-class.html#__repr__,Method dateutil.relativedelta.weekday.__repr__()=dateutil.relativedelta.weekday-class.html#__repr__,Method dateutil.rrule.weekday.__repr__()=dateutil.rrule.weekday-class.html#__repr__,Method dateutil.tz._ttinfo.__repr__()=dateutil.tz._ttinfo-class.html#__repr__,Method dateutil.tz._tzicalvtz.__repr__()=dateutil.tz._tzicalvtz-class.html#__repr__,Method dateutil.tz.tzfile.__repr__()=dateutil.tz.tzfile-class.html#__repr__,Method dateutil.tz.tzical.__repr__()=dateutil.tz.tzical-class.html#__repr__,Method dateutil.tz.tzlocal.__repr__()=dateutil.tz.tzlocal-class.html#__repr__,Method dateutil.tz.tzoffset.__repr__()=dateutil.tz.tzoffset-class.html#__repr__,Method dateutil.tz.tzrange.__repr__()=dateutil.tz.tzrange-class.html#__repr__,Method dateutil.tz.tzstr.__repr__()=dateutil.tz.tzstr-class.html#__repr__,Method dateutil.tz.tzutc.__repr__()=dateutil.tz.tzutc-class.html#__repr__,Method dateutil.tzwin.tzwin.__repr__()=dateutil.tzwin.tzwin-class.html#__repr__,Method eicpy.dcs.Address.__repr__()=eicpy.dcs.Address-class.html#__repr__,Method eicpy.dcs.Name.__repr__()=eicpy.dcs.Name-class.html#__repr__,Method eicpy.dcs.RequestLicense.__repr__()=eicpy.dcs.RequestLicense-class.html#__repr__,Method eicpy.sql.ezsql.__repr__()=eicpy.sql.ezsql-class.html#__repr__,Method simplejson.ordered_dict.OrderedDict.__repr__()=simplejson.ordered_dict.OrderedDict-class.html#__repr__"><a title="bbpy.strings.BBPyString.__repr__
+bbpy.strings.BBPyStringTemplate.__repr__
+bbpy.strings.BBPyStringTemplateField.__repr__
+dateutil.parser._resultbase.__repr__
+dateutil.parser._tzparser._result.__repr__
+dateutil.relativedelta.relativedelta.__repr__
+dateutil.relativedelta.weekday.__repr__
+dateutil.rrule.weekday.__repr__
+dateutil.tz._ttinfo.__repr__
+dateutil.tz._tzicalvtz.__repr__
+dateutil.tz.tzfile.__repr__
+dateutil.tz.tzical.__repr__
+dateutil.tz.tzlocal.__repr__
+dateutil.tz.tzoffset.__repr__
+dateutil.tz.tzrange.__repr__
+dateutil.tz.tzstr.__repr__
+dateutil.tz.tzutc.__repr__
+dateutil.tzwin.tzwin.__repr__
+eicpy.dcs.Address.__repr__
+eicpy.dcs.Name.__repr__
+eicpy.dcs.RequestLicense.__repr__
+eicpy.sql.ezsql.__repr__
+simplejson.ordered_dict.OrderedDict.__repr__" class="py-name" href="#" onclick="return doclink('link-41', '__repr__', 'link-41');">__repr__</a></tt> <tt class="py-op">=</tt> <tt id="link-42" class="py-name" targets="Method bbpy.strings.BBPyString.__str__()=bbpy.strings.BBPyString-class.html#__str__,Method bbpy.strings.BBPyStringTemplate.__str__()=bbpy.strings.BBPyStringTemplate-class.html#__str__,Method bbpy.strings.BBPyStringTemplateField.__str__()=bbpy.strings.BBPyStringTemplateField-class.html#__str__,Method eicpy.pdf.PDFStringInvalidError.__str__()=eicpy.pdf.PDFStringInvalidError-class.html#__str__,Method eicpy.sql.ezRow.__str__()=eicpy.sql.ezRow-class.html#__str__"><a title="bbpy.strings.BBPyString.__str__
+bbpy.strings.BBPyStringTemplate.__str__
+bbpy.strings.BBPyStringTemplateField.__str__
+eicpy.pdf.PDFStringInvalidError.__str__
+eicpy.sql.ezRow.__str__" class="py-name" href="#" onclick="return doclink('link-42', '__str__', 'link-42');">__str__</a></tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="ezFactory"></a><div id="ezFactory-def"><a name="L101"></a><tt class="py-lineno">101</tt> <a class="py-toggle" href="#" id="ezFactory-toggle" onclick="return toggle('ezFactory');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql-module.html#ezFactory">ezFactory</a><tt class="py-op">(</tt><tt class="py-param">cursor</tt><tt class="py-op">,</tt> <tt class="py-param">row</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezFactory-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ezFactory-expanded"><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-docstring">""" ezFactory is a sqlite3 row_factory for ezRows.</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; class cur():</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">    ...    def __init__(self, s):</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">    ...     self.description = []</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">    ...     for x in s:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">    ...        self.description.append((x,0))</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">    ...</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a = ezFactory(cur(["testdesc1","testdesc2","testdesc3"]),[1,2,3])</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a.get('testdesc3')</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">    3</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a.get('non-existantfield','test')</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">    'test'</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a.testdesc3</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">    3</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt id="link-43" class="py-name" targets="Class eicpy.sql.ezRow=eicpy.sql.ezRow-class.html"><a title="eicpy.sql.ezRow" class="py-name" href="#" onclick="return doclink('link-43', 'ezRow', 'link-43');">ezRow</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">idx</tt><tt class="py-op">,</tt> <tt class="py-name">col</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">cursor</tt><tt class="py-op">.</tt><tt class="py-name">description</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-name">d</tt><tt class="py-op">[</tt><tt class="py-name">col</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">row</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">d</tt> </tt>
+</div><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"> </tt>
+<a name="ezsql"></a><div id="ezsql-def"><a name="L123"></a><tt class="py-lineno">123</tt> <a class="py-toggle" href="#" id="ezsql-toggle" onclick="return toggle('ezsql');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="eicpy.sql.ezsql-class.html">ezsql</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezsql-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ezsql-expanded"><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-docstring">""" B{ezsql} is convenience wrapper class around Python's sqlite3 module.</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">    It adds functionality to a normal database access.  Its features are:</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">        - an ezsql connection to a database supports extended Python</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">        datatypes in addition to sqlite's NULL, REAL, INTEGER, TEXT, BLOB:</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">            - bool</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">            - date</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">            - datetime (as timestamp)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">        - row attributes can be referenced by fieldname in Python attribute</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">            format ( row.id ) or Python dictionary format ( row['id'] )</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">        - the database connection and cursor object are combined into one</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">            object to reduce boilerplate code and confusion.</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">    Doctests (usage examples):</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; c = ezsql().connect(":memory:",create=True)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a = c.execute("create table test ( a text, b int primary key );")</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; items = (("a",1),("b",2))</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a = c.executemany("insert into test values (?,?);",items)</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a = c.execute("select * from test;")</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; for x in a.fetchall():</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">    ...    print x</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">    ...</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">    ezRow({'a': u'a', 'b': 1})</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">    ezRow({'a': u'b', 'b': 2})</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; sqlstr = 'update test set a="abcdefg" where b=1;'</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a = c.executescript(sqlstr)</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; a = c.execute("select * from test;")</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result = c.fetchone()</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">    ezRow({'a': u'abcdefg', 'b': 1})</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result = c.fetchone()</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">    ezRow({'a': u'b', 'b': 2})</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result.keys()</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">    ['a', 'b']</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result.a</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">    u'b'</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result.A</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">    Traceback (most recent call last):</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">        File "&lt;stdin&gt;", line 1, in &lt;module&gt;</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-docstring">        File "sql.py", line 49, in __getattr__</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-docstring">            raise KeyError, "No such field %s." % name</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-docstring">    KeyError: 'No such field A.'</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result['b']</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring">    2</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result['B']</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-docstring">    Traceback (most recent call last):</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-docstring">        File "&lt;stdin&gt;", line 1, in &lt;module&gt;</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-docstring">        File "sql.py", line 49, in __getattr__</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring">            raise KeyError, "No such field %s." % name</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">    KeyError: 'No such field B.'</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result.get('c',"c doesn't exist")</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-docstring">    "c doesn't exist"</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result = c.fetchone()</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; result</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; c.close()</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="ezsql.__init__"></a><div id="ezsql.__init__-def"><a name="L181"></a><tt class="py-lineno">181</tt> <a class="py-toggle" href="#" id="ezsql.__init__-toggle" onclick="return toggle('ezsql.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezsql-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezsql.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezsql.__init__-expanded"><a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conn</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">register_more_types</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">            <tt class="py-docstring">"""Add database support for additional types."""</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">            <tt class="py-keyword">def</tt> <tt class="py-def-name">convert_bool</tt><tt class="py-op">(</tt><tt class="py-param">val</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">bool</tt><tt class="py-op">(</tt><tt class="py-name">val</tt> <tt class="py-op">==</tt> <tt class="py-string">"True"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">            <tt class="py-keyword">def</tt> <tt class="py-def-name">adapt_bool</tt><tt class="py-op">(</tt><tt class="py-param">val</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">val</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">            <tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt class="py-name">register_adapter</tt><tt class="py-op">(</tt><tt class="py-name">bool</tt><tt class="py-op">,</tt> <tt class="py-name">adapt_bool</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">            <tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt class="py-name">register_converter</tt><tt class="py-op">(</tt><tt class="py-string">"bool"</tt><tt class="py-op">,</tt> <tt class="py-name">convert_bool</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">        <tt class="py-name">register_more_types</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"> </tt>
+<a name="ezsql.__getattr__"></a><div id="ezsql.__getattr__-def"><a name="L196"></a><tt class="py-lineno">196</tt> <a class="py-toggle" href="#" id="ezsql.__getattr__-toggle" onclick="return toggle('ezsql.__getattr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezsql-class.html#__getattr__">__getattr__</a><tt class="py-op">(</tt> <tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt> <tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezsql.__getattr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezsql.__getattr__-expanded"><a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-comment"># NOTE It is possible that not all needed functions are</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">        <tt class="py-comment"># supported.    If you find a function that is not supported,</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-comment"># add a mapping to dispatch.</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">        <tt class="py-name">dispatch</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">            <tt class="py-string">'close'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conn</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name" targets="Method bbpy.files.mkeyed.MKEYEDReader.close()=bbpy.files.mkeyed.MKEYEDReader-class.html#close"><a title="bbpy.files.mkeyed.MKEYEDReader.close" class="py-name" href="#" onclick="return doclink('link-44', 'close', 'link-44');">close</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">            <tt class="py-string">'commit'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conn</tt><tt class="py-op">.</tt><tt class="py-name">commit</tt><tt class="py-op">,</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">            <tt class="py-string">'isolation_level'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conn</tt><tt class="py-op">.</tt><tt class="py-name">commit</tt><tt class="py-op">,</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">            <tt class="py-string">'execute'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">,</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">            <tt class="py-string">'executemany'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">executemany</tt><tt class="py-op">,</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">            <tt class="py-string">'executescript'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">executescript</tt><tt class="py-op">,</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">            <tt class="py-string">'fetchall'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">fetchall</tt><tt class="py-op">,</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">            <tt class="py-string">'fetchone'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">fetchone</tt><tt class="py-op">,</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">            <tt class="py-string">'lastrowid'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">lastrowid</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-op">}</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-45" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-45', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">dispatch</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="bbpy.strings.BBPyString.keys
+dateutil.tz.tzical.keys
+eicpy.sql.ezRow.keys
+simplejson.ordered_dict.OrderedDict.keys" class="py-name" href="#" onclick="return doclink('link-46', 'keys', 'link-7');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">dispatch</tt><tt class="py-op">[</tt><tt id="link-47" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-47', 'name', 'link-24');">name</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="bbpy.strings.BBPyString.__getattr__
+eicpy.elf.Driver.__getattr__
+eicpy.elf.Vehicle.__getattr__
+eicpy.endorsement.endapply.BBPystr.__getattr__
+eicpy.insureds.policelink.BBPystr.__getattr__
+eicpy.sql.RowFactory.__getattr__
+eicpy.sql.ezRow.__getattr__
+eicpy.sql.ezsql.__getattr__" class="py-name" href="#" onclick="return doclink('link-48', '__getattr__', 'link-28');">__getattr__</a></tt><tt class="py-op">(</tt><tt id="link-49" class="py-name"><a title="bbpy.strings.BBPyStringTemplateField.name" class="py-name" href="#" onclick="return doclink('link-49', 'name', 'link-24');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"> </tt>
+<a name="ezsql.__repr__"></a><div id="ezsql.__repr__-def"><a name="L216"></a><tt class="py-lineno">216</tt> <a class="py-toggle" href="#" id="ezsql.__repr__-toggle" onclick="return toggle('ezsql.__repr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezsql-class.html#__repr__">__repr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezsql.__repr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezsql.__repr__-expanded"><a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"&lt;ezsql object&gt;"</tt> </tt>
+</div><a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">    <tt id="link-50" class="py-name"><a title="bbpy.strings.BBPyString.__str__
+bbpy.strings.BBPyStringTemplate.__str__
+bbpy.strings.BBPyStringTemplateField.__str__
+eicpy.pdf.PDFStringInvalidError.__str__
+eicpy.sql.ezRow.__str__" class="py-name" href="#" onclick="return doclink('link-50', '__str__', 'link-42');">__str__</a></tt> <tt class="py-op">=</tt> <tt id="link-51" class="py-name"><a title="bbpy.strings.BBPyString.__repr__
+bbpy.strings.BBPyStringTemplate.__repr__
+bbpy.strings.BBPyStringTemplateField.__repr__
+dateutil.parser._resultbase.__repr__
+dateutil.parser._tzparser._result.__repr__
+dateutil.relativedelta.relativedelta.__repr__
+dateutil.relativedelta.weekday.__repr__
+dateutil.rrule.weekday.__repr__
+dateutil.tz._ttinfo.__repr__
+dateutil.tz._tzicalvtz.__repr__
+dateutil.tz.tzfile.__repr__
+dateutil.tz.tzical.__repr__
+dateutil.tz.tzlocal.__repr__
+dateutil.tz.tzoffset.__repr__
+dateutil.tz.tzrange.__repr__
+dateutil.tz.tzstr.__repr__
+dateutil.tz.tzutc.__repr__
+dateutil.tzwin.tzwin.__repr__
+eicpy.dcs.Address.__repr__
+eicpy.dcs.Name.__repr__
+eicpy.dcs.RequestLicense.__repr__
+eicpy.sql.ezsql.__repr__
+simplejson.ordered_dict.OrderedDict.__repr__" class="py-name" href="#" onclick="return doclink('link-51', '__repr__', 'link-41');">__repr__</a></tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"> </tt>
+<a name="ezsql.connect"></a><div id="ezsql.connect-def"><a name="L221"></a><tt class="py-lineno">221</tt> <a class="py-toggle" href="#" id="ezsql.connect-toggle" onclick="return toggle('ezsql.connect');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="eicpy.sql.ezsql-class.html#connect">connect</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dbname</tt><tt class="py-op">,</tt> <tt class="py-param">create</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-param">timeout</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ezsql.connect-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ezsql.connect-expanded"><a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="eicpy.bridge.acordxml.ACORDXML_1_1_0_ContentHandler.path" class="py-name" href="#" onclick="return doclink('link-52', 'path', 'link-0');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-name">dbname</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt id="link-53" class="py-name" targets="Method eicpy.insureds.pesession.Session.create()=eicpy.insureds.pesession.Session-class.html#create"><a title="eicpy.insureds.pesession.Session.create" class="py-name" href="#" onclick="return doclink('link-53', 'create', 'link-53');">create</a></tt> <tt class="py-op">==</tt> <tt class="py-name">False</tt><tt class="py-op">:</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt class="py-name">Error</tt><tt class="py-op">(</tt><tt class="py-string">"%s is not an accessable database"</tt> <tt class="py-op">%</tt> <tt class="py-name">dbname</tt><tt class="py-op">)</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">timeout</tt><tt class="py-op">:</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conn</tt> <tt class="py-op">=</tt> <tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method eicpy.sql.ezsql.connect()=eicpy.sql.ezsql-class.html#connect"><a title="eicpy.sql.ezsql.connect" class="py-name" href="#" onclick="return doclink('link-54', 'connect', 'link-54');">connect</a></tt><tt class="py-op">(</tt><tt class="py-name">dbname</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">                                      <tt class="py-op">,</tt> <tt class="py-name">detect_types</tt><tt class="py-op">=</tt><tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt class="py-name">PARSE_DECLTYPES</tt><tt class="py-op">|</tt><tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt class="py-name">PARSE_COLNAMES</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">                                      <tt class="py-op">,</tt> <tt class="py-name">timeout</tt> <tt class="py-op">=</tt> <tt class="py-name">timeout</tt><tt class="py-op">)</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conn</tt> <tt class="py-op">=</tt> <tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="eicpy.sql.ezsql.connect" class="py-name" href="#" onclick="return doclink('link-55', 'connect', 'link-54');">connect</a></tt><tt class="py-op">(</tt><tt class="py-name">dbname</tt><tt class="py-op">,</tt> <tt class="py-name">detect_types</tt><tt class="py-op">=</tt><tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt class="py-name">PARSE_DECLTYPES</tt><tt class="py-op">|</tt><tt class="py-name">sqlite3</tt><tt class="py-op">.</tt><tt class="py-name">PARSE_COLNAMES</tt><tt class="py-op">)</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conn</tt><tt class="py-op">.</tt><tt class="py-name">row_factory</tt> <tt class="py-op">=</tt> <tt id="link-56" class="py-name" targets="Function eicpy.sql.ezFactory()=eicpy.sql-module.html#ezFactory"><a title="eicpy.sql.ezFactory" class="py-name" href="#" onclick="return doclink('link-56', 'ezFactory', 'link-56');">ezFactory</a></tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">conn</tt><tt class="py-op">.</tt><tt class="py-name">cursor</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt> </tt>
+</div></div><a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line"> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"><tt class="py-comment"># vi: set tabstop=2 expandtab textwidth=70 filetype=python:</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="file:///G:/Web%20Development/epydoc/">EIC Site-packages</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    <a href="epydoc-log.html">Generated by Epydoc
+    3.0.1 on Mon Oct  8 11:15:41 2012</a>
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
