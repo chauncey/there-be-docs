@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>JSON RPC Script Docs</title>
   <link href="{{ static('prettify/sunburst.css') }}" type="text/css" rel="stylesheet" />
-  <link href="{{ static('styles/docs.css') }}" type="text/css" rel="stylesheet" />
+  <link href="{{ static('css/docs.css') }}" type="text/css" rel="stylesheet" />
   <script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/connection/connection_core-min.js&2.9.0/build/json/json-min.js"></script>
   <script src="http://yui.yahooapis.com/3.8.0/build/yui/yui-min.js"></script>
   <!-- Example 1 -->
@@ -83,7 +83,7 @@
     </ol>
   </div><!-- TOC -->
   <h2>jsonrpc.py script</h2>
-  <p><a id="e">The contents of jsonrpc.py. Apache is configured to route all urls from http://domain.com/rpc to jsonrpc. So http://domain.com/rpc/vehicle/getmakes goes to the getmakes function.</a></p>
+  <p id="j">The contents of jsonrpc.py. Apache is configured to route all urls from http://domain.com/rpc to jsonrpc. So http://domain.com/rpc/vehicle/getmakes goes to the getmakes function.</p>
   <pre class="prettyprint">
 #!/usr/bin/env python2.7
 '''Rpc tools to use with json'''
@@ -176,7 +176,7 @@ if __name__ == '__main__':
   <h3 id="u">Usage Examples</h3>
   <hr />
   <div id="example">
-    <h4><a id="ec">Echo examples</a></h4>
+    <h4>Echo examples</h4>
     <p>Code:</p>
     <pre class="prettyprint">
     // YUI3 using our eic_rpcjson module to send to params in JSON format

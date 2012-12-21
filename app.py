@@ -35,7 +35,7 @@ def jsonrpc():
     return render_template('jsonrpc.html')
 
 @app.route('/eic_rpcjson')
-def jsonrpc():
+def eic_rpcjson():
     return render_template('eic_rpcjson.html')
 
 @app.route('/rpc/vehicle/getveh', methods=['POST'])
