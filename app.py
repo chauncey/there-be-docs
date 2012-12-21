@@ -25,6 +25,10 @@ def epydocs():
 def yuiasync():
     return render_template('yuiasync.html')
 
+@app.route('/yuiasync_new')
+def yuiasync():
+    return render_template('yuiasync_new.html')
+
 @app.route('/cgi-bin/<script>', methods=['GET', 'POST'])
 def pymessage(script):
     if script.startswith('bbw.sh'):
