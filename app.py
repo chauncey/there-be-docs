@@ -17,6 +17,10 @@ def hw():
 def index():
     return render_template('index.html')
 
+@app.route('/epydocs')
+def epydocs():
+    return render_template('epydocs.html')
+
 @app.route('/yuiasync')
 def yuiasync():
     return render_template('yuiasync.html')
