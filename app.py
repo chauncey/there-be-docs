@@ -1,3 +1,5 @@
+
+import json
 import os
 from flask import Flask, jsonify, render_template, url_for, request
 
@@ -28,7 +30,17 @@ def pymessage(script):
     else:
         return jsonify({'msg': "The agent is {0}".format(request.form['agent'])})
 
+@app.route('/jsonrpc')
+def jsonrpc():
+    return render_template('jsonrpc.html')
 
+@app.route('/rpc/echo', methods=['GET', 'POST'])
+def echo():
+    '''Testing echo route'''
+    if request.method == 'POST':
+        jsonbody = json.load(request.stream)
+        return jsonify({'result': repr(jsonbody)})
+    return jsonify({'result': request.args.get('params', 'Nada')})
 
 def templated(template=None):
     '''Allowing /pagename to automatically use pagename.html
