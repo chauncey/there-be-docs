@@ -1,1 +1,2 @@
-web: python ThereBeDocs/main.py ThereBeDocs.conf
+web: python app.py
+
