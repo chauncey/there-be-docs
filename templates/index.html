@@ -9,12 +9,12 @@
               <li class="nav-header">Main</li>
               <li class="active"><a href="/">Home</a></li>
               <li class="nav-header">JavaScript</li>
-              <li><a href="/eic_rpcjson">YUI RPC-JSON Calls</a></li>
-              <li><a href="/yuiasync">YUI Async Calls</a></li>
+              <li><a href="{{ url_for('eic_rpcjson') }}">YUI RPC-JSON Calls</a></li>
+              <li><a href="{{ url_for('yuiasync') }}">YUI Async Calls</a></li>
               <li><a href="http://yuilibrary.com/yui/docs/">YUI3 Docs</a></li>
               <li><a href="http://developer.yahoo.com/yui/2/">YUI2 Docs</a></li>
               <li class="nav-header">Python</li>
-              <li><a href="/jsonrpc">JSON RPC</a></li>
+              <li><a href="{{ url_for('jsonrpc') }}">JSON RPC</a></li>
               <li><a href="http://docs.python.org/2.7/">Official Python Docs</a></li>
             </ul>
           </div><!--/.well -->
@@ -28,17 +28,17 @@
             <div class="span3">
               <h2>JSON RPC</h2>
               <p>This page has examples of the JSON RPC process through our Python script.</p>
-              <p><a class="btn" href="/jsonrpc">Examples &raquo;</a></p>
+              <p><a class="btn" href="{{ url_for('jsonrpc') }}">Examples &raquo;</a></p>
             </div><!--/span-->
             <div class="span3">
               <h2>YUI Async Example</h2>
               <p>This page contains examples for calls from YUI to a script on the server. It includes both a call to a Python and to a BBx program.</p>
-              <p><a class="btn" href="/yuiasync">Examples &raquo;</a></p>
+              <p><a class="btn" href="{{ url_for('yuiasync') }}">Examples &raquo;</a></p>
             </div><!--/span-->
             <div class="span3">
               <h2>YUI calls to JSON RPC</h2>
               <p>This page has examples of the YUI calls to the JSON RPC Python script.</p>
-              <p><a class="btn" href="/eic_rpcjson">Examples &raquo;</a></p>
+              <p><a class="btn" href="{{ url_for('eic_rpcjson') }}">Examples &raquo;</a></p>
             </div><!--/span-->
             <div class="span3">
               <h2>EIC Python Docs</h2>
