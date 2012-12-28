@@ -9,14 +9,16 @@ app = Flask(__name__)
 app.jinja_env.globals['static'] = (
     lambda filename: url_for('static', filename=filename))
 
-
 @app.route('/hw')
 def hw():
     return 'Hello World!'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    p522 = False
+    if gethostname() == 'tulsap522':
+        p522 = True
+    return render_template('index.html', p522=p522)
 
 @app.route('/epydocs')
 def epydocs():
@@ -24,6 +26,32 @@ def epydocs():
         return redirect('/epydocs/index.html')
     else:
         return render_template('epydocs.html')
+
+@app.route('/printall_setup')
+def pasetup():
+    if gethostname() == 'tulsap522':
+        p522 = True
+    return redirect('/PrintAll/printall_server_setup.html')
+
+@app.route('/printall_proc')
+def paproc():
+    return redirect('/PrintAll/printall_process.html')
+
+@app.route('/multiagent')
+def multiagent():
+    return redirect('/MultiAgent/multiagent.html')
+
+@app.route('/ubsetup')
+def ubsetup():
+    return redirect('/UbuntuServer/setup_notes.html')
+
+@app.route('/ubinstall')
+def ubinstall():
+    return redirect('/UbuntuServer/install_notes.html')
+
+@app.route('/ubadmin')
+def ubadmin():
+    return redirect('/UbuntuServer/admin_notes.html')
 
 @app.route('/yuiasync')
 def yuiasync():

@@ -16,6 +16,15 @@
               <li class="nav-header">Python</li>
               <li><a href="{{ url_for('jsonrpc') }}">JSON RPC</a></li>
               <li><a href="http://docs.python.org/2.7/">Official Python Docs</a></li>
+              {% if p522 %}
+              <li class="nav-header">Print All</li>
+              <li><a href="{{ url_for('pasetup') }}">Print All Setup</a></li>
+              <li><a href="{{ url_for('paproc') }}">Print All Process</a></li>
+              <li class="nav-header">Ubuntu Server</li>
+              <li><a href="{{ url_for('ubadmin') }}">Ubuntu Server Admin</a></li>
+              <li><a href="{{ url_for('ubsetup') }}">Ubuntu Setup Notes</a></li>
+              <li><a href="{{ url_for('ubinstall') }}">Ubuntu Install Notes</a></li>
+              {% endif %}
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
