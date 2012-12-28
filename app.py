@@ -1,7 +1,8 @@
 
 import json
 import os
-from flask import Flask, jsonify, render_template, url_for, request
+from socket import gethostname
+from flask import Flask, jsonify, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -19,7 +20,10 @@ def index():
 
 @app.route('/epydocs')
 def epydocs():
-    return render_template('epydocs.html')
+    if gethostname() == 'tulsap522':
+        return redirect('/epydocs/index.html')
+    else:
+        return render_template('epydocs.html')
 
 @app.route('/yuiasync')
 def yuiasync():
