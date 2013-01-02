@@ -33,6 +33,13 @@ def pasetup():
         p522 = True
     return redirect('/PrintAll/printall_server_setup.html')
 
+@app.route('/eicdocs')
+def eicdocs():
+    if gethostname() == 'tulsap522':
+        p522 = True
+    return redirect('/eicdocs/')
+
+
 @app.route('/printall_proc')
 def paproc():
     return redirect('/PrintAll/printall_process.html')
