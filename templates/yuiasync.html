@@ -211,11 +211,11 @@ var pyrequest = function() {
 import cgi
 
 if __name__ == "__main__":
-fs = cgi.FieldStorage()
-msg = "The agent is " + fs.getfirst('agent', '')
-print "Content-Type: text/html"
-print
-print msg</pre>
+    fs = cgi.FieldStorage()
+    msg = "The agent is " + fs.getfirst('agent', '')
+    print "Content-Type: text/html"
+    print
+    print msg</pre>
 
     <h5>JavaScript GET request</h5>
 <pre class="prettyprint">
