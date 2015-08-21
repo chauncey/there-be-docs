@@ -1,0 +1,31 @@
+{
+  "name":"there-be-docs",
+  "scripts":{},
+  "env":{
+    "LANG":{
+      "required":true
+    },
+    "LD_LIBRARY_PATH":{
+      "required":true
+    },
+    "LIBRARY_PATH":{
+      "required":true
+    },
+    "PATH":{
+      "required":true
+    },
+    "PYTHONHASHSEED":{
+      "required":true
+    },
+    "PYTHONHOME":{
+      "required":true
+    },
+    "PYTHONPATH":{
+      "required":true
+    },
+    "PYTHONUNBUFFERED":{
+      "required":true
+    }
+  },
+  "addons":[]
+}
