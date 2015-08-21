@@ -1,306 +1,297 @@
-<!doctype html>
-<head>
-  <title>YUI Async Calls to Server Examples</title>
-  <link href="{{ static('prettify/sunburst.css') }}" type="text/css" rel="stylesheet" />
-  <link href="{{ static('css/docs.css') }}" type="text/css" rel="stylesheet" />
-  <style type="text/css">
-    li {
-      line-height: 160%;
-    }
-    h3 {
-      margin-top: 1em;
-    }
-  </style>
-  <script type="text/javascript" src="{{ static('yui_2.9.0/yuiloader-dom-event/yuiloader-dom-event.js') }}"></script>
-  <script type="text/javascript" src="{{ static('yui_2.9.0/connection/connection-min.js') }}"></script>
-  <script type="text/javascript" src="{{ static('yui_2.9.0/json/json-min.js') }}"></script>
+{% extends "base.html" %}
+{% block title %}YUI Async Calls to Server Examples{% endblock %}
+{% block body %}
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
 
-  <!-- Example 1 -->
-  <!-- pymessage, call to python script pymessage.py with method POST -->
-  <script type="text/javascript">
-  // data for posting to the site in urlencoded format
-  var pypostdata = 'agent=5271';
-  // callback object for pyrequest
-  var pycallback = {
-    // successful call function (just means the call to the server succeeded)
-    success: function(o){
-      document.getElementById('pymessage').innerHTML = o.responseText;
-      YAHOO.util.Dom.addClass('pymessage', 'msg');
-    },
-    // failure function will be called for failed server call
-    failure: function(o){
-      document.getElementById('pymessage').innerHTML = "Ooops, failure.";
-      YAHOO.util.Dom.addClass('pymessage', 'msg');
-    }
-  }
-  // function that actually performs the call, uses YUI connection manager
-  var pyrequest = function() {
-    YAHOO.util.Connect.asyncRequest('POST'
-        , '/cgi-bin/pymessage.py'
-        , pycallback
-        , pypostdata);
-  };
-  </script>
+      <script type="text/javascript" src="{{ static('yui_2.9.0/yuiloader-dom-event/yuiloader-dom-event.js') }}"></script>
+        <script type="text/javascript" src="{{ static('yui_2.9.0/connection/connection-min.js') }}"></script>
+        <script type="text/javascript" src="{{ static('yui_2.9.0/json/json-min.js') }}"></script>
 
-  <!-- Example 2 -->
-  <!-- bbxmessage, call to BBx script BBX.MESSGE with method GET -->
-  <script type="text/javascript">
-  // callback object for bbxrequest
-  var bbxcallback = {
-    // successful call function (just means the call to the server succeeded)
-    success: function(o){
-      document.getElementById('bbxmessage').innerHTML = o.responseText;
-      YAHOO.util.Dom.addClass('bbxmessage', 'msg');
-    },
-    // failure function will be called for failed server call
-    failure: function(o){
-      document.getElementById('bbxmessage').innerHTML = "Ooops, failure.";
-      YAHOO.util.Dom.addClass('bbxmessage', 'msg');
-    }
-  }
-  // function that actually performs the call, uses YUI connection manager
-  var bbxrequest = function() {
-    YAHOO.util.Connect.asyncRequest('GET'
-        , '/cgi-bin/bbw.sh?pgm=BBX.MESSAGE&agent=5271'
-        , bbxcallback);
-  };
-
-  <!-- Example 3 -->
-  <!-- pyformcallback, call to pymessage.py using a form -->
-  // pyformrequest callback object
-  var pyformcallback = {
-    // successful call function (just means the call to the server succeeded)
-    success: function(o) {
-      alert(o.responseText);
-    },
-    // failure function will be called for failed server call
-    failure: function(o) {
-      msg = "Failure: " + o.responseText;
-      alert(msg);
-    }
-  };
-  // function that uses pyform data to call, uses YUI connection manager
-  var pyformrequest = function(event) {
-    YAHOO.util.Event.preventDefault(event);
-    YAHOO.util.Connect.setForm('pyform');
-    YAHOO.util.Connect.asyncRequest('POST'
-      , '/cgi-bin/pymessage.py'
-      , pyformcallback)
-  };
-  YAHOO.util.Event.on("pyform", "submit", pyformrequest);
-
-
-  <!-- Example 4 -->
-  <!-- pyjsoncallback, call to pymessage.py using JSON -->
-  // pyjsonrequest callback object
-  var pyjsoncallback = {
-    // successful call function (just means the call to the server succeeded)
-    success: function(o) {
-      try {
-        messages = YAHOO.lang.JSON.parse(o.responseText);
-        document.getElementById('pyjsonmessage').innerHTML = messages.msg;
-        YAHOO.util.Dom.addClass('pyjsonmessage', 'msg');
-      } catch (x) {
-        document.getElementById('pyjsonmessage').innerHTML = 'JSON parse failed!';
-        YAHOO.util.Dom.addClass('pyjsonmessage', 'msg');
+        <script src="{{ static('prettify/prettify.js') }}" type="text/javascript"></script>
+        <h2>YUI Async Calls to Server Examples</h2>
+        <hr>
+        <h4>Examples of sending information to a server script with JavaScript. </h4>
+        <hr>
+        <div id="example">
+          <h4>Example 1:</h4>
+          <!-- pymessage example 1, onclick calls pyrequest function -->
+          <label>Python button:</label>
+          <button id="python" type="button" onclick="pyrequest();">Click Me!</button>
+          <p id="pymessage"></p>
+          <hr />
+          <!-- bbxmessage example 2, onclick calls bbxrequest function -->
+          <h4>Example 2:</h4>
+          <label>BBx button:</label>
+          <button id="bbx" type="button" onclick="bbxrequest();">Click Me!</button>
+          <p id="bbxmessage"></p>
+          <hr />
+          <h4>Example 3:</h4>
+          <!-- pymessage form example 3, onclick calls pyrequestform function -->
+          <div>Python form example:</div>
+          <form id="pyform">
+            <label>Agent:</label>
+            <input type="text" name="agent" />
+            <input type="submit" name="pyformsubmit" value="Submit" />
+          </form>
+          <hr />
+          <h4>Example 4:</h4>
+          <!-- pymessage json example 4, onclick calls pyjsonrequest function -->
+          <label>Python JSON button:</label>
+          <button id="pyjson" type="button" onclick="pyjsonrequest();">Click Me!</button>
+          <p id="pyjsonmessage"></p>
+          <br />
+        </div>
+        <hr>
+        <div id="pyserver">
+          <h3>Python server:</h3>
+          You can use the Python example from anywhere that you have python available including the G: drive. Just start up the
+          native python cgi server using the instructions below, and load <a href="http://localhost:8000/yuiasync.html">http://localhost:8000/yuiasync.html</a> in the browser.
+        </div>
+        <div>
+          <h5>Unix/Linux/OSX:</h5>
+          Change to wherever this directory is mounted in your terminal(/mnt/dc03/Knowledge Base/Web Development/JavaScript)<br />
+          <pre class="prettyprint">
+      $ python -m CGIHTTPServer
+      Serving HTTP on 0.0.0.0 port 8000</pre>
+        </div>
+        <div>
+          <h5>Windows:</h5>
+          Change to G:\Knowledge Base\Web Development\JavaScript<br />
+          <pre class="prettyprint">
+      $ c:\path\to\python.exe -m CGIHTTPServer
+      Serving HTTP on 0.0.0.0 port 8000</pre>
+        </div>
+        <div id="code">
+          <h3>Code:</h3>
+          <h5>JavaScript POST request</h5>
+          <pre class="prettyprint">
+      var pypostdata = 'agent=5271';
+      // callback object for pyrequest
+      var pycallback = {
+        // successful call function (just means the call to the server succeeded)
+        success: function(o){
+          document.getElementById('pymessage').innerHTML = o.responseText;
+          YAHOO.util.Dom.addClass('pymessage', 'msg');
+        },
+        // failure function will be called for failed server call
+        failure: function(o){
+          document.getElementById('pymessage').innerHTML = "Ooops, failure.";
+          YAHOO.util.Dom.addClass('pymessage', 'msg');
+        }
       }
-    },
-    // failure function will be called for failed server call
-    failure: function(o) {
-      msg = "Failure: " + o.msg;
-      alert(msg);
-    }
-  };
-  // function that uses pyform data to call, uses YUI connection manager
-  var pyjsonrequest = function(event) {
-    var pypostdata = 'agent=4444';
-    YAHOO.util.Connect.asyncRequest('POST'
-      , '/cgi-bin/pyjsonmessage.py'
-      , pyjsoncallback
-      , pypostdata)
-  };
-  YAHOO.util.Event.on("pyjsonform", "submit", pyjsoncallback);
+      // function that actually performs the call, uses YUI connection manager
+      var pyrequest = function() {
+        YAHOO.util.Connect.asyncRequest('POST'
+            , '/cgi-bin/pymessage.py'
+            , pycallback
+            , pypostdata);
+      };</pre>
 
-  </script>
-  <script src="{{ static('prettify/prettify.js') }}" type="text/javascript"></script>
-</head>
-<body style="margin: 2em; background-color: white; color: black; font-family: sans-serif;" onload="prettyPrint()">
-  <h2>YUI Async Calls to Server Examples</h2>
-  <hr>
-  <h4>Examples of sending information to a server script with JavaScript.</h4>
-  <hr>
-  <div id="example">
-    <h4>Example 1:</h4>
-    <!-- pymessage example 1, onclick calls pyrequest function -->
-    <label>Python button:</label>
-    <button id="python" type="button" onclick="pyrequest();">Click Me!</button>
-    <p id="pymessage"></p>
-    <hr />
-    <!-- bbxmessage example 2, onclick calls bbxrequest function -->
-    <h4>Example 2:</h4>
-    <label>BBx button:</label>
-    <button id="bbx" type="button" onclick="bbxrequest();">Click Me!</button>
-    <p id="bbxmessage"></p>
-    <hr />
-    <h4>Example 3:</h4>
-    <!-- pymessage form example 3, onclick calls pyrequestform function -->
-    <div>Python form example:</div>
-    <form id="pyform">
-      <label>Agent:</label>
-      <input type="text" name="agent" />
-      <input type="submit" name="pyformsubmit" value="Submit" />
-    </form>
-    <hr />
-    <h4>Example 4:</h4>
-    <!-- pymessage json example 4, onclick calls pyjsonrequest function -->
-    <label>Python JSON button:</label>
-    <button id="pyjson" type="button" onclick="pyjsonrequest();">Click Me!</button>
-    <p id="pyjsonmessage"></p>
-    <br />
-  </div>
-  <hr>
-  <div id="pyserver">
-    <h3>Python server:</h3>
-    You can use the Python example from anywhere that you have python available including the G: drive. Just start up the
-    native python cgi server using the instructions below, and load <a href="http://localhost:8000/yuiasync">http://localhost:8000/yuiasync</a> in the browser.
-  </div>
-  <div>
-    <h5>Unix/Linux/OSX:</h5>
-    Change to wherever this directory is mounted in your terminal(/mnt/dc03/Knowledge Base/Web Development/JavaScript)<br />
-    <pre class="prettyprint">
-$ python -m CGIHTTPServer
-Serving HTTP on 0.0.0.0 port 8000</pre>
-  </div>
-  <div>
-    <h5>Windows:</h5>
-    Change to \Knowledge Base\Web Development\JavaScript<br />
-    <pre class="prettyprint">
-$ c:\path\to\python.exe -m CGIHTTPServer
-Serving HTTP on 0.0.0.0 port 8000</pre>
-  </div>
-  <div id="code">
-    <h3>Code:</h3>
-    <h5>JavaScript POST request</h5>
-    <pre class="prettyprint">
-var pypostdata = 'agent=5271';
-// callback object for pyrequest
-var pycallback = {
-  // successful call function (just means the call to the server succeeded)
-  success: function(o){
-    document.getElementById('pymessage').innerHTML = o.responseText;
-    YAHOO.util.Dom.addClass('pymessage', 'msg');
-  },
-  // failure function will be called for failed server call
-  failure: function(o){
-    document.getElementById('pymessage').innerHTML = "Ooops, failure.";
-    YAHOO.util.Dom.addClass('pymessage', 'msg');
-  }
-}
-// function that actually performs the call, uses YUI connection manager
-var pyrequest = function() {
-  YAHOO.util.Connect.asyncRequest('POST'
-      , '/cgi-bin/pymessage.py'
-      , pycallback
-      , pypostdata);
-};</pre>
+          <h5>Python - very basic cgi return</h5>
+          <pre class="prettyprint">
+      #!/usr/bin/env python
 
-    <h5>Python - very basic cgi return</h5>
-    <pre class="prettyprint">
-#!/usr/bin/env python
+      import cgi
 
-import cgi
+      if __name__ == "__main__":
+      fs = cgi.FieldStorage()
+      msg = "The agent is " + fs.getfirst('agent', '')
+      print "Content-Type: text/html"
+      print
+      print msg</pre>
 
-if __name__ == "__main__":
-    fs = cgi.FieldStorage()
-    msg = "The agent is " + fs.getfirst('agent', '')
-    print "Content-Type: text/html"
-    print
-    print msg</pre>
-
-    <h5>JavaScript GET request</h5>
-<pre class="prettyprint">
-var bbxcallback = {
-  // successful call function (just means the call to the server succeeded)
-  success: function(o){
-    document.getElementById('bbxmessage').innerHTML = o.responseText;
-    YAHOO.util.Dom.addClass('bbxmessage', 'msg');
-  },
-  // failure function will be called for failed server call
-  failure: function(o){
-    document.getElementById('bbxmessage').innerHTML = "Ooops, failure.";
-    YAHOO.util.Dom.addClass('bbxmessage', 'msg');
-  }
-}
-// function that actually performs the call, uses YUI connection manager
-var bbxrequest = function() {
-  YAHOO.util.Connect.asyncRequest('GET'
-      , '/cgi-bin/bbw.sh?pgm=BBX.MESSAGE&agent=5271'
-      , bbxcallback);
-};</pre>
+          <h5>JavaScript GET request</h5>
+      <pre class="prettyprint">
+      var bbxcallback = {
+        // successful call function (just means the call to the server succeeded)
+        success: function(o){
+          document.getElementById('bbxmessage').innerHTML = o.responseText;
+          YAHOO.util.Dom.addClass('bbxmessage', 'msg');
+        },
+        // failure function will be called for failed server call
+        failure: function(o){
+          document.getElementById('bbxmessage').innerHTML = "Ooops, failure.";
+          YAHOO.util.Dom.addClass('bbxmessage', 'msg');
+        }
+      }
+      // function that actually performs the call, uses YUI connection manager
+      var bbxrequest = function() {
+        YAHOO.util.Connect.asyncRequest('GET'
+            , '/cgi-bin/bbw.sh?pgm=BBX.MESSAGE&agent=5271'
+            , bbxcallback);
+      };</pre>
 
 
-    <h5>BBX - very basic cgi return</h5>
-    <pre class="prettyprint">
-REM BBX.MESSAGE
-REM
-REM
-CALL "utcgi.wbb",ENV$,CGI$,ERRMSG$
-LET AGENT$=FIELD(CGI$,"agent")
-LET MSG$="The agent is "+AGENT$
-CALL "SUBR.SEND.HTML",MSG$,1
-RELEASE</pre>
+          <h5>BBX - very basic cgi return</h5>
+          <pre class="prettyprint">
+      REM BBX.MESSAGE
+      REM
+      REM
+      CALL "utcgi.wbb",ENV$,CGI$,ERRMSG$
+      LET AGENT$=FIELD(CGI$,"agent")
+      LET MSG$="The agent is "+AGENT$
+      CALL "SUBR.SEND.HTML",MSG$,1
+      RELEASE</pre>
 
-    <h3>JSON example</h3>
+          <h3>JSON example</h3>
 
-    <h5>JavaScript POST with a JSON return</h5>
-<pre class="prettyprint">
-Javascript
+          <h5>JavaScript POST with a JSON return</h5>
+      <pre class="prettyprint">
+      Javascript
 
-var pyjsoncallback = {
-  // successful call function (just means the call to the server succeeded)
-  success: function(o) {
-    try {
-      messages = YAHOO.lang.JSON.parse(o.responseText);
-      document.getElementById('pyjsonmessage').innerHTML = messages.msg;
-      YAHOO.util.Dom.addClass('pyjsonmessage', 'msg');
-    } catch (x) {
-      document.getElementById('pyjsonmessage').innerHTML = 'JSON parse failed!';
-      YAHOO.util.Dom.addClass('pyjsonmessage', 'msg');
-    }
-  },
-  // failure function will be called for failed server call
-  failure: function(o) {
-    msg = "Failure: " + o.msg;
-    alert(msg);
-  }
-};
-// function that uses pyform data to call, uses YUI connection manager
-var pyjsonrequest = function(event) {
-  var pypostdata = 'agent=4444';
-  YAHOO.util.Connect.asyncRequest('POST'
-    , '/cgi-bin/pyjsonmessage.py'
-    , pyjsoncallback
-    , pypostdata)
-};
-YAHOO.util.Event.on("pyjsonform", "submit", pyjsoncallback);</pre>
+      var pyjsoncallback = {
+        // successful call function (just means the call to the server succeeded)
+        success: function(o) {
+          try {
+            messages = YAHOO.lang.JSON.parse(o.responseText);
+            document.getElementById('pyjsonmessage').innerHTML = messages.msg;
+            YAHOO.util.Dom.addClass('pyjsonmessage', 'msg');
+          } catch (x) {
+            document.getElementById('pyjsonmessage').innerHTML = 'JSON parse failed!';
+            YAHOO.util.Dom.addClass('pyjsonmessage', 'msg');
+          }
+        },
+        // failure function will be called for failed server call
+        failure: function(o) {
+          msg = "Failure: " + o.msg;
+          alert(msg);
+        }
+      };
+      // function that uses pyform data to call, uses YUI connection manager
+      var pyjsonrequest = function(event) {
+        var pypostdata = 'agent=4444';
+        YAHOO.util.Connect.asyncRequest('POST'
+          , '/cgi-bin/pyjsonmessage.py'
+          , pyjsoncallback
+          , pypostdata)
+      };
+      YAHOO.util.Event.on("pyjsonform", "submit", pyjsoncallback);</pre>
 
-    <h5>Python returning JSON</h5>
-    <pre class="prettyprint">
-#!/usr/bin/env python
+          <h5>Python returning JSON</h5>
+          <pre class="prettyprint">
+      #!/usr/bin/env python
 
-import cgi
-import json
+      import cgi
+      import json
 
 
-if __name__ == "__main__":
-    fs = cgi.FieldStorage()
-    agent = fs.getfirst('agent', '')
-    ret = {'msg': 'The agent is {0}'.format(agent)}
+      if __name__ == "__main__":
+          fs = cgi.FieldStorage()
+          agent = fs.getfirst('agent', '')
+          ret = {'msg': 'The agent is {0}'.format(agent)}
 
-    print "Content-Type: application/json"
-    print
-    print json.dumps(ret)</pre>
+          print "Content-Type: application/json"
+          print
+          print json.dumps(ret)</pre>
 
-  </div>
-</body>
-</html>
+      </div>
+        <!-- Example 1 -->
+        <!-- pymessage, call to python script pymessage.py with method POST -->
+        <script type="text/javascript">
+        // data for posting to the site in urlencoded format
+        var pypostdata = 'agent=5271';
+        // callback object for pyrequest
+        var pycallback = {
+          // successful call function (just means the call to the server succeeded)
+          success: function(o){
+            document.getElementById('pymessage').innerHTML = o.responseText;
+            YAHOO.util.Dom.addClass('pymessage', 'msg');
+          },
+          // failure function will be called for failed server call
+          failure: function(o){
+            document.getElementById('pymessage').innerHTML = "Ooops, failure.";
+            YAHOO.util.Dom.addClass('pymessage', 'msg');
+          }
+        }
+        // function that actually performs the call, uses YUI connection manager
+        var pyrequest = function() {
+          YAHOO.util.Connect.asyncRequest('POST'
+              , '/cgi-bin/pymessage.py'
+              , pycallback
+              , pypostdata);
+        };
+        </script>
+
+        <!-- Example 2 -->
+        <!-- bbxmessage, call to BBx script BBX.MESSGE with method GET -->
+        <script type="text/javascript">
+        // callback object for bbxrequest
+        var bbxcallback = {
+          // successful call function (just means the call to the server succeeded)
+          success: function(o){
+            document.getElementById('bbxmessage').innerHTML = o.responseText;
+            YAHOO.util.Dom.addClass('bbxmessage', 'msg');
+          },
+          // failure function will be called for failed server call
+          failure: function(o){
+            document.getElementById('bbxmessage').innerHTML = "Ooops, failure.";
+            YAHOO.util.Dom.addClass('bbxmessage', 'msg');
+          }
+        }
+        // function that actually performs the call, uses YUI connection manager
+        var bbxrequest = function() {
+          YAHOO.util.Connect.asyncRequest('GET'
+              , '/cgi-bin/bbw.sh?pgm=BBX.MESSAGE&agent=5271'
+              , bbxcallback);
+        };
+
+        <!-- Example 3 -->
+        <!-- pyformcallback, call to pymessage.py using a form -->
+        // pyformrequest callback object
+        var pyformcallback = {
+          // successful call function (just means the call to the server succeeded)
+          success: function(o) {
+            alert(o.responseText);
+          },
+          // failure function will be called for failed server call
+          failure: function(o) {
+            msg = "Failure: " + o.responseText;
+            alert(msg);
+          }
+        };
+        // function that uses pyform data to call, uses YUI connection manager
+        var pyformrequest = function(event) {
+          YAHOO.util.Event.preventDefault(event);
+          YAHOO.util.Connect.setForm('pyform');
+          YAHOO.util.Connect.asyncRequest('POST'
+            , '/cgi-bin/pymessage.py'
+            , pyformcallback)
+        };
+        YAHOO.util.Event.on("pyform", "submit", pyformrequest);
+
+
+        <!-- Example 4 -->
+        <!-- pyjsoncallback, call to pymessage.py using JSON -->
+        // pyjsonrequest callback object
+        var pyjsoncallback = {
+          // successful call function (just means the call to the server succeeded)
+          success: function(o) {
+            try {
+              messages = YAHOO.lang.JSON.parse(o.responseText);
+              document.getElementById('pyjsonmessage').innerHTML = messages.msg;
+              YAHOO.util.Dom.addClass('pyjsonmessage', 'msg');
+            } catch (x) {
+              document.getElementById('pyjsonmessage').innerHTML = 'JSON parse failed!';
+              YAHOO.util.Dom.addClass('pyjsonmessage', 'msg');
+            }
+          },
+          // failure function will be called for failed server call
+          failure: function(o) {
+            msg = "Failure: " + o.msg;
+            alert(msg);
+          }
+        };
+        // function that uses pyform data to call, uses YUI connection manager
+        var pyjsonrequest = function(event) {
+          var pypostdata = 'agent=4444';
+          YAHOO.util.Connect.asyncRequest('POST'
+            , '/cgi-bin/pyjsonmessage.py'
+            , pyjsoncallback
+            , pypostdata)
+        };
+        YAHOO.util.Event.on("pyjsonform", "submit", pyjsoncallback);
+        $(document).ready(function(){prettyPrint();})
+        </script>
+{% endblock %}
