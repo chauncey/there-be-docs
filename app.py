@@ -64,10 +64,6 @@ def ubadmin():
 def yuiasync():
     return render_template('yuiasync.html')
 
-@app.route('/yuiasync_new')
-def yuiasync():
-    return render_template('yuiasync_new.html')
-
 @app.route('/cgi-bin/<script>', methods=['GET', 'POST'])
 def pymessage(script):
     if script.startswith('bbw.sh'):
@@ -77,7 +73,7 @@ def pymessage(script):
     else:
         return jsonify({'msg': "The agent is {0}".format(request.form['agent'])})
 
-@app.route('/jsonrpc')
+@app.route('/jsenrpc')
 def jsonrpc():
     return render_template('jsonrpc.html')
 
