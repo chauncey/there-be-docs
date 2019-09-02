@@ -12,7 +12,7 @@ class ThereBeDocsTestCase(unittest.TestCase):
 
     def test_index(self):
         rsp = self.app.get('/')
-        assert u'Let there be Docs!' in rsp.data
+        assert 'Let there be Docs!' in rsp.data
 
 
 if __name__ == '__main__':
